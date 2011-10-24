@@ -1,0 +1,28 @@
+.post
+  %h2.title
+    = link_to @competition.name, competition_path(@competition)
+  %p.meta
+    Opiekun: #{@competition.owner.email}, termin ukończenia: 
+    - if @competition.deadline
+      = @competition.deadline
+    - else
+      brak
+  .entry
+    = @competition.description
+    %br/
+    %br/
+    %h3 Sędziowie:
+    %ul
+      - for judge in @competition.judges
+        %li= judge.email
+    = link_to "Dodaj nowego sędziego", new_competition_judge_membership_path(@competition)
+    %br/
+    %br/
+    %h3 Uczestnicy:
+    %ul
+      - for competitor in @competition.competitors
+        %li= competitor.email
+    = link_to "Dodaj nowego uczestnika", new_competition_competitor_membership_path(@competition)
+
+= link_to "Dodaj nowe zawody", new_competition_path
+    

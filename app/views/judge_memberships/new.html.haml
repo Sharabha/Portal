@@ -1,0 +1,8 @@
+= form_for [@competition, @judge_membership] do |f|
+  .clearfix
+    Zawody: #{@competition.name}
+  .clearfix
+    = f.label :judge_id, "Sędzia"
+    .input= select "judge_membership", "judge_id",  User.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 
+  .clearfix.center
+    = f.submit "Zapisz", :class => "btn primary"

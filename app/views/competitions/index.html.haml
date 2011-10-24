@@ -1,0 +1,14 @@
+%h1 Lista zawodów
+- for competition in @competitions
+  .post
+    %h2.title
+      = link_to competition.name, competition_path(competition)
+    %p.meta
+      Opiekun: #{competition.owner.email}, termin ukończenia: 
+      - if competition.deadline
+        = competition.deadline
+      - else
+        brak
+      
+= link_to "Dodaj nowe zawody", new_competition_path
+    

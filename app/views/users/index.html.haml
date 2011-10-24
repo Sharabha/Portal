@@ -1,0 +1,22 @@
+.post
+  %h2.title
+    Administratorzy
+  .entry
+    %ul
+      - for a in @administrators
+        %li
+          = a.email
+          - if can? :remove_admin, a
+            = link_to "Usuń prawa administratora", remove_admin_user_path(a), :method => :put
+.post
+  %h2.title
+    Użytkownicy
+  .entry
+    %ul
+      - for u in @users
+        %li
+          = u.email
+
+          - if can? :make_admin, u
+            = link_to "Nadaj prawa administratora", make_admin_user_path(u), :method => :put
+   
