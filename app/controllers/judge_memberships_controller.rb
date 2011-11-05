@@ -1,4 +1,10 @@
 class JudgeMembershipsController < ApplicationController
+
+  def show
+    @competition = Competition.find(params[:competition_id])
+    @judge_membership = @competition.judge_memberships.find(params[:id])
+  end
+
   def new
     @competition = Competition.find(params[:competition_id])
     @judge_membership = @competition.judge_memberships.new
@@ -12,5 +18,12 @@ class JudgeMembershipsController < ApplicationController
     else
       render :action => :new
     end
+  end
+
+  def destroy
+    @competition = Competition.find(params[:competition_id])
+    @judge_membership = @competition.judge_memberships.find(params[:id])
+    @judge_membership.destroy
+    redirect_to competition_path(@competition)
   end
 end

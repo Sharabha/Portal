@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Competitor
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #wrapper
+      #header.container
+        #logo
+          %h1
+            %a{:href => "/"}
+              Competitor
+          %p Zawody programistyczne
+        #menu
+          %ul
+            %li
+              = link_to "Użytkownicy", users_path
+            %li
+              = link_to "Zawody", competitions_path
+      #page
+        - if flash[:error]
+          #errors= flash[:error]
+        = yield
+      #footer

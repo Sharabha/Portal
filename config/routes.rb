@@ -8,7 +8,7 @@ Competitor::Application.routes.draw do
     end
   end
   resources :competitions do
-    resources :judge_memberships
+    resources :judge_memberships, :except => [:index, :edit, :update]
     resources :competitor_memberships
   end
 
