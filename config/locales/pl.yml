@@ -170,6 +170,7 @@ pl:
   description: "opis"
   keywords: "słowa kluczowe"
   previous: "« Poprzednie"
+  back: "« Poprzednia strona"
   next: "Następne »"
   subject: "temat"
   content: "treść"
@@ -180,5 +181,5 @@ pl:
   password_title: "Zapomniałeś hasła?"
   sign_in: "Zaloguj"
   sign_up: "Zarejestruj"
-  
+  current_password: "Obecne hasło"
 
