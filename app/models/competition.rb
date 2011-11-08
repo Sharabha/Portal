@@ -8,4 +8,6 @@ class Competition < ActiveRecord::Base
 
   has_many :competitor_memberships
   has_many :competitors, :through => :competitor_memberships
+
+  has_many :problems
 end

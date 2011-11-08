@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111024150956) do
+ActiveRecord::Schema.define(:version => 20111108132700) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "owner_id"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(:version => 20111024150956) do
   create_table "judge_memberships", :force => true do |t|
     t.integer  "judge_id"
     t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "problems", :force => true do |t|
+    t.integer  "competition_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
