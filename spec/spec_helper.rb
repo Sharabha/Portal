@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'spork'
-require 'webmock/rspec'
 require 'capybara/rspec'
 
 # Silence STDOUT is somehow bugged in 1.9.2
@@ -38,7 +37,6 @@ Spork.prefork do
 
   require 'rspec/rails'
   require 'shoulda/integrations/rspec2'
-  require 'rspec/mocks'
   require 'rspec/core/expecting/with_rspec'
   require 'rspec/core/formatters/documentation_formatter'
   require 'rspec/core/formatters/base_text_formatter'
@@ -61,7 +59,6 @@ Spork.prefork do
     Capybara.default_selector = :css
 
     # NOTE: to use selenium driver simply add :driver => :selenium to your spec
-    Capybara.javascript_driver = :webkit
     Capybara.server_port = 7171
 
     # NOTE: if you don't have enough RAM some specs are most likely to timeout cause of swapping,
@@ -73,19 +70,12 @@ Spork.prefork do
 
   counter = -1
   RSpec.configure do |config|
-    #config.include Devise::TestHelpers
     config.include Warden::Test::Helpers
-    config.mock_with :mocha
     config.use_transactional_fixtures = true
 
     config.before(:each) do
       config.include Rails.application.routes.url_helpers
-
       Capybara.reset_sessions!
-
-      config.include WebMock::API
-      WebMock.allow_net_connect!
-      #WebMock.disable_net_connect!(:allow_localhost => true)
     end
 
     config.after(:each) do
@@ -114,13 +104,8 @@ Spork.each_run do
   # loading schema and seeds to in-memory storage
   SporkHelper.silence_streams do
     load "#{Rails.root.to_s}/db/schema.rb" # use db agnostic schema by default
-    # ActiveRecord::Migrator.up('db/migrate') # use migrations
     load "#{Rails.root}/db/seeds.rb" # use db seeds as preloaded
   end
-
-  # require all support helpers, and factories:
-  Dir[Rails.root.join("spec/support/**/*.rb")].each{|f| require f}
-  #Dir[Rails.root.join("spec/factories/*.rb")].each {|f| require f}
 end
 
 if Spork.using_spork?

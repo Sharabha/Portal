@@ -36,23 +36,16 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 group :development, :test do
-  gem "rspec-rails", "~> 2.7.0"
+  gem 'rspec-rails', '~> 2.7.0'
   gem 'factory_girl', '~> 2.0.0'
   gem 'factory_girl_rails', '~> 1.1.0'
 end
 group :test do
-  gem "sqlite3-ruby"
-  gem "memory_test_fix"
-  gem 'database_cleaner'
-  gem "capybara", "~> 1.1.1"
-  gem "capybara-webkit", "~> 0.7.2"
-  gem "launchy"
-  gem "webmock", "~> 1.6.2"
-  gem "shoulda", "~> 2.11.3"
+  gem 'capybara', '~> 1.1.1'
+  gem 'shoulda', '~> 2.11.3'
   gem 'rb-inotify'
   gem 'libnotify'
   gem 'spork', '~> 0.9.0.rc9'
   gem 'guard-spork'
   gem 'guard-rspec'
-  gem "mocha"
 end
