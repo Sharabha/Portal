@@ -23,6 +23,12 @@
       - for competitor in @competition.competitors
         %li= competitor.email
     = link_to "Dodaj nowego uczestnika", new_competition_competitor_membership_path(@competition)
-
+    %br/
+    %br/
+    %h3 Zadania:
+    %ul
+      - for problem in @competition.problems
+        %li= link_to problem.name, competition_problem_path(@competition, problem)
+    = link_to "Dodaj nowe zadanie", new_competition_problem_path(@competition)
 = link_to "Dodaj nowe zawody", new_competition_path
     

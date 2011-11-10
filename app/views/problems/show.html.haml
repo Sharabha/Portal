@@ -1,0 +1,9 @@
+.post
+  %h2.title= @problem.name
+  %p.meta
+    Zawody: #{@problem.competition.name}
+  .entry
+    %h3 Zespoły:
+      
+= link_to "Dodaj nowe zadanie", new_competition_problem_path(@competiton)
+    
