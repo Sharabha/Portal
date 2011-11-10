@@ -1,16 +1,9 @@
 .post
   %h2.title= @problem.name
-  %p= @problem.competition.name  
+  %p.meta
+    Zawody: #{@problem.competition.name}
   .entry
-    -#= @problem.description
-    -#%h3 Sędziowie:
-    -#%ul
-    -#  - for judge in @problem.judges
-    -#    %li= judge.email
     %h3 Zespoły:
-    -#%ul
-    -#  - for team in @problem.teams
-    -#    %li= team.name
       
--#= link_to "Dodaj nowe zadanie", new_problem_path
+= link_to "Dodaj nowe zadanie", new_competition_problem_path(@competiton)
     
