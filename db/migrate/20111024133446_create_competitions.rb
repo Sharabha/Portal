@@ -1,7 +1,7 @@
 class CreateCompetitions < ActiveRecord::Migration
   def change
     create_table :competitions do |t|
-      t.integer     :owner_id
+      t.integer     :organizer_id
       t.string      :name
       t.text        :description
       t.datetime    :deadline

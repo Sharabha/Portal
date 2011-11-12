@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_protected :admin
 
-  has_many :owned_competitions, :as => :owner
+  has_many :organized_competitions, :as => :organizer
 
   has_many :judge_memberships, :as => :judge
   has_many :judged_competitions, :through => :judge_memberships

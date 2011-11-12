@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20111108132700) do
 
   create_table "competitions", :force => true do |t|
-    t.integer  "owner_id"
+    t.integer  "organizer_id"
     t.string   "name"
     t.text     "description"
     t.datetime "deadline"
