@@ -39,7 +39,7 @@ describe JudgeMembershipsController do
 	    judge_membership = {:judge_id => user.id}
 	    post "create", :competition_id => @competition.id, :judge_membership => judge_membership
 	  end
-	}.should change(@competition.judges, :count).by(length)
+	}.should change(@competition.judges, :count).by(length-1)
       end
 
       it "should raise 'not found' error if invalid competition id provided" do

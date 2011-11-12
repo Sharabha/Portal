@@ -10,4 +10,10 @@ class Competition < ActiveRecord::Base
   has_many :competitors, :through => :competitor_memberships
 
   has_many :problems
+
+  after_create :organizer_is_judge
+
+  def organizer_is_judge
+    JudgeMembership.create(:judge_id => self.organizer_id, :competition_id => self.id)
+  end
 end
