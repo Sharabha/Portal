@@ -11,9 +11,22 @@ class Competition < ActiveRecord::Base
 
   has_many :problems
 
-  after_create :organizer_is_judge
+  after_create   :organizer_is_judge
+  before_destroy :deadline_expired?
+  before_save    :deadline_not_expired?
 
   def organizer_is_judge
     JudgeMembership.create(:judge_id => self.organizer_id, :competition_id => self.id)
+  end
+
+  def deadline_not_expired?
+    if self.deadline 
+      !(self.deadline <= DateTime.now)
+    end
+  end
+  def deadline_expired?
+    if self.deadline 
+      self.deadline <= DateTime.now
+    end
   end
 end

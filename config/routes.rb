@@ -11,6 +11,9 @@ Competitor::Application.routes.draw do
     resources :judge_memberships, :except => [:index, :edit, :update]
     resources :competitor_memberships
     resources :problems
+    member do
+        put "close"
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

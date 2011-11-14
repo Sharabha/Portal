@@ -9,6 +9,11 @@
         = competition.deadline
       - else
         brak
+      status: 
+      - if !competition.deadline_expired?
+        trwaja
+      - else
+        zakonczone
       
 = link_to "Dodaj nowe zawody", new_competition_path
     

@@ -10,7 +10,6 @@
     .input= f.text_area :description, :class => "xxlarge"
   .clearfix
     = f.label :deadline, "Termin zakończenia"
-    .input
-      = f.text_field :deadline
+    .input= datetime_select "competition", "deadline", {:order => [:hour, :minute, :day, :month, :year]}
   .clearfix.center
     = f.submit "Zapisz", :class => "btn primary"
