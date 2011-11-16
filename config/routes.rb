@@ -10,7 +10,9 @@ Competitor::Application.routes.draw do
   resources :competitions do
     resources :judge_memberships, :except => [:index, :edit, :update]
     resources :competitor_memberships
-    resources :problems
+    resources :problems do
+        resources :guardian_memberships
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

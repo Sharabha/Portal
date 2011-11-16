@@ -7,4 +7,7 @@ class Problem < ActiveRecord::Base
 
   has_many :solutions
   has_many :teams, :through => :solutions
+
+  has_many :guardian_memberships
+  has_many :guardians, :through => :guardian_memberships
 end

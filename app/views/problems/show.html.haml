@@ -4,6 +4,14 @@
     Zawody: #{@problem.competition.name}
   .entry
     %h3 Zespoły:
-      
-= link_to "Dodaj nowe zadanie", new_competition_problem_path(@competiton)
+    %ul
+      <TODO>
+    %br/
+    %h3 Opiekunowie:
+    %ul
+      - for guardian in @problem.guardians
+        %li= guardian.email
+    %br/
+= link_to "Dodaj nowego opiekuna", new_competition_problem_guardian_membership_path(@competition,@problem)
+=# link_to "Dodaj nowe zadanie", new_competition_problem_path(@competiton) #TODO:czy to na pewno ma tu byc?
     

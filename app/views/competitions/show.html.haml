@@ -17,15 +17,13 @@
         %li= judge.email
     = link_to "Dodaj nowego sędziego", new_competition_judge_membership_path(@competition)
     %br/
-    %br/
     %h3 Uczestnicy:
     %ul
       - for competitor in @competition.competitors
         %li= competitor.email
     = link_to "Dodaj nowego uczestnika", new_competition_competitor_membership_path(@competition)
     %br/
-    %br/
-    %h3 Zadania:
+    %h4 Zadania:
     %ul
       - for problem in @competition.problems
         %li= link_to problem.name, competition_problem_path(@competition, problem)
