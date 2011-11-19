@@ -10,7 +10,7 @@ end
 
 Factory.define :competition do |c|
   c.sequence(:name)  {|n| "competition#{n}" }
-  c.association  :owner, :factory => :user
+  c.association  :organizer, :factory => :user
 end
 
 Factory.define :judge_membership do |j|

@@ -1,7 +1,7 @@
 class Competition < ActiveRecord::Base
-  belongs_to :owner, :class_name => "User"
+  belongs_to :organizer, :class_name => "User"
   validates_presence_of :name
-  validates_presence_of :owner_id
+  validates_presence_of :organizer_id
   
   has_many :judge_memberships
   has_many :judges, :through => :judge_memberships
@@ -10,4 +10,23 @@ class Competition < ActiveRecord::Base
   has_many :competitors, :through => :competitor_memberships
 
   has_many :problems
+
+  after_create   :organizer_is_judge
+  before_destroy :deadline_expired?
+  before_save    :deadline_not_expired?
+
+  def organizer_is_judge
+    JudgeMembership.create(:judge_id => self.organizer_id, :competition_id => self.id)
+  end
+
+  def deadline_not_expired?
+    if self.deadline 
+      !(self.deadline <= DateTime.now)
+    end
+  end
+  def deadline_expired?
+    if self.deadline 
+      self.deadline <= DateTime.now
+    end
+  end
 end

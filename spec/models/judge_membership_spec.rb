@@ -10,10 +10,10 @@ describe JudgeMembership do
   it{should validate_presence_of :judge_id}
 
   it "should not allow the same judge to be assigned twice" do
-    @user = @competition.owner
-    Factory :judge_membership, :competition => @competition, :judge => @user
-    @judge = JudgeMembership.new(@judge_hash.merge(:judge => @user))
-    @judge.should_not be_valid
+    @user = @competition.organizer
+    expect {
+        Factory :judge_membership, :competition => @competition, :judge => @user
+    }.should raise_error
   end
     
 end
