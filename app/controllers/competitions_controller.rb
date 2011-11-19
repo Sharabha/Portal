@@ -12,15 +12,18 @@ class CompetitionsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:organizer_id])
     @competition = Competition.new
+    @competition.organizer_id = @user.id
   end
 
   def create
+    @user = User.find(params[:competition][:organizer_id])
     @competition = Competition.new(params[:competition])
     if @competition.save
       redirect_to competition_path(@competition)
     else
-      render :action => "new"
+      render :action => :new
     end
   end
 
