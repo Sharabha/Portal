@@ -6,7 +6,7 @@ describe CompetitionsController do
       sign_in @user
   end
 
-  context "as a registered admin I can create competitions" do
+  context "as a registered admin I can create and delete competitions" do
 
     describe "POST create" do
       it "should be successful" do
@@ -19,6 +19,20 @@ describe CompetitionsController do
         post "create", :competition => {:organizer_id => 123, :name => 'asasdasd'}
     }.should raise_error(ActiveRecord::RecordNotFound)
       end
+    end
+
+    describe "POST update" do
+      before :each do
+        Factory :competition
+      end
+
+      it "should be successful" do
+        @competition = Competition.first
+        post "update", :competition => {:deadline =>  DateTime.now() + 10.minutes, 
+                                        :name => 'newname'}, 
+                       :id => @competition.id
+        response.code.should == "302" 
+      end 
     end
 
     describe "DELETE destroy" do
