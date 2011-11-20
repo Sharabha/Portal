@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113221041) do
+ActiveRecord::Schema.define(:version => 20111120120849) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(:version => 20111113221041) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "points"
+    t.text     "description"
   end
 
   create_table "users", :force => true do |t|
