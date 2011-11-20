@@ -7,9 +7,12 @@ Competitor::Application.routes.draw do
       put "remove_admin"
     end
   end
+  resources :teams
+  resources :problems
   resources :competitions do
     resources :judge_memberships, :except => [:index, :edit, :update]
-    resources :competitor_memberships
+    resources :team_memberships, :except => [:index, :edit, :update]
+    resources :problem_memberships, :except => [:index, :edit, :update]
     resources :problems do
         resources :guardian_memberships
     end

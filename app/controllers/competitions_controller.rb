@@ -10,6 +10,8 @@ class CompetitionsController < ApplicationController
   def show
     @competition        = Competition.find(params[:id])
     @judge_memberships  = JudgeMembership
+    @team_memberships  = TeamMembership
+    @problem_memberships  = ProblemMembership
   end
 
   def edit
@@ -18,7 +20,6 @@ class CompetitionsController < ApplicationController
 
   def update
     @competition = Competition.find(params[:id])
-    debugger
     if @competition.update_attributes(params[:competition])
       redirect_to competition_path(@competition)
     else
@@ -27,9 +28,7 @@ class CompetitionsController < ApplicationController
   end 
 
   def new
-    @user = User.find(params[:organizer_id])
     @competition = Competition.new
-    @competition.organizer_id = @user.id
   end
 
   def create
@@ -53,7 +52,7 @@ class CompetitionsController < ApplicationController
 
   def close
     @competition          = Competition.find(params[:id])
-    @competition.deadline = DateTime.now() + 5.seconds;
+    @competition.deadline = DateTime.now()
     if @competition.save
       redirect_to competition_path(@competition)
     else

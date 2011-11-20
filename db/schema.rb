@@ -11,20 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113221041) do
+ActiveRecord::Schema.define(:version => 20111120160723) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
     t.string   "name"
     t.text     "description"
     t.datetime "deadline"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "competitor_memberships", :force => true do |t|
-    t.integer  "competitor_id"
-    t.integer  "competition_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,8 +36,29 @@ ActiveRecord::Schema.define(:version => 20111113221041) do
     t.datetime "updated_at"
   end
 
+  create_table "problem_memberships", :force => true do |t|
+    t.integer  "problem_id"
+    t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "problems", :force => true do |t|
     t.integer  "competition_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_memberships", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", :force => true do |t|
+    t.integer  "leader_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

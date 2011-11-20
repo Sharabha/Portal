@@ -35,16 +35,20 @@
           = link_to "Usun sędziego", competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), confirm: 'Czy jestes pewien?', method: :delete
     = link_to "Dodaj nowego sędziego", new_competition_judge_membership_path(@competition)
     %br/
-    %h3 Uczestnicy:
+    %h3 Zespoły:
     %ul
-      - for competitor in @competition.competitors
-        %li= competitor.email
-    = link_to "Dodaj nowego uczestnika", new_competition_competitor_membership_path(@competition)
+      - for team in @competition.teams
+        %li
+          = team.name
+          = link_to "Usun zespol", competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), confirm: 'Czy jestes pewien?', method: :delete
+    = link_to "Dodaj nowego zespol", new_competition_team_membership_path(@competition)
     %br/
-    %h4 Zadania:
+    %h3 Zadania:
     %ul
       - for problem in @competition.problems
-        %li= link_to problem.name, competition_problem_path(@competition, problem)
-    = link_to "Dodaj nowe zadanie", new_competition_problem_path(@competition)
+        %li
+          = link_to problem.name, competition_problem_path(@competition, problem)
+          = link_to "Usun zadanie", competition_problem_membership_path(@competition.id,@problem_memberships.find_by_problem_id(problem.id)), confirm: 'Czy jestes pewien?', method: :delete
+    = link_to "Dodaj nowe zadanie", new_competition_problem_membership_path(@competition)
 = link_to "Dodaj nowe zawody", new_competition_path
     

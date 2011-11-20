@@ -6,10 +6,11 @@ class Competition < ActiveRecord::Base
   has_many :judge_memberships
   has_many :judges, :through => :judge_memberships
 
-  has_many :competitor_memberships
-  has_many :competitors, :through => :competitor_memberships
+  has_many :team_memberships
+  has_many :teams, :through => :team_memberships
 
-  has_many :problems
+  has_many :problem_memberships
+  has_many :problems, :through => :problem_memberships
 
   after_create   :organizer_is_judge
   before_destroy :deadline_expired?
