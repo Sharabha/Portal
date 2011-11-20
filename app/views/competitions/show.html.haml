@@ -22,6 +22,7 @@
     %br/
     %br/
     - if !@competition.deadline_expired?
+      = link_to "Edytuj zawody",  edit_competition_path(@competition.id)
       = link_to "Zakoncz zawody", close_competition_path(@competition.id), :method => :put
     - else
       = link_to "Usuń zawody", @competition, confirm: 'Czy jestes pewien?', method: :delete
@@ -29,7 +30,9 @@
     %h3 Sędziowie:
     %ul
       - for judge in @competition.judges
-        %li= judge.email
+        %li
+          = judge.email
+          = link_to "Usun sędziego", competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), confirm: 'Czy jestes pewien?', method: :delete
     = link_to "Dodaj nowego sędziego", new_competition_judge_membership_path(@competition)
     %br/
     %h3 Uczestnicy:

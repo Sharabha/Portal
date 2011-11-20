@@ -8,19 +8,37 @@ class CompetitionsController < ApplicationController
   end
 
   def show
+    @competition        = Competition.find(params[:id])
+    @judge_memberships  = JudgeMembership
+  end
+
+  def edit
     @competition = Competition.find(params[:id])
   end
 
+  def update
+    @competition = Competition.find(params[:id])
+    debugger
+    if @competition.update_attributes(params[:competition])
+      redirect_to competition_path(@competition)
+    else
+      render :action => :edit
+    end
+  end 
+
   def new
+    @user = User.find(params[:organizer_id])
     @competition = Competition.new
+    @competition.organizer_id = @user.id
   end
 
   def create
+    @user = User.find(params[:competition][:organizer_id])
     @competition = Competition.new(params[:competition])
     if @competition.save
       redirect_to competition_path(@competition)
     else
-      render :action => "new"
+      render :action => :new
     end
   end
 

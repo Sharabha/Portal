@@ -8,9 +8,8 @@ describe Competition do
   it{should validate_presence_of :organizer_id}
 
   it "should not allow to destroy ongoing competition" do
-    competition = Competition.new( 'organizer_id' => 1, 'name' => 'test', 
-                                   'deadline' => DateTime.now() + 10.minutes)
-    competition.save
+    competition = Competition.create( 'organizer_id' => 1, 'name' => 'test', 
+                                      'deadline' => DateTime.now() + 10.minutes)
     competition.destroy.should be_false
   end
 
