@@ -17,3 +17,4 @@ Factory.define :judge_membership do |j|
   j.association :competition
   j.association :judge, :factory => :user
 end
+

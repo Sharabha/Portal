@@ -18,4 +18,14 @@ class ProblemsController < ApplicationController
       render :action => :new
     end
   end
+  
+  def destroy
+    @competition = Competition.find(params[:competition_id])
+    @problem = @competition.problems.find(params[:id])
+    if @problem.destroy
+      redirect_to competition_path(@competition)
+    else
+      render :action => "show"
+    end
+  end
 end
