@@ -1,17 +1,41 @@
 .post
   %h2.title= @problem.name
   %p.meta
-    Zawody: #{@problem.competition.name}
+    Termin rozpoczęcia:
+    - if @problem.start_time
+      = @problem.start_time
+    - else
+      brak
+    %br
+    Termin ukończenia: 
+    - if @problem.end_time
+      = @problem.end_time
+    - else
+      brak
+    %br
+    Zgłaszanie rozwiązań: 
+    - if @problem.underway?
+      otwarte
+    - else
+      zamknięte
+    %br
+    Liczba punktów: 
+    - if @problem.points
+      = @problem.points
+    - else
+      nie ustalono
   .entry
-    %h3 Zespoły:
-    %ul
-      <TODO>
-    %br/
+    %h3 Treść:
+    %p= @problem.description
     %h3 Opiekunowie:
     %ul
       - for guardian in @problem.guardians
         %li= guardian.email
     %br/
+    %h3 Zespoły:
+    %ul
+      <TODO>
+    %br/
+= link_to "Usuń zadanie", competition_problem_path(@competition, @problem), :method => 'delete', :confirm => 'Usunąć?' 
+%br
 = link_to "Dodaj nowego opiekuna", new_competition_problem_guardian_membership_path(@competition,@problem)
-=# link_to "Dodaj nowe zadanie", new_competition_problem_path(@competiton) #TODO:czy to na pewno ma tu byc?
-    
