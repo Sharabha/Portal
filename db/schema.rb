@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111120120849) do
+ActiveRecord::Schema.define(:version => 20111122191915) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -31,13 +31,6 @@ ActiveRecord::Schema.define(:version => 20111120120849) do
 
   create_table "judge_memberships", :force => true do |t|
     t.integer  "judge_id"
-    t.integer  "competition_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "problem_memberships", :force => true do |t|
-    t.integer  "problem_id"
     t.integer  "competition_id"
     t.datetime "created_at"
     t.datetime "updated_at"

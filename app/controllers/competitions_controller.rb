@@ -11,7 +11,7 @@ class CompetitionsController < ApplicationController
     @competition        = Competition.find(params[:id])
     @judge_memberships  = JudgeMembership
     @team_memberships  = TeamMembership
-    @problem_memberships  = ProblemMembership
+    @problems = @competition.problems
   end
 
   def edit
