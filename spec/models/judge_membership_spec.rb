@@ -1,3 +1,4 @@
+require 'spec_helper'
 describe JudgeMembership do
   before (:each) do
     @competition = Factory :competition
