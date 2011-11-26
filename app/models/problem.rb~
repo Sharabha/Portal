@@ -1,0 +1,61 @@
+class Problem < ActiveRecord::Base
+
+  belongs_to :author, :class_name => User
+
+  #has_many :judge_memberships
+  #has_many :judges, :through => :judge_memberships
+  #has_many :judge_users, :source => :user, :through => :judges
+
+  has_many :solutions
+  has_many :teams, :through => :solutions
+
+  has_many :guardian_memberships
+  has_many :guardians, :through => :guardian_memberships
+
+  has_many :problem_memerships
+  has_many :competitions, :through => :problem_memerships
+
+  accepts_nested_attributes_for :guardians
+
+  validates :author_id, :presence => true
+  validates :name, :length => {:minimum => 3}
+  validates :description, :length => {:minimum => 3}
+
+  before_save :start_time_before_end_time?
+  before_save :not_ended?
+  before_destroy :not_underway?
+   
+  def started?
+    self.start_time < DateTime.now if self.start_time
+  end
+
+  def ended?
+    self.end_time < DateTime.now if self.end_time
+  end
+
+  def not_ended?
+    if self.ended? 
+      errors[:end_time] = "must be before current time"
+      false
+    end
+  end
+
+  def underway?
+    self.started? && !self.ended?
+  end
+
+  def not_underway?
+    if self.underway?
+      errors[:base] = "can't remove ongoing problem"
+      false
+    end
+  end
+
+  def start_time_before_end_time?
+    if self.end_time <= self.start_time
+      errors[:start_time] = "must be before end time"
+      false
+    end
+  end
+
+end

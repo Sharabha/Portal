@@ -1,29 +1,40 @@
 class ProblemsController < ApplicationController
+  def index
+    @problems = Problem.all
+  end
+
   def new
-    @competition = Competition.find(params[:competition_id])
-    @problem = @competition.problems.new
+    @problem = Problem.new
   end
 
   def show
-    @competition = Competition.find(params[:competition_id])
-    @problem = @competition.problems.find(params[:id])
+    @problem = Problem.find(params[:id])
   end
 
   def create
-    @competition = Competition.find(params[:competition_id])
-    @problem = @competition.problems.create(params[:problem])
+    @problem = Problem.create(params[:problem])
+    @problem.author_id = current_user.id
     if @problem.save
-      redirect_to competition_path(@competition)
+      redirect_to @problem
     else
       render :action => :new
     end
   end
   
+  def edit
+    @problem = Problem.find(params[:id])
+  end
+
+  def update
+    @problem = Problem.find(params[:id])
+    @problem.update_attributes(params[:problem])
+    redirect_to problems_path
+  end
+
   def destroy
-    @competition = Competition.find(params[:competition_id])
-    @problem = @competition.problems.find(params[:id])
+    @problem = Problem.find(params[:id])
     if @problem.destroy
-      redirect_to competition_path(@competition)
+      redirect_to problems_path
     else
       render :action => "show"
     end
