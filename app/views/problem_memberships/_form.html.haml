@@ -1,0 +1,21 @@
+= form_for [@competition, @problem_membership] do |f|
+  -if @problem_membership.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@problem_membership.errors.count, "error")} prohibited this problem_membership from being saved:"
+      %ul
+        - @problem_membership.errors.full_messages.each do |msg|
+          %li= msg
+  .clearfix
+    Zawody: #{@competition.name}
+  .clearfix
+    = f.label :problem_membership_id, "Zadanie"
+    .input= f.select  "problem_id",  Problem.all.collect {|p| [ p.name, p.id ] }, :class => "xlarge" 
+    
+  .clearfix
+    = f.label :start_time, "Termin rozpoczęcia"
+    .input= f.datetime_select "start_time", {:order => [:hour, :minute, :day, :month, :year]}
+  .clearfix
+    = f.label :end_time, "Termin zakończenia"
+    .input= f.datetime_select "end_time", {:order => [:hour, :minute, :day, :month, :year], :default => @competition.deadline}
+  .clearfix.center
+    = f.submit "Zapisz", :class => "btn primary"

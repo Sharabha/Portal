@@ -1,0 +1,36 @@
+.post
+  %h2.title
+    = link_to @competition.name, competition_path(@competition)
+  %p.meta
+    Termin rozpoczęcia:
+    - if @problem_membership.start_time
+      = @problem_membership.start_time
+    - else
+      brak
+    %br
+    Termin ukończenia: 
+    - if @problem_membership.end_time
+      = @problem_membership.end_time
+    - else
+      brak
+    %br
+    Zgłaszanie rozwiązań: 
+    - if @problem_membership.underway?
+      otwarte
+    - else
+      zamknięte
+    %br
+    Liczba punktów: 
+    - if @problem_membership.points
+      = @problem_membership.points
+    - else
+      nie ustalono
+  %h3 Opiekunowie:
+    %ul
+      - for guardian in @problem_membership.guardians
+        %li= guardian.email
+    %br/
+    %h3 Zespoły:
+    %ul
+      <TODO>
+    %br/

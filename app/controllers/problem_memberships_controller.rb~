@@ -29,7 +29,7 @@ class ProblemMembershipsController < ApplicationController
     @competition = Competition.find(params[:competition_id])
     @problem_membership = @competition.problem_memberships.find(params[:id])
     @problem_membership.update_attributes(params[:problem_membership])
-    redirect_to competition_path(@competition)
+    redirect_to "/"
   end
 
   def destroy

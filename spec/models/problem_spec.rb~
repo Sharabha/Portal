@@ -7,4 +7,6 @@ describe Problem do
   it{should have_many :competitions}
   it{should belong_to :author}
 
+  
+
 end
