@@ -1,5 +1,0 @@
-%h1 Podłącz zadanie
-
-= render 'form'
-
-= link_to 'Back', problem_memberships_path

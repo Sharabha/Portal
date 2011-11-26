@@ -1,5 +1,0 @@
-%h1 Edycja dowiązania zadania
-
-= render 'form'
-
-= link_to 'Back', problem_memberships_path
