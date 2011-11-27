@@ -1,6 +1,6 @@
 class Problem < ActiveRecord::Base
 
-  belongs_to :author, :class_name => User
+  belongs_to :author, :class_name => "User"
 
   #has_many :judge_memberships
   #has_many :judges, :through => :judge_memberships

@@ -13,7 +13,9 @@ class ProblemsController < ApplicationController
 
   def create
     @problem = Problem.create(params[:problem])
-    @problem.author_id = current_user.id
+    if @problem.author_id.nil?
+        @problem.author_id = current_user.id
+    end
     if @problem.save
       redirect_to @problem
     else
