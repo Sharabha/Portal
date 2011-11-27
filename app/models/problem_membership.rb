@@ -6,9 +6,9 @@ class ProblemMembership < ActiveRecord::Base
   validates_presence_of :competition_id
   validates_uniqueness_of :problem_id, :scope => :competition_id
 
-  #before_save :start_time_before_end_time?
-  #before_save :not_ended?
-  #before_destroy :not_underway?
+  before_save :start_time_before_end_time?
+  before_save :not_ended?
+  before_destroy :not_underway?
    
   def started?
     self.start_time < DateTime.now if self.start_time
