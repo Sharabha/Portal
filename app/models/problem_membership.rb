@@ -1,10 +1,11 @@
 class ProblemMembership < ActiveRecord::Base
+
   belongs_to :problem
   belongs_to :competition
 
-  validates_presence_of :problem_id
-  validates_presence_of :competition_id
-  validates_uniqueness_of :problem_id, :scope => :competition_id
+  validates :problem_id, :presence => true 
+  validates :competition_id, :presence => true
+  validates :problem_id, :uniqueness => {:scope => :competition_id}
 
   before_save :start_time_before_end_time?
   before_save :not_ended?

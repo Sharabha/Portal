@@ -2,10 +2,6 @@ class Problem < ActiveRecord::Base
 
   belongs_to :author, :class_name => "User"
 
-  #has_many :judge_memberships
-  #has_many :judges, :through => :judge_memberships
-  #has_many :judge_users, :source => :user, :through => :judges
-
   has_many :solutions
   has_many :teams, :through => :solutions
 
@@ -20,5 +16,4 @@ class Problem < ActiveRecord::Base
   validates :author_id, :presence => true
   validates :name, :length => {:minimum => 3}
   validates :description, :length => {:minimum => 3}
-
 end
