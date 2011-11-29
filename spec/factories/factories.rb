@@ -18,6 +18,11 @@ Factory.define :judge_membership do |j|
   j.association :judge, :factory => :user
 end
 
+Factory.define :guardian_membership do |j|
+  j.association :problem_membership, :factory => :problem_membership
+  j.association :guardian, :factory => :user
+end
+
 Factory.define :problem do |p|
   p.sequence(:name)  {|n| "problem#{n}" }
   p.sequence(:description)  {|n| "desc#{n}" }
@@ -25,6 +30,8 @@ Factory.define :problem do |p|
 end
 
 Factory.define :problem_membership do |pm|
-  pm.association :competition
-  pm.association :problem
+  pm.association :competition, :factory => :competition
+  pm.association :problem, :factory => :problem
+  pm.start_time  DateTime.now()
+  pm.end_time    DateTime.now()+10.minutes
 end
