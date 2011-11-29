@@ -1,9 +1,10 @@
-= form_for [@competition, @problem, @guardian_membership] do |f|
+= form_for [@competition, @problem_membership, @guardian_membership] do |f|
   .clearfix
     Zawody: #{@competition.name}
+  .clearfix
     Zadanie: #{@problem.name}
   .clearfix
     = f.label :guardian_id, "Opiekun"
-    .input= select "guardian_membership", "guardian_id",  User.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 
+    .input= select "guardian_membership", "guardian_id",  @competition.judges.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 
   .clearfix.center
     = f.submit "Zapisz", :class => "btn primary"

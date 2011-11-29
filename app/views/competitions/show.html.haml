@@ -56,7 +56,16 @@
           = link_to problem_membership.problem.name, competition_problem_membership_path(@competition, problem_membership)
           ||
           = link_to "Usuń załączone zadanie", competition_problem_membership_path(@competition, problem_membership), confirm: 'Czy jestes pewien?', method: :delete
-          
+          ||
+          = link_to "Dodaj opiekuna", new_competition_problem_membership_guardian_membership_path(@competition, problem_membership)
+          %br/
+          Opiekunowie:
+          %ul
+            - for guardian in problem_membership.guardians
+              %li 
+                = guardian.email
+                = link_to "Usuń opiekuna", competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), confirm: 'Czy jesteś pewien?', method: :delete
+             
     = link_to "Dodaj zadanie", new_competition_problem_membership_path(@competition)
 = link_to "Dodaj nowe zawody", new_competition_path
     

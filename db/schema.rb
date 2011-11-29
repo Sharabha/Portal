@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20111129185845) do
 
   create_table "guardian_memberships", :force => true do |t|
     t.integer  "guardian_id"
-    t.integer  "problem_id"
+    t.integer  "problem_membership_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

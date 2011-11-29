@@ -15,7 +15,8 @@ Competitor::Application.routes.draw do
     resources :judge_memberships, :except => [:index, :edit, :update]
     resources :team_memberships, :except => [:index, :edit, :update]
     resources :problem_memberships do
-      resources :solutions
+      resources :solutions, :except => [:index]
+      resources :guardian_memberships, :except => [:index, :edit, :update]
     end
     member do
         put "close"
