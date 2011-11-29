@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111128103454) do
+ActiveRecord::Schema.define(:version => 20111129185845) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(:version => 20111128103454) do
     t.integer  "points"
     t.text     "description"
     t.integer  "author_id"
+  end
+
+  create_table "solutions", :force => true do |t|
+    t.integer  "team_membership_id"
+    t.integer  "problem_membership_id"
+    t.string   "code_file_name"
+    t.string   "code_content_type"
+    t.integer  "code_file_size"
+    t.datetime "code_updated_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "team_memberships", :force => true do |t|

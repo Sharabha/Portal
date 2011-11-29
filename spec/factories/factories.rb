@@ -27,4 +27,24 @@ end
 Factory.define :problem_membership do |pm|
   pm.association :competition
   pm.association :problem
+  pm.start_time (DateTime.now - 10.days)
+  pm.end_time (DateTime.now + 10.days)
+end
+
+Factory.define :team do |t|
+  t.association :leader, :factory => :user
+  t.sequence(:name)  {|n| "team#{n}" }
+end
+
+Factory.define :team_membership do |t|
+  t.association :team
+  t.association :competition
+end
+
+Factory.define :solution do |s|
+  include ActionDispatch::TestProcess
+  s.description "Solution description"
+  s.association :team_membership
+  s.association :problem_membership
+  s.code fixture_file_upload("#{Rails.root}/spec/factories/test.txt", 'text/plain')
 end

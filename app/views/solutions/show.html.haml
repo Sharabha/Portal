@@ -1,0 +1,7 @@
+%h2 Rozwiązanie nadesłane przez #{@solution.team.name}
+%b Opis rozwiązania:
+= @solution.description
+%br/
+%br/
+%b Kod rozwiązania:
+= link_to @solution.code_file_name, @solution.code.url, :target => :blank

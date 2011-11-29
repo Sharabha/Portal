@@ -1,6 +1,11 @@
 class Team < ActiveRecord::Base
   belongs_to :leader, :class_name=>"User"
-  belongs_to :competitions
+
+  #wait, what?
+  #belongs_to :competitions
+  has_many :team_memberships
+  has_many :competitions, :through => :team_memberships
+
   validates_presence_of :leader_id
   validates_presence_of :name
 end

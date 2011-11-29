@@ -3,10 +3,13 @@ class ProblemMembership < ActiveRecord::Base
   belongs_to :problem
   belongs_to :competition
 
+  has_many :solutions
+
   validates :problem_id, :presence => true 
   validates :competition_id, :presence => true
   validates :problem_id, :uniqueness => {:scope => :competition_id}
 
+  # ever heard of validate?
   before_save :start_time_before_end_time?
   before_save :not_ended?
   before_destroy :not_underway?

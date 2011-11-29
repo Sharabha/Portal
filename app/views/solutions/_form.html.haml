@@ -1,0 +1,17 @@
+- if @solution.errors.any?
+  %div#errors
+    %b Wystąpiły następujące błędy:
+    - @solution.errors.each do |attr, msg|
+      %li
+        = msg
+%br/
+= form_for [@competition, @problem_membership, @solution] do |f|
+  .clearfix
+    = f.label :description, "Opis"
+    .input
+      = f.text_area :description, :class => "xlarge"
+  .clearfix
+    .input
+      = f.file_field :code
+  .actions
+    = f.submit "Zapisz", :class => "btn primary"

@@ -4,16 +4,18 @@
     %h2.title
       = link_to competition.name, competition_path(competition)
     %p.meta
-      Opiekun: #{competition.organizer.email}, termin ukończenia: 
+      Opiekun: #{competition.organizer.email}
+      %br/
+      Termin ukończenia: 
       - if competition.deadline
-        = competition.deadline
+        #{competition.deadline},
       - else
-        brak
+        brak, 
       status: 
       - if !competition.deadline_expired?
-        trwaja
+        w trakcie
       - else
-        zakonczone
+        zakończone
       
 = link_to "Dodaj nowe zawody", new_competition_path
     

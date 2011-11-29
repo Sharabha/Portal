@@ -13,6 +13,8 @@ gem 'devise'
 gem 'cancan'
 gem 'i18n'
 
+gem 'paperclip'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
