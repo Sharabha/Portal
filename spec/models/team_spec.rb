@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TeamMembership do
+describe Team do
 
 it{should have_one :team_membership}
 it{should have_many :user_team_memberships}
