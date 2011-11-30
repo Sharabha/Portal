@@ -6,7 +6,7 @@ gem 'rails', '3.1.1'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'therubyracer'
+gem 'therubyracer', :platforms => :ruby
 
 gem 'haml'
 gem 'devise'
@@ -36,7 +36,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug', :platforms => :ruby
 group :development, :test do
   gem 'rspec-rails', '~> 2.7.0'
   gem 'factory_girl', '~> 2.0.0'
