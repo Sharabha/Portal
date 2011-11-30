@@ -1,4 +1,10 @@
 Competitor::Application.routes.draw do
+
+
+  get "user_team_membership/new"
+
+  get "user_team_membership/destroy"
+
   root :to => "home#index"
   devise_for :users
   resources :users, :only => [:index] do
@@ -7,7 +13,11 @@ Competitor::Application.routes.draw do
       put "remove_admin"
     end
   end
-  resources :teams
+  resources :teams do
+   resources :users, :only => [:index] do
+     resources :user_team_memberships
+   end
+  end
   resources :problems do
     resources :guardian_memberships
   end

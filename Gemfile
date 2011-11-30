@@ -36,7 +36,10 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+#sorry, ale railsy nie chcą mi tego zainstalowac
+#gem 'ruby-debug19', :require => 'ruby-debug'
+
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.7.0'
   gem 'factory_girl', '~> 2.0.0'
