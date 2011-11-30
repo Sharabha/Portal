@@ -11,5 +11,6 @@
   .clearfix
     = f.label :password_confirmation, t(:password_confirmation).capitalize
     .input= f.password_field :password_confirmation
-  .clearfix.center= f.submit t(:sign_up), :class => "btn primary"
-= render :partial => "devise/shared/links"
+  .clearfix.actions
+    = f.submit t(:sign_up), :class => "btn primary"
+    = render :partial => "devise/shared/links"

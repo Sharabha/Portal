@@ -1,28 +1,117 @@
 !!!
 %html
   %head
-    %title Competitor
-    = stylesheet_link_tag    "application"
+    %title Sharabha
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
+    /= stylesheet_link_tag    "application"
     = javascript_include_tag "application"
-    = csrf_meta_tags
+    /= csrf_meta_tags
+    %link{:href => "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css", :rel => "stylesheet"}
+    :css
+      body {
+        padding-top: 55px;
+      }
+      .user-panel
+      {
+         background: none repeat scroll 0 0 #FFFFFF;
+        -webkit-border-radius: 0 0 7px 28px;
+        -moz-border-radius: 0 0 7px 28px;
+        border-radius: 0 0 7px 7px;
+        float: right;
+        padding: 3px 10px 5px 10px;
+      }
+
+      .user-panel a, .user-panel a:hover
+      {
+        text-shadow: none;
+        color:#0069D6;
+      }
+      .topbar div > .brand, .topbar div > ul, .nav
+      {
+        margin-top: 4px;
+      }
+      .user-panel form input[type=text], .user-panel form input[type=password], .user-panel form button
+      {
+        line-height: 0.8em;
+        font-size: 0.8em;
+        height: 80%;
+      }
+      .label
+      {
+        padding-top: 2px;
+        padding-bottom: 3px;
+      }
   %body
-    #wrapper
-      #header.container
-        #logo
-          %h1
-            %a{:href => "/"}
-              Competitor
-          %p Zawody programistyczne
-        #menu
+    .topbar
+      .topbar-inner
+        .container-fluid
+          %a.brand{:href => "#"} Sharabha
+          %ul.nav
+            %li.active
+              %a{:href => "#"} Aktualności
+            %li
+              %a{:href => "#about"} O projekcie
+            %li
+              %a{:href => "#contact"} Kontakt
+          .user-panel
+            - if user_signed_in?
+              Zalogowany jako, #{current_user.email}!
+              = link_to "Wyloguj się", destroy_user_session_path, :method => :delete
+            - else
+              = form_tag new_user_session_path do
+                = link_to ' Załóż konto w kilka sekund! ' , new_user_registration_path, :class => ['label', 'warning'], :style => 'color: white;'
+                &nbsp;&nbsp;&nbsp;
+                Login: 
+                = text_field_tag 'user[email]', '', :class => 'span2'
+                Hasło: 
+                = password_field_tag 'user[password]', '', :class => 'span2'
+                %button.btn.primary Zaloguj
+                %label{:style=>'float: none;'}
+                  = check_box_tag 'user[remember_me]', "checked"
+                  %span Zapamiętaj mnie
+    .container-fluid
+      .sidebar
+        .well
+          %h5 Sharabha
           %ul
             %li
-              = link_to "Użytkownicy", users_path
+              %a{:href => "#"} Aktualności
             %li
-              = link_to "Zespoły", teams_path
+              %a{:href => "#"} Trwające zawody
             %li
-              = link_to "Zawody", competitions_path
-      #page
-        - if flash[:error]
-          #errors= flash[:error]
-        = yield
-      #footer
+              %a{:href => "#"} Rozpocznij zawody
+            %li
+              %a{:href => "#"} Link
+          %h5 Aktualne zawody
+          %ul
+            %li
+              %a{:href => "#"}
+                %span.label.success{:style => "padding: 2px 4px;"} Rozpocznij zawody!
+            %li
+              %a{:href => "#"} Zawody 1
+            %li
+              %a{:href => "#"} Zawody 2
+            %li
+              %a{:href => "#"} Zawody 3
+            %li
+              %a{:href => "#"} Zawody 4
+            %li
+              %a{:href => "#"} Wszystkie zawody
+          %h5 Twoje konto
+          %ul
+            %li
+              %a{:href => "#"} Edytuj profil
+            %li
+              %a{:href => "#"} Moje zawody
+            %li
+              %a{:href => "#"} Przesłane rozwiązania
+            %li
+              %a{:href => "#"} Wyloguj
+      .content
+        .row
+          .span16
+            = yield
+        %footer
+          %p
+            \© 2011
+            %a{:href => "http://www.ii.uni.wroc.pl/"} Instytut Informatyki UWR
