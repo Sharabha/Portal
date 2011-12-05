@@ -26,6 +26,7 @@ end
 Factory.define :problem do |p|
   p.sequence(:name)  {|n| "problem#{n}" }
   p.sequence(:description)  {|n| "desc#{n}" }
+  p.sequence(:points) {|n| n }
   p.association :author, :factory => :admin
 end
 

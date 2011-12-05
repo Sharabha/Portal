@@ -19,7 +19,7 @@ class CheckerDatasController < ApplicationController
   def destroy
     @problem = Problem.find(params[:problem_id])
     @checker = @problem.checker
-    @checker_data = @checker.checker_datas.find(params[:id])
+    @checker_data = CheckerData.find(params[:id])
     @checker_data.destroy
     redirect_to problem_checker_path(@problem, @checker)
   end
