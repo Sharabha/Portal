@@ -13,6 +13,8 @@
     %h3 Treść:
     %p= @problem.description
     
+%h3
+  = link_to "Sprawdzaczka", problem_checker_path(@problem)
 = link_to "Usuń zadanie", @problem, :method => 'delete', :confirm => 'Usunąć?' 
 %br
--#= link_to "Dodaj nowego opiekuna", new_competition_problem_guardian_membership_path(@competition,@problem)
+-#= link_to "Dodaj nowego opiekuna", new_competition_problem_guardian_membership_path(@competition, @problem)

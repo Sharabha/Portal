@@ -1,0 +1,11 @@
+= form_for :checker_data, :url => problem_checker_checker_datas_path(@problem) do |f|
+  .clearfix
+    = f.label :input, "Dane wejściowe"
+    .input
+      = f.text_field :input, :class => "xlarge"
+  .clearfix
+    = f.label :output, "Dane wyjściowe"
+    .input
+      = f.text_field :output, :class => "xlarge"
+  .clearfix
+    = f.submit "Zapisz", :class => "btn primary"

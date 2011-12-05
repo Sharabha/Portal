@@ -16,4 +16,14 @@ class Problem < ActiveRecord::Base
   validates :author_id, :presence => true
   validates :name, :length => {:minimum => 3}
   validates :description, :length => {:minimum => 3}
+  validates_presence_of :points
+
+  has_one :checker
+
+  after_create :make_checker
+
+  private
+    def make_checker
+      self.create_checker
+    end
 end

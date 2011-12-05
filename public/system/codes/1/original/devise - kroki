@@ -1,0 +1,66 @@
+*)
+rails new devise
+
+*)
+gemfile:
+gem 'therubyracer'
+gem 'haml'
+gem 'devise'
+
+group :production do
+  gem 'pg'
+end 
+
+
+*) 
+usunąć index.html z katalogu public
+
+*)
+bundle install
+rails generate devise:install
+
+*)
+rails generate devise User
+
+*)
+rails generate controller users index
+users_controller:
+  def index
+    @users  = User.all
+  end
+
+*)
+widoki /users:
+zmienić rozszerzenie na haml
+i dodać:
+.post
+  %h2.title
+    Użytkownicy
+  .entry
+    %ul
+      - for u in @users
+        %li
+          = u.email
+*)
+rails generate controller home index
+
+*)
+config /routes:
+usuń get "home/index"
+dodaj:   root :to => 'home#index' 
+
+*)
+widoki /home:
+zmienić rozszerzenie na haml
+i dodać:
+%h1 Logowanie
+- if user_signed_in?
+	Witaj,
+	=current_user.email
+	= link_to "Wyloguj", destroy_user_session_path, :method => "delete"
+- else
+	= link_to "Zaloguj", new_user_session_path
+
+*)
+rake db:migrate
+

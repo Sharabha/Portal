@@ -21,8 +21,8 @@
       zamknięte
     %br
     Liczba punktów: 
-    - if @problem_membership.points
-      = @problem_membership.points
+    - if @problem_membership.problem.points
+      = @problem_membership.problem.points
     - else
       nie ustalono
 

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130111639) do
+ActiveRecord::Schema.define(:version => 20111205170231) do
+
+  create_table "checker_data", :force => true do |t|
+    t.integer  "checker_id"
+    t.text     "input"
+    t.text     "output"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "checkers", :force => true do |t|
+    t.integer  "problem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -65,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20111130111639) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "score",                 :default => 0.0
   end
 
   create_table "team_memberships", :force => true do |t|

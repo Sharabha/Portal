@@ -20,6 +20,9 @@ Competitor::Application.routes.draw do
   end
   resources :problems do
     resources :guardian_memberships
+    resource :checker, :only => [:show], :controller => 'checker' do
+      resources :checker_datas, :only => [:index, :new, :create, :destroy]
+    end
   end
   resources :competitions do
     resources :judge_memberships, :except => [:index, :edit, :update]

@@ -13,4 +13,13 @@ class Solution < ActiveRecord::Base
   validates_attachment_presence :code, :message => "Musisz dodać plik z kodem rozwiązania"
   validates_presence_of :team_membership_id
   validates_presence_of :problem_membership_id
+
+  after_create :set_score
+  
+  private
+    def set_score
+      checker = self.problem.checker
+      self.score = checker.check_solution(self) * self.problem.points
+      self.save 
+    end
 end
