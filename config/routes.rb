@@ -1,6 +1,5 @@
 Competitor::Application.routes.draw do
 
-
   get "user_team_membership/new"
 
   get "user_team_membership/destroy"
@@ -17,6 +16,7 @@ Competitor::Application.routes.draw do
    resources :users, :only => [:index] do
      resources :user_team_memberships
    end
+   resources :team_invitations
   end
   resources :problems do
     resources :guardian_memberships
@@ -35,6 +35,9 @@ Competitor::Application.routes.draw do
         put "close"
     end
   end
+
+  match 'confirm/:token' => 'team_invitations#confirm'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

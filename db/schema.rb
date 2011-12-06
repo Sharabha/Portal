@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111205170231) do
+ActiveRecord::Schema.define(:version => 20111206182545) do
 
   create_table "checker_data", :force => true do |t|
     t.integer  "checker_id"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(:version => 20111205170231) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "score",                 :default => 0.0
+  end
+
+  create_table "team_invitations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.boolean  "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "team_memberships", :force => true do |t|

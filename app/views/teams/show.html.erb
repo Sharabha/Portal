@@ -10,5 +10,7 @@
   <%= @team.name %>
 </p>
 
+<%= link_to 'Wyslij zaproszenie ', new_team_team_invitation_path(@team) %>
+<br>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
