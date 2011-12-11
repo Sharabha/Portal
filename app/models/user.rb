@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
   #has_many :judged_competitions, :as => :judge
 
   has_many :user_team_memberships
- # has_many :teams, as => leader
+  has_many :user_team_memberships, :as => :team_member
+
+  has_many :invitations
 
   def lead_teams
     Team.where(:leader_id => self.id)

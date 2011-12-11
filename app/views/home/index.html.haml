@@ -1,6 +1,20 @@
 - if user_signed_in?
   Witaj, #{current_user.email}!
   = link_to "Wyloguj się", destroy_user_session_path, :method => "delete"
+  %br
+  %br
+  %br
+  Zaproszenia do zespołów:
+  %br
+  - for invitation in current_user.invitations
+    .p
+      = Team.find(invitation.team_id).name
+      - if invitation.confirmed
+        potwierdzone
+      - else
+        nie potwierdzone
+        = link_to "Potwierdz", "/confirm/#{invitation.token}"
+
 - else
   = link_to "Zaloguj się", new_user_session_path
   lub

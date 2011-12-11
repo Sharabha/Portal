@@ -1,4 +1,4 @@
-class TeamInvitation < ActiveRecord::Base
+class Invitation < ActiveRecord::Base
   belongs_to :user
   belongs_to :team
   

@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(:version => 20111206182545) do
     t.datetime "updated_at"
   end
 
+  create_table "invitations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.string   "token"
+    t.boolean  "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "judge_memberships", :force => true do |t|
     t.integer  "judge_id"
     t.integer  "competition_id"
@@ -80,14 +89,6 @@ ActiveRecord::Schema.define(:version => 20111206182545) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "score",                 :default => 0.0
-  end
-
-  create_table "team_invitations", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.boolean  "confirmed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "team_memberships", :force => true do |t|
