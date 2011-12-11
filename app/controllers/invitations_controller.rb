@@ -9,6 +9,7 @@ class InvitationsController < ApplicationController
                                                        :team_id => @invitation.team_id)
         if @user_team_membership.save
           redirect_to team_path(@invitation.team_id)
+          return
         end
       end
     end
@@ -25,8 +26,10 @@ class InvitationsController < ApplicationController
     @team               = Team.find(params[:team_id])
     @invitation.team_id = @team.id
     @invitation.token   = generate_token
+    @user = User.find(@invitation.user_id)
 
     if @invitation.save
+      InvitationMailer.invitation_email(@user,@invitation.token).deliver
       redirect_to team_path(@team)
     else
       render :action => :new
