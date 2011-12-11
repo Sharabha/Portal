@@ -17,8 +17,10 @@ class InvitationsController < ApplicationController
   end
 
   def new
+    @invitation = Invitation.new
     @team       = Team.find(params[:team_id])
-    @invitation = Invitation.new({:team_id => @team.id})
+    @invitation.team_id = @team.id
+    @invitation.token   = generate_token
   end
 
   def create
