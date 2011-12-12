@@ -10,10 +10,20 @@ class Ability
     else
       can :read, :all
     end
-    can :manage, Competition, :organizer_id=>user.id  #organizator
 
-    can :create, ProblemMembership do |probmem| #sedzia
-        probmem.competition.judge_memberships.any?{|x| user.id==x.judge_id}
+    can :manage, Competition, :organizer_id=>user.id
+
+    # organizator zawodów może podpiąć sędziów do zawodów
+    can :create, JudgeMembership do |judge_membership|
+      puts "\n\n\n\n\n\n=============>#{judge_membership.inspect}"
+      judge_membership.competition.organizer_id == user.id
     end
+
+    # sędzia zawodów może podpiąć zadanie do zawodów
+    can :create, ProblemMembership do |problem| #sedzia
+        problem.competition.judge_memberships.any?{|x| user.id==x.judge_id}
+    end
+
+    # 
   end
 end

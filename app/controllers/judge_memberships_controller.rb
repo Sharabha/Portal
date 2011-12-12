@@ -1,5 +1,7 @@
 class JudgeMembershipsController < ApplicationController
 
+  load_and_authorize_resource :except => [:show]
+
   def show
     @competition = Competition.find(params[:competition_id])
     @judge_membership = @competition.judge_memberships.find(params[:id])

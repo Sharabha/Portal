@@ -1,5 +1,5 @@
 class CompetitionsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user! #TODO: Czy nie wystarczy load_and_authorize_resource?
   load_and_authorize_resource :except => :index
 
   def index
