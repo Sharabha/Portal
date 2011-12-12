@@ -9,7 +9,7 @@ class ProblemMembershipsController < ApplicationController
   def new
     @competition = Competition.find(params[:competition_id])
     @problem_membership = @competition.problem_memberships.new
-    authorize! :create, @problem_membership #<- ważne
+    authorize! :new, @problem_membership #<- ważne
   end
 
   def create
