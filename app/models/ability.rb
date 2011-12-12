@@ -13,7 +13,7 @@ class Ability
     can :manage, Competition, :organizer_id=>user.id  #organizator
 
     can :create, ProblemMembership do |probmem| #sedzia
-        probmem.competition.judge_memberships.include? user.id
+        probmem.competition.judge_memberships.any?{|x| user.id==x.judge_id}
     end
   end
 end

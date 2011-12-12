@@ -1,4 +1,5 @@
 class ProblemMembershipsController < ApplicationController
+    load_and_authorize_resource :except => [:new]#TODO: co z create?
 
   def show
     @competition = Competition.find(params[:competition_id])
@@ -8,6 +9,7 @@ class ProblemMembershipsController < ApplicationController
   def new
     @competition = Competition.find(params[:competition_id])
     @problem_membership = @competition.problem_memberships.new
+    authorize! :create, @problem_membership #<- ważne
   end
 
   def create
