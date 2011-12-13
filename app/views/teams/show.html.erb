@@ -10,5 +10,27 @@
   <%= @team.name %>
 </p>
 
+<b>Zaproszenia</b>
+<% for invitation in @invitations%>
+<p>
+    <%= User.find(invitation.user_id).email %>|
+    <% if invitation.confirmed %>
+    potwierdzone
+    <%else%>
+    nie potwierdzone
+    <%end%>|
+    <%= invitation.token %>
+</p>
+<% end %>
+<%= link_to 'Wyslij zaproszenie ', new_team_invitation_path(@team) %>
+<br>
+<b>Członkowie</b>
+<% for team_member in @team.team_members%>
+<p>
+<%= team_member.email%>
+</p>
+<% end %>
+
+<hr>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

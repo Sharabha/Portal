@@ -54,3 +54,8 @@ Factory.define :solution do |s|
   s.association :problem_membership
   s.code fixture_file_upload("#{Rails.root}/spec/factories/test.txt", 'text/plain')
 end
+
+Factory.define :invitation do |i|
+  i.association :team, :factory => :team
+  i.association :user, :factory => :user
+end

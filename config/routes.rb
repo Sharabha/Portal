@@ -1,6 +1,5 @@
 Competitor::Application.routes.draw do
 
-
   get "user_team_membership/new"
 
   get "user_team_membership/destroy"
@@ -13,17 +12,21 @@ Competitor::Application.routes.draw do
       put "remove_admin"
     end
   end
+
   resources :teams do
+   resources :invitations
    resources :users, :only => [:index] do
      resources :user_team_memberships
    end
   end
+
   resources :problems do
     resources :guardian_memberships
     resource :checker, :only => [:show], :controller => 'checker' do
       resources :checker_datas, :only => [:index, :new, :create, :destroy]
     end
   end
+
   resources :competitions do
     resources :judge_memberships, :except => [:index, :edit, :update]
     resources :team_memberships, :except => [:index, :edit, :update]
@@ -35,6 +38,9 @@ Competitor::Application.routes.draw do
         put "close"
     end
   end
+
+  match 'confirm/:token' => 'invitations#confirm'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

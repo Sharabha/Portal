@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111205170231) do
+ActiveRecord::Schema.define(:version => 20111206182545) do
 
   create_table "checker_data", :force => true do |t|
     t.integer  "checker_id"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(:version => 20111205170231) do
   create_table "guardian_memberships", :force => true do |t|
     t.integer  "guardian_id"
     t.integer  "problem_membership_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.string   "token"
+    t.boolean  "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
