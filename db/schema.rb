@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20111206182545) do
     t.integer  "user_id"
     t.integer  "team_id"
     t.string   "token"
-    t.boolean  "confirmed"
+    t.boolean  "confirmed",  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
