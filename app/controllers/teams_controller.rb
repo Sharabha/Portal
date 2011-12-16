@@ -1,4 +1,7 @@
 class TeamsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   # GET /teams
   # GET /teams.json
   def index
@@ -41,12 +44,25 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
+    params[:team] = { 
+        :name      => params[:name],
+        :leader_id => current_user.id
+    }
     @team = Team.new(params[:team])
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
-        format.json { render json: @team, status: :created, location: @team }
+        @team_membership = TeamMembership.new({
+            :team_id => @team.id,
+            :competition_id => params[:competition_id]
+        })
+        if @team_membership.save
+          format.html { redirect_to @team, notice: 'Team was successfully created.' }
+          format.json { render json: @team, status: :created, location: @team }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @team_membership.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @team.errors, status: :unprocessable_entity }

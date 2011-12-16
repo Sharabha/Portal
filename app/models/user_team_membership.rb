@@ -10,7 +10,6 @@ class UserTeamMembership < ActiveRecord::Base
 
   private
   def ensure_is_space_in_team
-    debugger
     id = TeamMembership.find_by_team_id(self.team_id).competition_id
     max_users_property = Competition.find(id).max_users
     @user_team_memberships = UserTeamMembership.find_all_by_team_id(self.team_id)

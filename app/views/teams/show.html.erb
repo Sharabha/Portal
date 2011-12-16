@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Zawody:</b>
+  <%= Competition.find(TeamMembership.find_by_team_id(@team.id).competition_id).name %>
+</p>
+
+<p>
   <b>leader:</b>
-  <%= @team.leader_id %>
+  <%= User.find(@team.leader_id).email %>
 </p>
 
 <p>
