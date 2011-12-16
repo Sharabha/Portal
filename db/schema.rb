@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206182545) do
+ActiveRecord::Schema.define(:version => 20111216231431) do
 
   create_table "checker_data", :force => true do |t|
     t.integer  "checker_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20111206182545) do
     t.datetime "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start"
   end
 
   create_table "guardian_memberships", :force => true do |t|

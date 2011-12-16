@@ -4,6 +4,12 @@
   %p.meta
     Opiekun: #{@competition.organizer.email} 
     %br
+    Termin rozpoczecia: 
+    - if @competition.start
+      = @competition.start
+    - else
+      brak
+    %br
     Termin ukończenia: 
     - if @competition.deadline
       = @competition.deadline
@@ -12,7 +18,10 @@
     %br
     Status: 
     - if !@competition.deadline_expired?
-      w trakcie
+      - if @competition.started?
+        w trakcie
+      - else
+        oczejujące
     - else
       zakończone
     %br
@@ -21,10 +30,11 @@
     = @competition.description
     %br/
     %br/
-    - unless @competition.deadline_expired?
-      = link_to "Edytuj zawody",  edit_competition_path(@competition.id)
-      |
-      = link_to "Zakończ zawody", close_competition_path(@competition.id), :method => :put
+    - if @competition.started?
+      - unless @competition.deadline_expired?
+        = link_to "Edytuj zawody",  edit_competition_path(@competition.id)
+        |
+        = link_to "Zakończ zawody", close_competition_path(@competition.id), :method => :put
     - else
       = link_to "Usuń zawody", @competition, confirm: 'Czy jestes pewien?', method: :delete
     %br/
