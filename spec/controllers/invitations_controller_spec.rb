@@ -6,6 +6,12 @@ describe InvitationsController do
   before :each do
     @user = Factory :user 
     @team = Factory :team
+    @competition = Factory :competition
+    @team_membership = TeamMembership.new({
+        :competition_id => @competition.id,
+        :team_id        => @team.id
+    })
+    @team_membership.save
     sign_in @user
   end
 
