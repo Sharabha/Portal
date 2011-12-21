@@ -4,6 +4,8 @@ class Solution < ActiveRecord::Base
   belongs_to :problem_membership
 
   has_one :team, :through => :team_membership
+  has_many :user_team_memberships, :through => :team
+  has_many :team_members, :through => :user_team_memberships, :source => :user
   has_one :problem, :through => :problem_membership
   has_one :competition, :through => :problem_membership
 

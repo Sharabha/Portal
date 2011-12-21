@@ -7,6 +7,7 @@ class ProblemMembership < ActiveRecord::Base
 
   has_many :guardian_memberships, :dependent => :delete_all
   has_many :guardians, :through => :guardian_memberships
+  has_many 
 
   validates :problem_id, :presence => true 
   validates :competition_id, :presence => true

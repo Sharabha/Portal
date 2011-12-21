@@ -17,12 +17,12 @@ class Ability
 
         # zawodów może podpiąć zadanie do zawodów którym sędziuje
         can :create, ProblemMembership do |problem|
-            problem.competition.judge_memberships.any?{|x| user.id==x.judge_id}
+          problem.competition.judges.any?{|x| user.id==x.id}
         end
 
         #sedzia czyta zawody którym sędziuje
         can :read, Competition do |comp|
-            comp.judge_ids.include? user.id
+          comp.judge_ids.include? user.id
         end
     elsif Competition.any? {|x| user.id==x.organizer_id}
         #ORGANIZATOR
@@ -38,6 +38,7 @@ class Ability
         if Competition.any?{|x| user.id==x.organizer_id}
             can :read, Problem
         end
+
         # organizator zarzadza druzynami w swoich zawodach
         can :manage, TeamMembership do |team_membership|
           team_membership.competition.organizer_id == user.id
@@ -45,15 +46,36 @@ class Ability
 
         # tylko organizator moze usuwac zadania
         can :delete, ProblemMembership do |problem|
-            problem.competition.organizer_id == user.id
+          problem.competition.organizer_id == user.id
         end
     else
         #ZAWODNIK
-        #przeglada zadania z zawodow w ktorych uczestniczy
-        can :read, Competition do |comp|
-            comp.teams.any?{|t| t.leader_id==user.id or t.user_team_memberships.any?{|m| m.user_id==user.id}}
+        #przegląda zawody w których uczestniczy
+        can :read, Competition do
+          |comp| comp.teams.any?{|t| t.leader_id==user.id}
+        end
+        can :read, Competition do
+          |comp| comp.team_members.any?{|u| u.id == user.id}
         end
         
+        #przegląda zadania w zawodach w których uczestniczy
+        can :read, ProblemMembership do
+          |problem_membership| problem_membership.competition.teams.any?{|t| t.leader_id==user.id}
+        end
+
+        can :read, ProblemMembership do
+          |problem_membership| problem_membership.competition.team_members.any?{|u| u.id == user.id}
+        end
+
+        #przegląda i wysyła rozwiązania z zawodów w których uczestniczy
+        can [:read, :create], Solution do
+          |solution| solution.teams.any?{|t| t.leader_id==user.id}
+        end
+
+        can [:read, :create], Solution do
+          |solution| solution.team_members.any?{|u| u.id == user.id}
+        end
+
         #NOBODY
         can :index, Competition
     end

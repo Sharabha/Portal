@@ -8,6 +8,8 @@ class Competition < ActiveRecord::Base
 
   has_many :team_memberships
   has_many :teams, :through => :team_memberships
+  has_many :user_team_memberships, :through => :teams
+  has_many :team_members, :through => :user_team_memberships, :source => :user
 
   has_many :problem_memberships
   has_many :problems, :through => :problem_memberships
