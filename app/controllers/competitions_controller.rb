@@ -8,8 +8,8 @@ class CompetitionsController < ApplicationController
 
   def show
     @competition        = Competition.find(params[:id])
-    @judge_memberships  = JudgeMembership
-    @team_memberships  = TeamMembership
+    @judge_memberships = @competition.judge_memberships
+    @team_memberships = @competition.team_memberships
     @problems = @competition.problems
   end
 
