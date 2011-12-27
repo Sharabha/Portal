@@ -1,7 +1,6 @@
 class Ability
   include CanCan::Ability
 
-  #TODO: solution
   #TODO: teams,user_team_membership
 
   def initialize(user)
@@ -51,39 +50,35 @@ class Ability
     else
         #ZAWODNIK
         #przegląda zawody w których uczestniczy
-        can :read, Competition do
-          |comp| comp.teams.any?{|t| t.leader_id==user.id}
+        can :read, Competition do |comp|
+          comp.teams.any?{|t| t.leader_id==user.id}
         end
-        can :read, Competition do
-          |comp| comp.team_members.any?{|u| u.id == user.id}
+
+        can :read, Competition do |comp|
+          comp.team_members.any?{|u| u.id == user.id}
         end
         
         #przegląda zadania w zawodach w których uczestniczy
-        can :read, ProblemMembership do
-          |problem_membership| problem_membership.competition.teams.any?{|t| t.leader_id==user.id}
+        can :read, ProblemMembership do |problem_membership|
+          problem_membership.competition.teams.any?{|t| t.leader_id==user.id}
         end
 
-        can :read, ProblemMembership do
-          |problem_membership| problem_membership.competition.team_members.any?{|u| u.id == user.id}
+        can :read, ProblemMembership do |problem_membership|
+          problem_membership.competition.team_members.any?{|u| u.id == user.id}
         end
 
-        #przegląda i wysyła rozwiązania z zawodów w których uczestniczy
-        can :manage, Solution do
-          #puts "\n\n\n\n\n\n************************* Test1"
-          |solution| solution.teams.any?{|t|
-            t.leader_id==user.id
-          }
+        #zarządza rozwiązaniami z zawodów w których uczestniczy
+        can :manage, Solution do |solution|
+          solution.team.leader_id==user.id
         end
 
-        can :manage, Solution do
-          #puts "\n\n\n\n\n\n\n\nxxxxxxxxxxxxxxxxxxxxxxxxx Test2"
-          |solution| solution.team_members.any?{|u|
-            u.id == user.id
-          }
+        can :manage, Solution do |solution|
+          solution.team_members.any?{|u| u.id == user.id }
         end
 
         #NOBODY
         can :index, Competition
     end
+
   end
 end

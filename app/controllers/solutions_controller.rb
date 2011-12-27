@@ -1,6 +1,6 @@
 #encoding: utf-8
 class SolutionsController < ApplicationController
-
+  load_and_authorize_resource :except => [:new, :create]
   before_filter :authenticate_user!
   before_filter :authenticate_team_leader, :except => [:show]
   before_filter :prepare_params, :only => [:create, :update]
@@ -22,6 +22,7 @@ class SolutionsController < ApplicationController
     @problem_membership = @competition.problem_memberships.find(params[:problem_membership_id])
 
     @solution = @problem_membership.solutions.new(@params)
+    authorize! :create, @solution
     if @solution.save
       redirect_to competition_problem_membership_solution_path(@competition, @problem_membership, @solution), :notice => "Dodano rozwiązanie" 
     else
