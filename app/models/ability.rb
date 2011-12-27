@@ -69,14 +69,14 @@ class Ability
 
         #przegląda i wysyła rozwiązania z zawodów w których uczestniczy
         can :manage, Solution do
-            puts "\n\n\n\n\n\n************************* Test1"
+          #puts "\n\n\n\n\n\n************************* Test1"
           |solution| solution.teams.any?{|t|
             t.leader_id==user.id
           }
         end
 
         can :manage, Solution do
-          puts "\n\n\n\n\n\n\n\nxxxxxxxxxxxxxxxxxxxxxxxxx Test2"
+          #puts "\n\n\n\n\n\n\n\nxxxxxxxxxxxxxxxxxxxxxxxxx Test2"
           |solution| solution.team_members.any?{|u|
             u.id == user.id
           }
