@@ -1,5 +1,6 @@
 class UserTeamMembershipsController < ApplicationController
 
+  load_and_authorize_resource :except => :index
 
   def new
     @team = Team.find(params[:team_id])
