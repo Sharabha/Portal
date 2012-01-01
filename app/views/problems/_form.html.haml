@@ -1,0 +1,27 @@
+= form_for [@competition, @problem] do |f|
+  -if @problem.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@problem.errors.count, "error")} prohibited this problem from being saved:"
+      %ul
+        - @problem.errors.full_messages.each do |msg|
+          %li= msg
+  .clearfix
+    = f.label :name, "Nazwa"
+    .input= f.text_field :name, :class => "xxlarge"
+  .clearfix
+    = f.label :description, "Opis"
+    .input= f.text_area :description, :class => "xxlarge"
+  .clearfix
+    = f.label :points, "Liczba punktów"
+    .input= f.text_field :points, :class => "large"
+  -#.clearfix
+  -#  = f.label :owner_id, "Opiekunowie"
+  -#  .input= f.select :guardian_ids, options_for_select(@competition.judges.collect {|p| [ p.email, p.id ] }, []), {:prompt=>'Wybierz opiekunów'}, :multiple => true,  :class => "xlarge" 
+  -#.clearfix
+  -#  = f.label :, "Termin rozpoczęcia"
+  -#  .input= f.datetime_select "start_time", {:order => [:hour, :minute, :day, :month, :year]}
+  -#.clearfix
+  -#  = f.label :deadline, "Termin zakończenia"
+  -#  .input= f.datetime_select "end_time", {:order => [:hour, :minute, :day, :month, :year], :default => @competition.deadline}
+  .clearfix.center
+    = f.submit "Zapisz", :class => "btn primary"

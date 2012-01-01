@@ -1,0 +1,15 @@
+= form_for @competition do |f|
+  .clearfix
+    = f.label :name, "Nazwa"
+    .input= f.text_field :name, :class => "xlarge"
+  .clearfix
+    = f.label :organizer_id, "Opiekun zawodów"
+    .input= select "competition", "organizer_id",  User.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 
+  .clearfix
+    = f.label :description, "Opis"
+    .input= f.text_area :description, :class => "xxlarge"
+  .clearfix
+    = f.label :deadline, "Termin zakończenia"
+    .input= datetime_select "competition", "deadline", {:order => [:hour, :minute, :day, :month, :year]}
+  .clearfix.center
+    = f.submit "Zapisz", :class => "btn primary"

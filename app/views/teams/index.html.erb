@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>[leader</th>
+    <th>leader</th>
     <th>Competition</th>
     <th>Name</th>
     <th>Team</th>
@@ -13,10 +13,8 @@
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%= team.[leader_id %></td>
-    <td><%= team.competition_id %></td>
+    <td><%= team.leader_id %></td>
     <td><%= team.name %></td>
-    <td><%= team.team_id %></td>
     <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
     <td><%= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete %></td>

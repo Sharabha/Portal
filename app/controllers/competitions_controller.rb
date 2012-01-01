@@ -1,26 +1,42 @@
 class CompetitionsController < ApplicationController
-
-  before_filter :authenticate_user!
-  load_and_authorize_resource :except => [:index, :create]
+  before_filter :authenticate_user! #TODO: Czy nie wystarczy load_and_authorize_resource?
+  load_and_authorize_resource :except => :index
 
   def index
     @competitions = Competition.all
   end
 
   def show
+    @competition        = Competition.find(params[:id])
+    @judge_memberships = @competition.judge_memberships
+    @team_memberships = @competition.team_memberships
+    @problems = @competition.problems
+  end
+
+  def edit
     @competition = Competition.find(params[:id])
   end
+
+  def update
+    @competition = Competition.find(params[:id])
+    if @competition.update_attributes(params[:competition])
+      redirect_to competition_path(@competition)
+    else
+      render :action => :edit
+    end
+  end 
 
   def new
     @competition = Competition.new
   end
 
   def create
+    @user = User.find(params[:competition][:organizer_id])
     @competition = Competition.new(params[:competition])
     if @competition.save
       redirect_to competition_path(@competition)
     else
-      render :action => "new"
+      render :action => :new
     end
   end
 
@@ -35,7 +51,7 @@ class CompetitionsController < ApplicationController
 
   def close
     @competition          = Competition.find(params[:id])
-    @competition.deadline = DateTime.now() + 5.seconds;
+    @competition.deadline = DateTime.now()
     if @competition.save
       redirect_to competition_path(@competition)
     else

@@ -1,0 +1,3 @@
+zapisz #{@user.email} do zespołu #{@team.name}
+= form_for [@team, @user, @user_team_membership] do |f|
+= f.submit "Zapisz"

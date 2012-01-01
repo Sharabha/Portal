@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113221041) do
+ActiveRecord::Schema.define(:version => 20111218204423) do
+
+  create_table "checker_data", :force => true do |t|
+    t.integer  "checker_id"
+    t.text     "input"
+    t.text     "output"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "checkers", :force => true do |t|
+    t.integer  "problem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -20,18 +34,22 @@ ActiveRecord::Schema.define(:version => 20111113221041) do
     t.datetime "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "competitor_memberships", :force => true do |t|
-    t.integer  "competitor_id"
-    t.integer  "competition_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "max_users",    :default => 1
+    t.datetime "start"
   end
 
   create_table "guardian_memberships", :force => true do |t|
     t.integer  "guardian_id"
-    t.integer  "problem_id"
+    t.integer  "problem_membership_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.string   "token"
+    t.boolean  "confirmed",  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,9 +61,55 @@ ActiveRecord::Schema.define(:version => 20111113221041) do
     t.datetime "updated_at"
   end
 
-  create_table "problems", :force => true do |t|
+  create_table "problem_memberships", :force => true do |t|
+    t.integer  "problem_id"
     t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "points"
+    t.datetime "start_time"
+    t.datetime "end_time"
+  end
+
+  create_table "problems", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "points"
+    t.text     "description"
+    t.integer  "author_id"
+  end
+
+  create_table "solutions", :force => true do |t|
+    t.integer  "team_membership_id"
+    t.integer  "problem_membership_id"
+    t.string   "code_file_name"
+    t.string   "code_content_type"
+    t.integer  "code_file_size"
+    t.datetime "code_updated_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "score",                 :default => 0.0
+  end
+
+  create_table "team_memberships", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", :force => true do |t|
+    t.integer  "leader_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_team_memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20111113221041) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                                 :default => false
+    t.string   "login"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

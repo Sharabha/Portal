@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'spork'
 require 'capybara/rspec'
+require "paperclip/matchers"
 
 # Silence STDOUT is somehow bugged in 1.9.2
 # $stdout can't be reopen
@@ -71,6 +72,7 @@ Spork.prefork do
   counter = -1
   RSpec.configure do |config|
     config.include Warden::Test::Helpers
+    config.include Paperclip::Shoulda::Matchers
     config.use_transactional_fixtures = true
 
     config.before(:each) do

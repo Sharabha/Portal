@@ -1,0 +1,44 @@
+.post
+  %h2.title
+    = link_to @competition.name, competition_path(@competition)
+  %p.meta
+    Termin rozpoczęcia:
+    - if @problem_membership.start_time
+      = @problem_membership.start_time
+    - else
+      brak
+    %br
+    Termin ukończenia: 
+    - if @problem_membership.end_time
+      = @problem_membership.end_time
+    - else
+      brak
+    %br
+    Zgłaszanie rozwiązań: 
+    - if @problem_membership.underway?
+      otwarte
+    - else
+      zamknięte
+    %br
+    Liczba punktów: 
+    - if @problem_membership.problem.points
+      = @problem_membership.problem.points
+    - else
+      nie ustalono
+
+  - if @problem_membership.solutions.length > 0
+    %h3
+      Zespoły, które nadesłały rozwiązania
+    %ul
+      - for s in @problem_membership.solutions
+        %li
+          #{s.team.name}, #{s.created_at}
+          ||
+          = link_to "Zobacz rozwiązanie", competition_problem_membership_solution_path(@competition, @problem_membership, s)
+
+  - if @problem_membership.underway?
+    %h3
+      = link_to "Zgłoś rozwiązanie", new_competition_problem_membership_solution_path(@competition, @problem_membership)
+    %br/
+ 
+  

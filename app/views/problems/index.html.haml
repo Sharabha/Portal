@@ -1,0 +1,19 @@
+%h2 Zadania
+
+%table.zebra-striped.bordered-table
+  %thead
+    %tr
+      %th  
+      %th
+      %th
+
+  %tbody
+    - @problems.each do |problem|
+      %tr
+        %td= link_to problem.name, problem
+        %td= link_to 'Edit', edit_problem_path(problem)
+        %td= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'Nowe zadanie', new_problem_path

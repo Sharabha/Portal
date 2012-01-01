@@ -1,4 +1,4 @@
-<%= form_for(@team) do |f| %>
+<%= form_tag "/teams", :method => :post, :multipart => true do %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
@@ -10,24 +10,15 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :[leader_id %><br />
-    <%= f.text_field :[leader_id %>
+    <%= label_tag "name" %><br />
+    <%= text_field_tag "name" %>
   </div>
   <div class="field">
-    <%= f.label :competition_id %><br />
-    <%= f.text_field :competition_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :team_id %><br />
-    <%= f.text_field :team_id %>
+    <%= label_tag "competition_id" %><br />
+    <%= select_tag "competition_id", options_from_collection_for_select(Competition.all, "id", "name")%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag "Zapisz" %>
   </div>
 <% end %>

@@ -9,6 +9,9 @@
     = f.label :description, "Opis"
     .input= f.text_area :description, :class => "xxlarge"
   .clearfix
+    = f.label :start, "Termin rozpoczęcia"
+    .input= datetime_select "competition", "start", {:order => [:hour, :minute, :day, :month, :year]}
+  .clearfix
     = f.label :deadline, "Termin zakończenia"
     .input= datetime_select "competition", "deadline", {:order => [:hour, :minute, :day, :month, :year]}
   .clearfix.center
