@@ -4,6 +4,8 @@
   %p.meta
     Opiekun: #{@competition.organizer.email} 
     %br
+    Limit uczestników w zespole: #{@competition.max_users}
+    %br
     Termin rozpoczecia: 
     - if @competition.start
       = @competition.start
