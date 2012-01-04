@@ -5,7 +5,7 @@
     %ul
       - for a in @administrators
         %li
-          = a.email
+          = user_name(a)
           - if can? :remove_admin, a
             = link_to "Usuń prawa administratora", remove_admin_user_path(a), :method => :put
 .post
@@ -15,7 +15,7 @@
     %ul
       - for u in @users
         %li
-          = u.email
+          = user_name(u)
 
           - if can? :make_admin, u
             = link_to "Nadaj prawa administratora", make_admin_user_path(u), :method => :put

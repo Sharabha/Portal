@@ -2,7 +2,7 @@
   %h2.title
     = link_to @competition.name, competition_path(@competition)
   %p.meta
-    Opiekun: #{@competition.organizer.email} 
+    Opiekun: #{user_name(@competition.organizer)} 
     %br
     Limit uczestników w zespole: #{@competition.max_users}
     %br
@@ -45,7 +45,7 @@
     %ul
       - for judge in @competition.judges
         %li
-          = judge.email
+          = user_name(judge)
           ||
           = link_to "Usuń sędziego", competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), confirm: 'Czy jesteś pewien?', method: :delete
     = link_to "Dodaj sędziego", new_competition_judge_membership_path(@competition)
@@ -75,9 +75,8 @@
           %ul
             - for guardian in problem_membership.guardians
               %li 
-                = guardian.email
+                = user_name(guardian)
                 = link_to "Usuń opiekuna", competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), confirm: 'Czy jesteś pewien?', method: :delete
              
     = link_to "Dodaj zadanie", new_competition_problem_membership_path(@competition)
-= link_to "Dodaj nowe zawody", new_competition_path
-    
+= link_to "Dodaj nowe zawody", new_competition_path   

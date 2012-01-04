@@ -10,8 +10,8 @@ describe Competition do
 
   it "should allow to destroy unstarted competition" do
     competition = Competition.create( 'organizer_id' => 1, 'name' => 'test', 
-                                      'start' => DateTime.now() + 10.minutes,
-                                      'deadline' => DateTime.now() + 20.minutes)
+                                      :start => (DateTime.now() + 10.minutes),
+                                      :deadline => (DateTime.now() + 20.minutes))
     competition.save
     competition.destroy.should be_true
   end

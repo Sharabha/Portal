@@ -4,7 +4,7 @@
     %h2.title
       = link_to competition.name, competition_path(competition)
     %p.meta
-      Opiekun: #{competition.organizer.email}
+      Opiekun: #{user_name(competition.organizer)}
       %br/
       Termin ukończenia: 
       - if competition.deadline
