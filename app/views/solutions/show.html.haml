@@ -8,3 +8,6 @@
 %br/
 %b Kod rozwiązania:
 = link_to @solution.code_file_name, @solution.code.url, :target => :blank
+%br
+%br
+= link_to "Edytuj", edit_competition_problem_membership_solution_path(@competition, @problem_membership)
