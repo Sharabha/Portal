@@ -12,6 +12,13 @@ pl:
       team:
         name: Nazwa
         competition_id: Zawody
+      competition:
+        name: Nazwa
+        organizer_id: Organizator
+        description: Opis
+        deadline: "Termin ukończenia"
+        start: "Termin rozpoczęcia"
+        max_users: "Maksymalna liczba uczestników"
 
   number:
     format:
@@ -169,6 +176,14 @@ pl:
         competition_id: Zawody
         leader: Lider
 
+      competition:
+        name: Nazwa
+        organizer_id: Organizator
+        description: Opis
+        deadline: "Termin ukończenia"
+        start: "Termin rozpoczęcia"
+        max_users: "Maksymalna liczba uczestników"
+
   support:
     array:
       sentence_connector: "i"
@@ -218,7 +233,28 @@ pl:
   confirm: "Potwierdź"
   new_team: "Dodaj zespół"
   edit_team: "Edytuj zespół"
+  destroy_team: "Usuń zespół"
   show: Pokaż
   edit: Edytuj
   destroy: Usuń
   teams: Zespoły
+  new_competition: "Dodaj zawody"
+  edit_competition: "Edytuj zawody"
+  close_competition: "Zakończ zawody"
+  competitions: Zawody
+  none: Brak
+  status_expired: Zakończone
+  status_ongoing: W trakcie
+  status_pending: Oczekujące na rozpoczęcie
+  status: Status
+  judges: Sędziowie
+  new_judge: Dodaj sędziego
+  destroy_judge: Usuń sędziego
+  are_you_sure: "Czy jesteś pewien?"
+  problems: Zadania
+  destroy_problem_membership: Usuń załączone zadania
+  new_problem_guardian: Dodaj opiekuna zadania
+  guardians: Opiekunowie
+  new_problem: Dodaj zadanie
+  destroy_guardian: Usuń opiekuna
+  

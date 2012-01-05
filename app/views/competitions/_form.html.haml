@@ -1,0 +1,22 @@
+= form_for @competition do |f|
+  = render :partial => "errors"
+  .clearfix
+    = f.label :name
+    .input= f.text_field :name, :class => "xlarge"
+  .clearfix
+    = f.label :organizer_id
+    .input= select "competition", "organizer_id",  User.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 
+  .clearfix
+    = f.label :max_users
+    .input= f.number_field :max_users, :class => "small", :min => 1
+  .clearfix
+    = f.label :description
+    .input= f.text_area :description, :class => "xxlarge"
+  .clearfix
+    = f.label :start
+    .input= datetime_select "competition", "start", {:order => [:hour, :minute, :day, :month, :year]}
+  .clearfix
+    = f.label :deadline
+    .input= datetime_select "competition", "deadline", {:order => [:hour, :minute, :day, :month, :year]}
+  .actions.clearfix.center
+    = f.submit "Zapisz", :class => "btn primary"

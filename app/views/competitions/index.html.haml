@@ -1,21 +1,23 @@
-%h1 Lista zawodów
+%h2
+  = t(:competitions)
 - for competition in @competitions
   .post
     %h2.title
       = link_to competition.name, competition_path(competition)
     %p.meta
-      Opiekun: #{user_name(competition.organizer)}
+      #{t("activerecord.attributes.competition.organizer_id")}:
+      = user_name(competition.organizer)
       %br/
-      Termin ukończenia: 
+      #{t("activerecord.attributes.competition.deadline")}:
       - if competition.deadline
         #{competition.deadline},
       - else
-        brak, 
+        = t(:none) 
       status: 
       - if !competition.deadline_expired?
-        w trakcie
+        = t(:status_ongoing)
       - else
-        zakończone
+        = t(:status_expired)
       
-= link_to "Dodaj nowe zawody", new_competition_path
+= link_to t(:new_competition), new_competition_path
     

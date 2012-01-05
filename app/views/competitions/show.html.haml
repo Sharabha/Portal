@@ -2,30 +2,32 @@
   %h2.title
     = link_to @competition.name, competition_path(@competition)
   %p.meta
-    Opiekun: #{user_name(@competition.organizer)} 
-    %br
-    Limit uczestników w zespole: #{@competition.max_users}
-    %br
-    Termin rozpoczecia: 
+    #{t("activerecord.attributes.competition.organizer_id")}:
+    #{user_name(@competition.organizer)} 
+    %br/
+    #{t("activerecord.attributes.competition.max_users")}:
+    #{@competition.max_users}
+    %br/
+    #{t("activerecord.attributes.competition.start")}:
     - if @competition.start
       = @competition.start
     - else
-      brak
-    %br
-    Termin ukończenia: 
+      = t(:none)
+    %br/
+    #{t("activerecord.attributes.competition.deadline")}:
     - if @competition.deadline
       = @competition.deadline
     - else
-      brak
-    %br
-    Status: 
+      t(:none)
+    %br/
+    #{t(:status)}:
     - if !@competition.deadline_expired?
       - if @competition.started?
-        w trakcie
+        = t(:status_ongoing)
       - else
-        oczejujące
+        = t(:status_pending)
     - else
-      zakończone
+      = t(:status_expired)
     %br
     Opis:
   .entry
@@ -34,49 +36,49 @@
     %br/
     - if @competition.started?
       - unless @competition.deadline_expired?
-        = link_to "Edytuj zawody",  edit_competition_path(@competition.id)
+        = link_to t(:edit_competition),  edit_competition_path(@competition.id)
         |
-        = link_to "Zakończ zawody", close_competition_path(@competition.id), :method => :put
+        = link_to t(:close_competition), close_competition_path(@competition.id), :method => :put
     - else
       = link_to "Usuń zawody", @competition, confirm: 'Czy jestes pewien?', method: :delete
     %br/
     %br/
-    %h3 Sędziowie:
+    %h3= t(:judges)
     %ul
       - for judge in @competition.judges
         %li
           = user_name(judge)
           ||
-          = link_to "Usuń sędziego", competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), confirm: 'Czy jesteś pewien?', method: :delete
-    = link_to "Dodaj sędziego", new_competition_judge_membership_path(@competition)
+          = link_to t(:destroy_judge), competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), :confirm => t(:are_you_sure), :method => :delete
+    = link_to t(:new_judge), new_competition_judge_membership_path(@competition)
     %br/
     %br/
-    %h3 Zespoły:
+    %h3= t(:teams)
     %ul
       - for team in @competition.teams
         %li
           = team.name
           ||
-          = link_to "Usuń zespół", competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), confirm: 'Czy jestes pewien?', method: :delete
-    = link_to "Dodaj zespół", new_competition_team_membership_path(@competition)
+          = link_to t(:destroy_team), competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), :confirm => t(:are_you_sure), :method => :delete
+    = link_to t(:new_team), new_competition_team_membership_path(@competition)
     %br/
     %br/
-    %h3 Zadania:
+    %h3= t(:problems)
     %ul
       - for problem_membership in @competition.problem_memberships
         %li
           = link_to problem_membership.problem.name, competition_problem_membership_path(@competition, problem_membership)
           ||
-          = link_to "Usuń załączone zadanie", competition_problem_membership_path(@competition, problem_membership), confirm: 'Czy jestes pewien?', method: :delete
+          = link_to t(:destroy_problem_membership), competition_problem_membership_path(@competition, problem_membership), :confirm => t(:are_you_sure), :method => :delete
           ||
-          = link_to "Dodaj opiekuna", new_competition_problem_membership_guardian_membership_path(@competition, problem_membership)
+          = link_to t(:new_problem_guardian), new_competition_problem_membership_guardian_membership_path(@competition, problem_membership)
           %br/
-          Opiekunowie:
+          = t(:guardians)
           %ul
             - for guardian in problem_membership.guardians
               %li 
                 = user_name(guardian)
-                = link_to "Usuń opiekuna", competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), confirm: 'Czy jesteś pewien?', method: :delete
+                = link_to t(:destroy_guardian), competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), :confirm => t(:are_you_sure), :method => :delete
              
-    = link_to "Dodaj zadanie", new_competition_problem_membership_path(@competition)
-= link_to "Dodaj nowe zawody", new_competition_path   
+    = link_to t(:new_problem), new_competition_problem_membership_path(@competition)
+= link_to t(:new_competition), new_competition_path   
