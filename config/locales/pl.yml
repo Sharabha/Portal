@@ -19,6 +19,9 @@ pl:
         deadline: "Termin ukończenia"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
+      judge_membership:
+        judge_id: Sędzia
+        
 
   number:
     format:
@@ -166,6 +169,7 @@ pl:
       user: Użytkownik
       team: Zespół
       competition: Zawody
+      problem: Zadanie
        
     attributes:
       user:
@@ -207,6 +211,7 @@ pl:
   back: "« Poprzednia strona"
   next: "Następne »"
   submit: Zapisz
+  save: Zapisz
   subject: "temat"
   content: "treść"
   remember_me: "Zapamiętaj mnie"
@@ -249,6 +254,7 @@ pl:
   status: Status
   judges: Sędziowie
   new_judge: Dodaj sędziego
+  for_competition: do zawodów
   destroy_judge: Usuń sędziego
   are_you_sure: "Czy jesteś pewien?"
   problems: Zadania
