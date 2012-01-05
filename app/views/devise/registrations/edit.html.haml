@@ -20,7 +20,7 @@
       = f.password_field :current_password
       %span.help-block
         Potwierdź zmiany hasłem.
-  .clearfix.center= f.submit t(:sign_up), :class => "btn primary"
+  .clearfix.actions= f.submit t(:update), :class => "btn primary"
 
 %h3 Usuwanie konta
 Kliknij #{link_to "tutaj", registration_path(resource_name), :confirm => "Jesteś pewien, że chcesz usunąć konto?", :method => :delete}, aby usunąć konto.

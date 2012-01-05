@@ -11,5 +11,6 @@
       %label
         = f.check_box :remember_me
         %span= t(:remember_me).capitalize
-  .clearfix.center= f.submit t(:sign_in), :class => "btn primary"
-= render :partial => "devise/shared/links"
+  .clearfix.actions
+    = f.submit t(:sign_in), :class => "btn primary"
+    = render :partial => "devise/shared/links"

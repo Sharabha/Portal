@@ -162,6 +162,7 @@ pl:
       prompt: "Proszę wybrać:"
 
   user: "użytkownik"
+  model: "użytkownik"
   email: "adres e-mail"
   password: "hasło"
   password_confirmation: "powtórz hasło"
@@ -174,12 +175,13 @@ pl:
   next: "Następne »"
   subject: "temat"
   content: "treść"
-  remember_me: "Zapamiętaj"
+  remember_me: "Zapamiętaj mnie na tym komputerze"
 
   sign_up_title: "Załóż konto"
   sign_in_title: "Zaloguj się"
   password_title: "Zapomniałeś hasła?"
   sign_in: "Zaloguj"
   sign_up: "Zarejestruj"
+  update: "Zapisz zmiany"
   current_password: "Obecne hasło"
 
