@@ -3,7 +3,7 @@
   = t(:for_competition)
   = @competition.name
 = form_for [@competition, @judge_membership] do |f|
-  .clearfix
+  = render :partial => "errors"
   .clearfix
     = f.label :judge_id
     .input= select "judge_membership", "judge_id",  User.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 

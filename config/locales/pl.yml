@@ -1,6 +1,9 @@
 # Polish translations for Ruby on Rails
 # by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
 
+# modified for Sharabha use by Magda Sikorska & Jadzia Gruczka
+# (Girls on Rails [tm])
+
 pl:
   helpers:
     label:
@@ -21,6 +24,8 @@ pl:
         max_users: "Maksymalna liczba uczestników"
       judge_membership:
         judge_id: Sędzia
+      team_membership:
+        team_id: Zespół      
         
 
   number:
@@ -154,7 +159,7 @@ pl:
         too_long: "jest za długie (maksymalnie %{count} znaków)"
         too_short: "jest za krótkie (minimalnie %{count} znaków)"
         wrong_length: "jest nieprawidłowej długości (powinna wynosić %{count} znaków)"
-        taken: "jest już zajęta"
+        taken: "jest już zajęte"
         not_a_number: "nie jest liczbą"
         not_an_integer: "nie jest liczbą całkowitą"
         greater_than: "musi być większe niż %{count}"
@@ -187,6 +192,10 @@ pl:
         deadline: "Termin ukończenia"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
+      team_membership:
+        team_id: Zespół
+      judge_membership:
+        judge_id: Sędzia
 
   support:
     array:
@@ -263,4 +272,6 @@ pl:
   guardians: Opiekunowie
   new_problem: Dodaj zadanie
   destroy_guardian: Usuń opiekuna
-  
+  new_team_membership: Dodaj zespół 
+  judge_id: Sędzia
+  team_id: Zespół
