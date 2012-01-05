@@ -25,8 +25,11 @@ pl:
       judge_membership:
         judge_id: Sędzia
       team_membership:
-        team_id: Zespół      
-        
+        team_id: Zespół  
+      problem_membership:
+        start_time: Czas rozpoczęcia
+        end_time: Czas zakończenia
+        problem_id: Zadanie 
 
   number:
     format:
@@ -196,6 +199,10 @@ pl:
         team_id: Zespół
       judge_membership:
         judge_id: Sędzia
+      problem_membership:
+        start_time: Czas rozpoczęcia
+        end_time: Czas zakończenia
+        problem_id: Zadanie
 
   support:
     array:
@@ -275,3 +282,13 @@ pl:
   new_team_membership: Dodaj zespół 
   judge_id: Sędzia
   team_id: Zespół
+  new_problem_membership: Dołącz zadanie
+  edit_problem_membership: Edytuj dołączone zadanie
+  adding_solutions: Zgłaszanie rozwiązań
+  status_open: Otwarte
+  status_closed: Zamknięte
+  points: Liczba punktów
+  points_none: Nie ustalono
+  teams_with_solutions: "Zespoły, które nadesłały rozwiązanie"
+  show_solution: Pokaż rozwiązanie
+  new_solution: Zgłoś rozwiązanie

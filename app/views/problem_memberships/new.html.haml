@@ -1,5 +1,9 @@
-%h1 Podłącz zadanie
+%h2
+  = t(:new_problem_membership)
+  = t(:for_competition)
+  = @competition.name
 
-= render 'form'
 
-= link_to 'Back', competition_problem_memberships_path(@competition)
+= render :partial => 'form'
+
+= link_to t(:back), competition_problem_memberships_path(@competition)
