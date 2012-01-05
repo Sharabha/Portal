@@ -2,6 +2,17 @@
 # by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
 
 pl:
+  helpers:
+    label:
+      user:
+        login: Login
+        email: Email
+        password: Hasło
+        password_confirmation: "Potwierdź hasło"
+      team:
+        name: Nazwa
+        competition_id: Zawody
+
   number:
     format:
       separator: ","
@@ -144,12 +155,19 @@ pl:
         odd: "musi być nieparzyste"
         even: "musi być parzyste"
         record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
-      models:
-        user: Użytkownik
-      attributes:
-        user:
-          email: "Adres e-mail"
-          password: "Hasło"
+    models:
+      user: Użytkownik
+      team: Zespół
+      competition: Zawody
+       
+    attributes:
+      user:
+        email: "Adres e-mail"
+        password: "Hasło"
+      team:
+        name: "Nazwa"
+        competition_id: Zawody
+        leader: Lider
 
   support:
     array:
@@ -173,9 +191,10 @@ pl:
   previous: "« Poprzednie"
   back: "« Poprzednia strona"
   next: "Następne »"
+  submit: Zapisz
   subject: "temat"
   content: "treść"
-  remember_me: "Zapamiętaj mnie na tym komputerze"
+  remember_me: "Zapamiętaj mnie"
 
   sign_up_title: "Załóż konto"
   sign_in_title: "Zaloguj się"
@@ -189,4 +208,17 @@ pl:
   email: email
   password: hasło
   errors: "Wystąpiły następujące błędy:"
-
+  logged_in_as: "Zalogowany jako"
+  login: "Zaloguj się"
+  register: "Załóż konto"
+  logout: "Wyloguj się"
+  invitations: "Zaproszenia do zespołów"
+  confirmed: "Potwierdzone"
+  not_confirmed: "Niepotwierdzone"
+  confirm: "Potwierdź"
+  new_team: "Dodaj zespół"
+  edit_team: "Edytuj zespół"
+  show: Pokaż
+  edit: Edytuj
+  destroy: Usuń
+  teams: Zespoły
