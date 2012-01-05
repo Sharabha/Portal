@@ -11,30 +11,18 @@
       body {
         padding-top: 55px;
       }
-      .user-panel
-      {
-         background: none repeat scroll 0 0 #FFFFFF;
-        -webkit-border-radius: 0 0 7px 28px;
-        -moz-border-radius: 0 0 7px 28px;
-        border-radius: 0 0 7px 7px;
+      .user {
         float: right;
-        padding: 3px 10px 5px 10px;
+        color: white;
+        line-height: 44px;
       }
-
-      .user-panel a, .user-panel a:hover
-      {
-        text-shadow: none;
-        color:#0069D6;
+      .topbar .inline-inputs label {
+        float: none;
+        color: white;
       }
       .topbar div > .brand, .topbar div > ul, .nav
       {
         margin-top: 4px;
-      }
-      .user-panel form input[type=text], .user-panel form input[type=password], .user-panel form button
-      {
-        line-height: 0.8em;
-        font-size: 0.8em;
-        height: 80%;
       }
       .label
       {
@@ -50,7 +38,7 @@
   %body
     .topbar
       .topbar-inner
-        .container-fluid
+        .container
           %a.brand{:href => "#"} Sharabha
           %ul.nav
             %li.active
@@ -59,20 +47,20 @@
               %a{:href => "#about"} O projekcie
             %li
               %a{:href => "#contact"} Kontakt
-          .user-panel
-            - if user_signed_in?
-              Zalogowany jako, 
+          - if user_signed_in?
+            .user
+              Zalogowany jako
               = link_to "#{current_user.email}", edit_user_registration_path
-              !
+              |
               = link_to "Wyloguj się", destroy_user_session_path, :method => :delete
-            - else
-              = form_tag new_user_session_path do
-                = link_to ' Załóż konto w kilka sekund! ' , new_user_registration_path, :class => ['label', 'warning'], :style => 'color: white;'
-                &nbsp;&nbsp;&nbsp;
-                Login: 
-                = text_field_tag 'user[email]', '', :class => 'span2'
-                Hasło: 
-                = password_field_tag 'user[password]', '', :class => 'span2'
+          - else
+            = form_tag new_user_session_path, :style => "float: right; margin-top: 5px" do
+              -#= link_to ' Załóż konto w kilka sekund! ' , new_user_registration_path, :class => ['label', 'warning'], :style => 'color: white;'
+              .inline-inputs
+                %label Login: 
+                = text_field_tag 'user[email]', '', :class => 'small'
+                %label Hasło: 
+                = password_field_tag 'user[password]', '', :class => 'small'
                 %button.btn.primary Zaloguj
                 %label{:style=>'float: none;'}
                   = check_box_tag 'user[remember_me]', "checked"
