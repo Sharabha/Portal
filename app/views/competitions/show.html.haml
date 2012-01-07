@@ -1,26 +1,26 @@
 .post
   %h2.title
-    = link_to @competition.name, competition_path(@competition)
+    = @competition.name
   %p.meta
-    #{t("activerecord.attributes.competition.organizer_id")}:
+    %b #{t("activerecord.attributes.competition.organizer_id")}:
     #{user_name(@competition.organizer)} 
     %br/
-    #{t("activerecord.attributes.competition.max_users")}:
+    %b #{t("activerecord.attributes.competition.max_users")}:
     #{@competition.max_users}
     %br/
-    #{t("activerecord.attributes.competition.start")}:
+    %b #{t("activerecord.attributes.competition.start")}:
     - if @competition.start
       = @competition.start
     - else
       = t(:none)
     %br/
-    #{t("activerecord.attributes.competition.deadline")}:
+    %b #{t("activerecord.attributes.competition.deadline")}:
     - if @competition.deadline
       = @competition.deadline
     - else
       t(:none)
     %br/
-    #{t(:status)}:
+    %b #{t(:status)}:
     - if !@competition.deadline_expired?
       - if @competition.started?
         = t(:status_ongoing)
@@ -29,7 +29,7 @@
     - else
       = t(:status_expired)
     %br
-    Opis:
+    %b Opis:
   .entry
     = @competition.description
     %br/
@@ -37,10 +37,11 @@
     - if @competition.started?
       - unless @competition.deadline_expired?
         = link_to t(:edit_competition),  edit_competition_path(@competition.id)
-        |
+        %br/
+        %br/
         = link_to t(:close_competition), close_competition_path(@competition.id), :method => :put
     - else
-      = link_to "Usuń zawody", @competition, confirm: 'Czy jestes pewien?', method: :delete
+      = link_to t(:destroy_competition), @competition, :confirm => t(:are_you_sure), method: :delete
     %br/
     %br/
     %h3= t(:judges)
@@ -81,4 +82,3 @@
                 = link_to t(:destroy_guardian), competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), :confirm => t(:are_you_sure), :method => :delete
              
     = link_to t(:new_problem), new_competition_problem_membership_path(@competition)
-= link_to t(:new_competition), new_competition_path   

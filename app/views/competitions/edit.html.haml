@@ -1,6 +1,7 @@
 %h2
   = t(:edit_competition)
-
 = render :partial => "form"
-
-
+= link_to t(:show_competition), @competition
+%br/
+%br/
+= link_to t(:back), competitions_path

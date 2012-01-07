@@ -1,23 +1,19 @@
 %h2
   = t(:teams)
-%table
-  %tr
-    %th
-      = t("activerecord.attributes.team.leader")
-    %th
-      = t("activerecord.attributes.team.competition_id")
-    %th
-      = t("activerecord.attributes.team.name")
-    %th
-    %th
-    %th
-    %th
-  - @teams.each do |team|
-    %tr
-      %td= user_name(team.leader)
-      %td= team.name
-      %td= link_to t(:show), team
-      %td= link_to t(:edit), edit_team_path(team)
-      %td= link_to t(:destroy), team, confirm: 'Are you sure?', method: :delete
+- for team in @teams
+  .post
+    %h2.title
+      = link_to team.name, team_path(team)
+    %p.meta
+      %b #{t("activerecord.attributes.team.leader")}
+      = user_name(team.leader)
+      %br/
+      %b #{t("activerecord.attributes.team.competition_id")}
+      -#stworzyłam helper, bo nie umiałam wyciągnąc competition_name //Jadzik
+      = competition_name(team.competition)
+      %br/
+      = link_to t(:show_team), team
+      %br/
+      = link_to t(:edit_team), edit_team_path(team)
 %br/
 = link_to t(:new_team), new_team_path

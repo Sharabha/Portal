@@ -1,19 +1,9 @@
-%h2 Zadania
+%h2
+  = t(:problems)
+- for problem in @problems
+  .post
+    %h3.title
+      = link_to problem.name, problem_path(problem)
+%br/
 
-%table.zebra-striped.bordered-table
-  %thead
-    %tr
-      %th  
-      %th
-      %th
-
-  %tbody
-    - @problems.each do |problem|
-      %tr
-        %td= link_to problem.name, problem
-        %td= link_to 'Edit', edit_problem_path(problem)
-        %td= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'Nowe zadanie', new_problem_path
+= link_to t(:new_problem), new_problem_path

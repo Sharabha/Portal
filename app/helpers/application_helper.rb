@@ -5,4 +5,12 @@ module ApplicationHelper
    name ||= user.email
  end
 
+ def competition_name(competition)
+    name = competition.name
+ end
+
+ def problem_name(problem)
+    name = problem.name
+ end
+
 end

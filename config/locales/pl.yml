@@ -1,7 +1,7 @@
 # Polish translations for Ruby on Rails
 # by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
 
-# modified for Sharabha use by Magda Sikorska & Jadzia Gruczka
+# modified for Sharabha use by Magda Sikorska & Jadzik
 # (Girls on Rails [tm])
 
 pl:
@@ -15,6 +15,7 @@ pl:
       team:
         name: Nazwa
         competition_id: Zawody
+        invitations: Zaproszenia
       competition:
         name: Nazwa
         organizer_id: Organizator
@@ -30,6 +31,11 @@ pl:
         start_time: Czas rozpoczęcia
         end_time: Czas zakończenia
         problem_id: Zadanie 
+      problem:
+        problem: Zadanie
+        name: Nazwa
+        description: Opis
+        points: Punkty
 
   number:
     format:
@@ -181,13 +187,14 @@ pl:
        
     attributes:
       user:
-        email: "Adres e-mail"
-        password: "Hasło"
+        email: Adres e-mail
+        password: Hasło
       team:
-        name: "Nazwa"
+        name: Nazwa
         competition_id: Zawody
         leader: Lider
-
+        invitations: Zaproszenia        
+        members: Członkowie
       competition:
         name: Nazwa
         organizer_id: Organizator
@@ -214,35 +221,35 @@ pl:
     select:
       prompt: "Proszę wybrać:"
 
-  user: "użytkownik"
-  model: "użytkownik"
+  ii_uwr: Instytut Informatyki Uniwersytetu Wrocławskiego
+  news: Aktualności
+  about_project: O projekcie
+  contact: Kontakt
+  user: Użytkownik
+  users: Użytkownicy
   email: "adres e-mail"
-  password: "hasło"
-  password_confirmation: "powtórz hasło"
-  username: "nazwa użytkownika"
-  name: "nazwa"
-  description: "opis"
-  keywords: "słowa kluczowe"
+  password: hasło
+  password_confirmation: powtórz hasło
+  username: nazwa użytkownika
+  name: nazwa
+  description: opis
+  keywords: słowa kluczowe
   previous: "« Poprzednie"
   back: "« Poprzednia strona"
   next: "Następne »"
   submit: Zapisz
   save: Zapisz
-  subject: "temat"
-  content: "treść"
-  remember_me: "Zapamiętaj mnie"
-
-  sign_up_title: "Załóż konto"
-  sign_in_title: "Zaloguj się"
+  subject: Temat
+  content: Treść
+  remember_me: Zapamiętaj mnie
+  sign_up_title: Załóż konto
+  sign_in_title: Zaloguj się
   password_title: "Zapomniałeś hasła?"
-  sign_in: "Zaloguj"
-  sign_up: "Zarejestruj"
-  update: "Zapisz zmiany"
-  current_password: "Obecne hasło"
-  user: "Użytkownik"
+  sign_in: Zaloguj
+  sign_up: Zarejestruj
+  update: Zapisz zmiany
+  current_password: Obecne hasło
   field: Pole
-  email: email
-  password: hasło
   errors: "Wystąpiły następujące błędy:"
   logged_in_as: "Zalogowany jako"
   login: "Zaloguj się"
@@ -252,34 +259,37 @@ pl:
   confirmed: "Potwierdzone"
   not_confirmed: "Niepotwierdzone"
   confirm: "Potwierdź"
-  new_team: "Dodaj zespół"
+  new_team: "Dodaj nowy zespół"
   edit_team: "Edytuj zespół"
   destroy_team: "Usuń zespół"
   show: Pokaż
   edit: Edytuj
   destroy: Usuń
   teams: Zespoły
-  new_competition: "Dodaj zawody"
+  new_competition: "Dodaj nowe zawody"
   edit_competition: "Edytuj zawody"
   close_competition: "Zakończ zawody"
   competitions: Zawody
+  competition_id : Zawody
   none: Brak
   status_expired: Zakończone
   status_ongoing: W trakcie
   status_pending: Oczekujące na rozpoczęcie
   status: Status
+  status_confirmed: Potwierdzone
+  status_unconfirmed: Nie potwierdzone
   judges: Sędziowie
   new_judge: Dodaj sędziego
   for_competition: do zawodów
   destroy_judge: Usuń sędziego
   are_you_sure: "Czy jesteś pewien?"
   problems: Zadania
-  destroy_problem_membership: Usuń załączone zadania
+  destroy_problem_membership: Usuń załączone zadanie
   new_problem_guardian: Dodaj opiekuna zadania
   guardians: Opiekunowie
-  new_problem: Dodaj zadanie
+  new_problem: Dodaj nowe zadanie
   destroy_guardian: Usuń opiekuna
-  new_team_membership: Dodaj zespół 
+  new_team_membership: Dodaj nowy zespół 
   judge_id: Sędzia
   team_id: Zespół
   new_problem_membership: Dołącz zadanie
@@ -292,3 +302,18 @@ pl:
   teams_with_solutions: "Zespoły, które nadesłały rozwiązanie"
   show_solution: Pokaż rozwiązanie
   new_solution: Zgłoś rozwiązanie
+  show_competition: Pokaż Zawody
+  show_problem: Pokaż Zadanie
+  show_team: Pokaż zespół
+  new_invitation: Wyślij zaproszenie
+  edit_team: Edytuj zespół
+  destroy_competition: Usuń zawody
+  cheker: Sprawdzaczka
+  for_problem: dla zadania
+  description: Opis
+  new_guardian: Dodaj nowego opiekuna zadania
+  destroy_problem: Usuń zadanie
+  new_data: Dodaj nowe dane
+  added_datas: Dodane zestawy danych
+  input: Dane wejściowe
+  output: Dane wyjściowe

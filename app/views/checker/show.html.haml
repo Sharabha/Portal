@@ -1,16 +1,21 @@
-%h2 Sprawdzaczka dla zadania #{@checker.problem.name}
+%h2
+  = t(:checker)
+  = t(:for_problem)
+  = problem_name(@checker.problem)
 %br/
-%br/
+
 - if @checker.checker_datas.length > 0
-  %h3 Dodane przykłady:
+  %h4 #{t("added_datas")}:
   - for cd in @checker.checker_datas
     .checker_data
-      %b Dane wejściowe:
+      %b #{t("input")}:
       = cd.input
       %br/
-      %b Dane wyjściowe:
+      %b #{t("output")}:
       = cd.output
       %br/
       %br/
-
-= link_to "Dodaj nowe dane", new_problem_checker_checker_data_path(@problem)
+= link_to t(:new_data), new_problem_checker_checker_data_path(@problem)
+%br/
+%br/
+= linkt_to t(:back), problem_chekers_path

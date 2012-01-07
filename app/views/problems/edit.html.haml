@@ -1,7 +1,7 @@
-%h1 Edycja zadania
-
-= render 'form'
-
-= link_to 'Show', @problem
-\|
-= link_to 'Back', problems_path
+%h2
+  = t(:edit_problem)
+= render :partial => "form"
+= link_to t(:show_problem), @problem
+%br/
+%br/
+= link_to t(:back), problems_path

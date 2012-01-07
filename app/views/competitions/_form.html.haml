@@ -19,4 +19,4 @@
     = f.label :deadline
     .input= datetime_select "competition", "deadline", {:order => [:hour, :minute, :day, :month, :year]}
   .actions.clearfix.center
-    = f.submit "Zapisz", :class => "btn primary"
+    = f.submit t(:save), :class => "btn primary"

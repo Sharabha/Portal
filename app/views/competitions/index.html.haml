@@ -2,7 +2,7 @@
   = t(:competitions)
 - for competition in @competitions
   .post
-    %h2.title
+    %h3.title
       = link_to competition.name, competition_path(competition)
     %p.meta
       #{t("activerecord.attributes.competition.organizer_id")}:

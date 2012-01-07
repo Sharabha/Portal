@@ -1,31 +1,37 @@
-%p#notice= notice
-%p
-  %b Zawody:
-  = Competition.find(TeamMembership.find_by_team_id(@team.id).competition_id).name
-%p
-  %b leader:
-  = User.find(@team.leader_id).email
-%p
-  %b Name:
-  = @team.name
-%b Zaproszenia
-- for invitation in @invitations
-  %p
-    = user_name(User.find(invitation.user_id))
-    |
-    - if invitation.confirmed
-      potwierdzone
-    - else
-      nie potwierdzone
-    |
-    \#{invitation.token}
-= link_to 'Wyslij zaproszenie ', new_team_invitation_path(@team)
-%br
-  %b Członkowie
+.post
+  %h2.title
+    = @team.name
+  %p.meta
+    %b #{t("activerecord.attributes.team.competition_id")}:
+    #{Competition.find(TeamMembership.find_by_team_id(@team.id).competition_id).name}
+    %br/
+    %b #{t("activerecord.attributes.team.leader")}:
+    = user_name(User.find(@team.leader_id))
+    %br/
+    %b #{t("activerecord.attributes.team.name")}:
+    = @team.name
+  %b #{t("activerecord.attributes.team.invitations")}:
+  - for invitation in @invitations
+    %p
+      = user_name(User.find(invitation.user_id))
+      |
+      - if invitation.confirmed
+        t(:status_confirmed)
+      - else
+        t(:status_unconfirmed)
+      |
+      \#{invitation.token}
+  %br/
+  = link_to t(:new_invitation), new_team_invitation_path(@team)
+  %br/
+  %br/
+  %b #{t("activerecord.attributes.team.members")}:
   - for team_member in @team.team_members
     %p
       = user_name(team_member)
-  %hr
-    = link_to 'Edit', edit_team_path(@team)
-    |
-    \#{link_to 'Back', teams_path}
+  %br/
+%br/
+= link_to t(:edit_team), edit_team_path(@team)
+%br/
+%br/
+= link_to t(:back), teams_path

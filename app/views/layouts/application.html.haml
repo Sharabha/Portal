@@ -42,11 +42,11 @@
           %a.brand{:href => "#"} Sharabha
           %ul.nav
             %li.active
-              %a{:href => "#"} Aktualności
+              %a{:href => "#"} #{t("news")}
             %li
-              %a{:href => "#about"} O projekcie
+              %a{:href => "#about"} #{t("about_project")}
             %li
-              %a{:href => "#contact"} Kontakt
+              %a{:href => "#contact"} #{t("contact")}
           - if user_signed_in?
             .user
               = t(:logged_in_as)
@@ -60,7 +60,7 @@
                 = text_field_tag 'user[email]', '', :class => 'small'
                 %label= t(:password).capitalize 
                 = password_field_tag 'user[password]', '', :class => 'small'
-                %button.btn.primary Zaloguj
+                %button.btn.primary t(:sign_in)
                 %label{:style=>'float: none;'}
                   = check_box_tag 'user[remember_me]', "checked"
                   %span= t(:remember_me)
@@ -70,11 +70,13 @@
           %h5 Sharabha
           %ul
             %li
-              = link_to "Użytkownicy", users_path
+              = link_to t(:users), users_path
             %li
-              = link_to "Zespoły", teams_path
+              = link_to t(:teams), teams_path
             %li
-              = link_to "Zawody", competitions_path
+              = link_to t(:competitions), competitions_path
+            %li
+              = link_to t(:problems), problems_path
 
       .content
         .row{:style => "margin-left: 0px"}
@@ -82,4 +84,4 @@
         %footer
           %p
             \© 2011
-            %a{:href => "http://www.ii.uni.wroc.pl/"} Instytut Informatyki UWR
+            %a{:href => "http://www.ii.uni.wroc.pl/"} #{t("ii_uwr")}

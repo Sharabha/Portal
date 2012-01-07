@@ -1,5 +1,4 @@
-%h1 Nowe zadanie
-
-= render 'form'
-
-= link_to 'Back', problems_path
+%h2
+  = t(:new_problem)
+= render :partial => "form"
+= link_to t(:back), problems_path

@@ -1,20 +1,14 @@
--if @problem.errors.any?
-  #error_explanation
-    %h2= "#{pluralize(@problem.errors.count, "error")} prohibited this problem from being saved:"
-    %ul
-      - @problem.errors.full_messages.each do |msg|
-        %li= msg
-
 .post
-  %h2.title= @problem.name
+  %h2.title
+    = @problem.name
   %p.meta
-
-  .entry
-    %h3 Treść:
-    %p= @problem.description
-    
+    %h3 
+      #{t("description")}
+    %p
+      = @problem.description 
 %h3
-  = link_to "Sprawdzaczka", problem_checker_path(@problem)
-= link_to "Usuń zadanie", @problem, :method => 'delete', :confirm => 'Usunąć?' 
-%br
--#= link_to "Dodaj nowego opiekuna", new_competition_problem_guardian_membership_path(@competition, @problem)
+  = link_to t(:cheker), problem_checker_path(@problem)
+%br/
+= link_to t(:destroy_problem), @problem, :method => 'delete', :confirm => t(:are_you_sure) 
+%br/
+-#= link_to t(:new_guardian), new_competition_problem_guardian_membership_path(@competition, @problem)

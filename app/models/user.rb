@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   has_many :judge_memberships, :as => :judge
   has_many :judged_competitions, :through => :judge_memberships
   #has_many :competitions, :as => :competitor 
-  #has_many :judged_competitions, :as => :judge
 
   has_many :user_team_memberships
   has_many :user_team_memberships, :as => :team_member
