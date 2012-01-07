@@ -1,16 +1,16 @@
 .post
   %h2.title
-    Administratorzy
+    = t(:admins)
   .entry
     %ul
       - for a in @administrators
         %li
           = user_name(a)
           - if can? :remove_admin, a
-            = link_to "Usuń prawa administratora", remove_admin_user_path(a), :method => :put
+            = link_to t(:remove_admin), remove_admin_user_path(a), :method => :put
 .post
   %h2.title
-    Użytkownicy
+    = t(:users)
   .entry
     %ul
       - for u in @users
@@ -18,5 +18,5 @@
           = user_name(u)
 
           - if can? :make_admin, u
-            = link_to "Nadaj prawa administratora", make_admin_user_path(u), :method => :put
+            = link_to t(:make_admin), make_admin_user_path(u), :method => :put
    

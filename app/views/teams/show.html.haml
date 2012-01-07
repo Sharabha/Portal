@@ -16,9 +16,9 @@
       = user_name(User.find(invitation.user_id))
       |
       - if invitation.confirmed
-        t(:status_confirmed)
+        = t(:status_confirmed)
       - else
-        t(:status_unconfirmed)
+        = t(:status_unconfirmed)
       |
       \#{invitation.token}
   %br/

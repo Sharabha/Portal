@@ -37,8 +37,9 @@
           = link_to t(:show_solution), competition_problem_membership_solution_path(@competition, @problem_membership, s)
 
   - if @problem_membership.underway?
-    %h3
+    %h4
       = link_to t(:new_solution), new_competition_problem_membership_solution_path(@competition, @problem_membership)
     %br/
- 
+%br/
+= link_to t(:back), competition_path(@competition) 
   

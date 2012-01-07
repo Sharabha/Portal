@@ -9,8 +9,4 @@ module ApplicationHelper
     name = competition.name
  end
 
- def problem_name(problem)
-    name = problem.name
- end
-
 end

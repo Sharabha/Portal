@@ -82,3 +82,5 @@
                 = link_to t(:destroy_guardian), competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), :confirm => t(:are_you_sure), :method => :delete
              
     = link_to t(:new_problem), new_competition_problem_membership_path(@competition)
+%br/
+= link_to t(:back), competitions_path

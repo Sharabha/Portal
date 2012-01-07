@@ -36,6 +36,12 @@ pl:
         name: Nazwa
         description: Opis
         points: Punkty
+        guardian_id: Opiekun
+      checker_data:
+        input: Dane wejściowe
+        output: Dane wyjściowe
+      solution:
+        description: Opis
 
   number:
     format:
@@ -210,6 +216,8 @@ pl:
         start_time: Czas rozpoczęcia
         end_time: Czas zakończenia
         problem_id: Zadanie
+      guardian_membership:
+        guardian_id: Opiekun
 
   support:
     array:
@@ -227,6 +235,10 @@ pl:
   contact: Kontakt
   user: Użytkownik
   users: Użytkownicy
+  admin: Administrator
+  admins: Administratorzy
+  make_admin: Nadaj prawa administratora
+  remove_admin: Usuń prawa administratora
   email: "adres e-mail"
   password: hasło
   password_confirmation: powtórz hasło
@@ -317,3 +329,14 @@ pl:
   added_datas: Dodane zestawy danych
   input: Dane wejściowe
   output: Dane wyjściowe
+  new_cheker_data: Nowe dane dla sprawdzaczki
+  send_confirmation_e-mail_again: "Wyślij ponownie e-mail z potwierdzeniem"
+  send_message_on_email: "Wyślij wiadomość na mój adres e-mail"
+  to_accept_invitation_click: "Aby zaakceptować zaproszenie kliknij:"
+  new_solution: Dodaj rozwiązanie
+  edit_solution: Edytuj rozwiązanie
+  code_of_solution: Kod rozwiązania
+  solution_send_by: Rozwiązanie nadesłane przez
+  score: Wynik
+  pionts: pkt
+  to_team: do zespołu

@@ -1,9 +1,10 @@
-%h2 Wyślij ponownie e-mail z potwierdzeniem
+%h2 
+  = t(:send_confirmation_e-mail_again)
 = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
   = devise_error_messages!
   %div
     = f.label :email
     .input = f.email_field :email
   .clearfix.actions
-    = f.submit "Wyślij wiadomość na mój adres e-mail"
+    = f.submit t(:send_message_on_email)
     = render :partial => "devise/shared/links"

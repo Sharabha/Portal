@@ -1,8 +1,13 @@
 = form_for [@team, @invitation] do |f|
   .clearfix
-    Zawody:
+    %h3
+      = t(:competitions) 
+      #{Competition.find(TeamMembership.find_by_team_id(@team.id).competition_id).name}
   .clearfix
-    = f.label :user_id, "Uzytkownik"
+    = f.label :user_id
     .input= select "invitation", "user_id",  User.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 
   .clearfix.center
-    = f.submit "Zapisz", :class => "btn primary"
+    = f.submit t(:save), :class => "btn primary"
+
+%br/
+= link_to t(:back), team_path(@team)

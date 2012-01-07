@@ -1,3 +1,4 @@
-zapisz #{@user.email} do zespołu #{@team.name}
+= t(:save) #{@user.email} 
+= t(:to_team) #{@team.name}
 = form_for [@team, @user, @user_team_membership] do |f|
-= f.submit "Zapisz"
+= f.submit t(:save)

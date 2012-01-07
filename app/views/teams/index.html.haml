@@ -2,7 +2,7 @@
   = t(:teams)
 - for team in @teams
   .post
-    %h2.title
+    %h3.title
       = link_to team.name, team_path(team)
     %p.meta
       %b #{t("activerecord.attributes.team.leader")}

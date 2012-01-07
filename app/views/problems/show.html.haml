@@ -2,8 +2,8 @@
   %h2.title
     = @problem.name
   %p.meta
-    %h3 
-      #{t("description")}
+    %h3
+      = t(:description)
     %p
       = @problem.description 
 %h3
@@ -11,4 +11,5 @@
 %br/
 = link_to t(:destroy_problem), @problem, :method => 'delete', :confirm => t(:are_you_sure) 
 %br/
--#= link_to t(:new_guardian), new_competition_problem_guardian_membership_path(@competition, @problem)
+%br/
+= link_to t(:back), problems_path

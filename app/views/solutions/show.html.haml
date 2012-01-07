@@ -1,13 +1,21 @@
-%h2 Rozwiązanie nadesłane przez #{@solution.team.name}
-%b Opis rozwiązania:
-= @solution.description
+.post
+  %h2.title 
+    = t(:solution_send_by)
+    #{@solution.team.name}
+  %p.meta
+    %b
+      = t(:description)
+    = @solution.description
+    %br/
+    %h4
+      = t(:score)
+      #{@solution.score} 
+      = t(:pionts)
+      %br/
+      = t(:code_of_solution)
+    = link_to @solution.code_file_name, @solution.code.url, :target => :blank
+    %br/
+  %br/
+  = link_to t(:edit_solution), edit_competition_problem_membership_solution_path(@competition, @problem_membership)
 %br/
-%br/
-%h1 Wynik: #{@solution.score} pkt
-%br/
-%br/
-%b Kod rozwiązania:
-= link_to @solution.code_file_name, @solution.code.url, :target => :blank
-%br
-%br
-= link_to "Edytuj", edit_competition_problem_membership_solution_path(@competition, @problem_membership)
+=link_to t(:back), competition_problem_membership_path(@competition, @problem_membership)

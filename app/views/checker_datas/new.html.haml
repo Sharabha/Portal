@@ -1,11 +1,20 @@
+%h3 
+  = t(:new_cheker_data)
+  = t(:for_problem)
+  = @checker_data.checker.problem.name
 = form_for :checker_data, :url => problem_checker_checker_datas_path(@problem) do |f|
   .clearfix
-    = f.label :input, "Dane wejściowe"
+    = f.label :input
     .input
       = f.text_field :input, :class => "xlarge"
   .clearfix
-    = f.label :output, "Dane wyjściowe"
+    = f.label :output
     .input
       = f.text_field :output, :class => "xlarge"
   .clearfix
-    = f.submit "Zapisz", :class => "btn primary"
+    = f.submit t(:save), :class => "btn primary"
+
+%br/
+= link_to t(:back), problem_checker_path(@problem)
+
+
