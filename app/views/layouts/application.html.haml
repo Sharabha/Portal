@@ -60,7 +60,7 @@
                 = text_field_tag 'user[email]', '', :class => 'small'
                 %label= t(:password).capitalize 
                 = password_field_tag 'user[password]', '', :class => 'small'
-                %button.btn.primary t(:sign_in)
+                %button.btn.primary= t(:sign_in)
                 %label{:style=>'float: none;'}
                   = check_box_tag 'user[remember_me]', "checked"
                   %span= t(:remember_me)
