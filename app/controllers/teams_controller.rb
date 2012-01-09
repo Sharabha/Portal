@@ -44,10 +44,7 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    params[:team] = { 
-        :name      => params[:name],
-        :leader_id => current_user.id
-    }
+    params[:team][:leader_id] = current_user.id
     @team = Team.new(params[:team])
 
     respond_to do |format|
