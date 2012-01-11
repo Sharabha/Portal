@@ -106,6 +106,9 @@ class Ability
           solution.team_members.any?{|u| u.id == user.id }
         end
 
+        #zakladanie zespolu
+        can :create, Team
+
         #zawodnik czyta nazwę zespołu
         can :read, Team do |team|
           team.team_members.any?{|u| u.id == user.id}
