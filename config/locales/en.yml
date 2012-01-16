@@ -251,11 +251,11 @@ en:
   subject: Subject
   content: Content
   remember_me: Remember me
-  sign_up_title: Sing up
-  sign_in_title: Sing in
+  sign_up_title: Sign up
+  sign_in_title: Sign in
   password_title: "forgotten password?"
-  sign_in: Sing in
-  sign_up: Sing up
+  sign_in: Sign in
+  sign_up: Sign up
   update: Save changes
   current_password: Current password
   field: Field

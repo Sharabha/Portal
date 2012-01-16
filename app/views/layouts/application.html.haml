@@ -39,7 +39,7 @@
     .topbar
       .topbar-inner
         .container
-          %a.brand{:href => "#"} Sharabha
+          %a.brand{:href => "/"} Sharabha
           %ul.nav
             %li.active
               %a{:href => "#"} #{t("news")}
@@ -80,8 +80,14 @@
 
       .content
         .row{:style => "margin-left: 0px"}
+          - if flash[:error]
+            .alert-message.block-message.error
+              = flash[:error]
           = yield
         %footer
           %p
             \© 2011
             %a{:href => "http://www.ii.uni.wroc.pl/"} #{t("ii_uwr")}
+            %span{:style => "float: right"}
+              = link_to image_tag("en.png", :alt => "English version", :title => "English version"), url_for(:subdomain => "en")
+              = link_to image_tag("pl.png", :alt => "Polska wersja", :title => "Polska wersja"), url_for(:subdomain => "pl")
