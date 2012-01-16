@@ -26,6 +26,26 @@ end
 
 gem 'jquery-rails'
 
+group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.7.0'
+  gem 'factory_girl', '~> 2.0.0'
+  gem 'factory_girl_rails', '~> 1.1.0'
+end
+
+group :test do
+  gem 'capybara', '~> 1.1.1'
+  gem 'shoulda', '~> 2.11.3'
+  gem 'rb-inotify'
+  gem 'libnotify'
+  gem 'spork', '~> 0.9.0.rc9'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -39,18 +59,3 @@ gem 'jquery-rails'
 #sorry, ale railsy nie chcą mi tego zainstalowac
 #gem 'ruby-debug19', :require => 'ruby-debug'
 #gem 'ruby-debug19', :require => 'ruby-debug', :platforms => :ruby
-
-group :development, :test do
-  gem 'rspec-rails', '~> 2.7.0'
-  gem 'factory_girl', '~> 2.0.0'
-  gem 'factory_girl_rails', '~> 1.1.0'
-end
-group :test do
-  gem 'capybara', '~> 1.1.1'
-  gem 'shoulda', '~> 2.11.3'
-  gem 'rb-inotify'
-  gem 'libnotify'
-  gem 'spork', '~> 0.9.0.rc9'
-  gem 'guard-spork'
-  gem 'guard-rspec'
-end
