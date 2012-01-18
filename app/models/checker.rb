@@ -4,11 +4,16 @@ class Checker < ActiveRecord::Base
   has_many :checker_datas
 
   def check_solution(solution)
-    score = 0
     test_id=0
-    wynik = File.open("checker/result/"+problem.id.to_s+"-"+test_id.to_s+".txt", "rb") {|io| io.read}
-    puts "Ocenia:"+problem.id.to_s+" na:"+wynik
+    begin
+        wynik = File.open("checker/result/"+problem.id.to_s+"-"+test_id.to_s+".txt", "rb") {|io| io.read}
+    rescue Exception=>e
+        puts "ZADANIE NIEOCENIONE-> -1"
+        wynik= -1
+    end
+    puts "Ocenia:"+problem.id.to_s+" na:"+wynik.to_s
     return wynik.to_i
+    #score = 0
     #for cd in self.checker_datas
       #score += self.check_one(solution, cd)
     #end
