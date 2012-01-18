@@ -17,8 +17,12 @@ class Solution < ActiveRecord::Base
   validates_presence_of :problem_membership_id
 
   after_create :set_score
-  
+  after_save :save_file
+
   private
+    def save_file
+      CheckerFile.save_solution(self)
+    end
     def set_score
       checker = self.problem.checker
       self.score = checker.check_solution(self) * self.problem.points

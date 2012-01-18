@@ -1,27 +1,24 @@
 #!/bin/bash
 
-PROGRAM_PATH=$1   # scieżka do programu który zostanie skompilowany
-INPUT_PATH=$2     # jakie dane wejściowe mają być podane do skryptu (STDIO)
-OUTPUT_PATH=$3    # czyli co ma program zwrócić (STDOUT)
-TIMEOUT=$4        # po ilu sekundach przerwać test z rezultatem negatywnym
-CALLBACK_URL=$5   # gdzie odesłać rezultat przeprowadzonych testów (adres URL, można coś wysłać metodą post
-                  # ale to już trzeba poprawić w kodzie, na razie jest prowizorka)
+PROGRAM_ID=$1
+TEST_ID=$2
+TIMEOUT=$3
 
-if [ "$#" -ne 5 ]; then
-  printf "usage: ${0} PROGRAM_PATH INPUT_PATH OUTPUT_PATH TIMEOUT CALLBACK_URL\n"
+PROGRAM_PATH=./source/$PROGRAM_ID.c
+INPUT_PATH=./input/$TEST_ID.txt
+OUTPUT_PATH=./output/$TEST_ID.txt
+
+#echo "${1} ${2} ${3} ${4} ${5}"
+
+if [ "$#" -ne 3 ]; then
+  printf "usage: ${0} PROGRAM_ID TEST_ID TIMEOUT\n"
   exit
 fi
 
-#debug -> echo "${1} ${2} ${3} ${4} ${5}"
 
 printf "Kompilacja: ${PROGRAM_PATH} "
-case "$PROGRAM_PATH" in
-  *.c )
-    printf "(kompilator GCC)"
-    gcc -std=gnu99 -Wall -W -O2 -static -DSPRAWDZACZKA -lm $PROGRAM_PATH -o $PROGRAM_PATH.compile ;;
-  * )
-    printf "error"
-esac
+printf "(kompilator GCC)"
+gcc -std=c99 -Wall -W -O2 -static -DSPRAWDZACZKA -lm $PROGRAM_PATH -o $PROGRAM_PATH.compile
 printf ", "
 
 
@@ -30,20 +27,20 @@ printf "uruchomienie: "
 printf "ok, "
 
 
-_TIME=$(cat _time) # można wysłać czas wykonywania programu do serwera (modyfikując poniższe linie z curl'em, ale to chyba zbędne)
-
+_TIME=$(cat _time) 
+CALLBACK_FILE=result/$PROGRAM_ID-$TEST_ID.txt
 printf "sprawdzanie: "
 if [[ $_TIME == *non-zero* ]]; then
   printf "result: timeout or non-zero status"
-  curl -d "timeout or non-zero status" $CALLBACK_URL
+  echo "0" > $CALLBACK_FILE
 else
   _DIFF=$(diff -b -B _output $OUTPUT_PATH)
   if [ $_DIFF == ""]; then
     printf "true"
-    curl -d "result: true" $CALLBACK_URL
+    echo "1" > $CALLBACK_FILE
   else
     printf "false"
-    curl -d "result: false" $CALLBACK_URL
+    echo "0" > $CALLBACK_FILE
   fi
 fi
 

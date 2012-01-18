@@ -16,7 +16,7 @@ class ProblemMembership < ActiveRecord::Base
   before_save :start_time_before_end_time?
   before_save :not_ended?
   before_destroy :not_underway?
-   
+
   def started?
     self.start_time < DateTime.now if self.start_time
   end

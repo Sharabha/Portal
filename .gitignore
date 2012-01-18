@@ -6,3 +6,7 @@ tmp/
 *.swp
 *.rb~
 public/system/
+checker/input/
+checker/output/
+checker/source/
+checker/result/
