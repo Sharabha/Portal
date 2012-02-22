@@ -1,0 +1,35 @@
+# Linie poleceń nie są dokładnym odwzrowaniem co trzeba zrobić,
+# są jedynie szkicem.
+
+1. PostgreSQL
+$ sudo apt-get install postgresql postgresql-contrib libpq-dev
+$ sudo -u postgres createuser --superuser sharabha
+$ sudo -u postgres psql postgres
+$ sudo -u postgresql createdb sharabha_prod
+
+/etc/postgresql/8.4/main/postgresql.conf:
+listen_addresses = 'localhost'
+
+/etc/postgresql/8.4/main/pg_hba.conf:
+# "local" is for Unix domain socket connections only
+local   all         all                               md5
+
+$ sudo /etc/init.d/postgresql start
+
+2. Apache + Passenger 
+$ rvm use 1.9.2
+$ gem install passenger --pre
+$ passenger-install-apache2-module
+$ a2enmod passenger
+
+Konfiguracja Apache:
+-> deployment/meeting.ii.uni.wroc.pl
+-> deployment/apache2.conf
+
+$ etc/init.d/apache2 restart
+
+3. Rails
+$ export RAILS_ENV=production # na wszelki wypadek
+$ rake db:create
+$ rake db:migrate
+$ rake assets:precompile
