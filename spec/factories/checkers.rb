@@ -1,9 +1,12 @@
-Factory.define :checker do |t|
-  t.association :problem
+FactoryGirl.define do
+  factory :checker do
+    association :problem
+  end
+
+  factory :checker_data do
+    association :checker
+    sequence(:input)  {|n| "#{n} #{n+1} #{n+2}"}
+    sequence(:output) {|m| "#{m*7}"}
+  end
 end
 
-Factory.define :checker_data do |t|
-  t.association :checker
-  t.sequence(:input)  {|n| "#{n} #{n+1} #{n+2}"}
-  t.sequence(:output) {|m| "#{m*7}"}
-end
