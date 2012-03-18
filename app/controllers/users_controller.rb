@@ -3,14 +3,14 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @administrators = User.where(:admin => true)
-    @users = User.where(:admin => false)    
+    @administrators = Role.where(:name => 'admin').users
+    @users = User.all
   end
 
   def make_admin
     @user = User.find(params[:id])
     authorize! :make_admin, @user
-    @user.admin = true
+    @user.roles << Role.all
     if @user.save
       redirect_to users_path
     end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def remove_admin
     @user = User.find(params[:id])
     authorize! :remove_admin, @user
-    @user.admin = false
+    @user.roles.delete(Role.where(:name => 'admin'))
     if @user.save
       redirect_to users_path
     end
