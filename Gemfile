@@ -15,6 +15,8 @@ gem 'i18n'
 
 gem 'paperclip'
 
+#for communication with online checker
+gem 'rest-client'
 
 # Gems used only for assets and not required
 # in production environments by default.
