@@ -1,2 +1,4 @@
+#YAML configuration for communication between portal and checker
+
 development:
   host: localhost:8080
