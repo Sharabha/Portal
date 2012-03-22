@@ -1,4 +1,7 @@
 #YAML configuration for communication between portal and checker
 
 development:
-  host: localhost:8080
+  protocol: http
+  host: localhost
+  port: 8080
+  problem_url: /problem/{problem_id}
