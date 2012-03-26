@@ -6,9 +6,16 @@ class Mychecker
 	attr_reader :sender
 	def initialize
 		@sender = Sender.new(host, port)
+		@sender.default_header['accept'] = 'application/json'
 	end
 	def getProblem(problem_id)
 		sender.get problem_url(:problem_id=>problem_id)
+	end
+	def getProblems
+		sender.get problems_url
+	end
+	def getProblemRun(problem_id, run_id)
+		sender.get problem_run_url(:problem_id => problem_id, :run_id => run_id)
 	end
 	def method_missing(sym, *args, &block)
 		if CONF.has_key?(sym.to_s) then
