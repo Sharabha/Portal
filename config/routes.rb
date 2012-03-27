@@ -6,12 +6,7 @@ Competitor::Application.routes.draw do
 
   root :to => "home#index"
   devise_for :users
-  resources :users, :only => [:index] do
-    member do
-      put "make_admin"
-      put "remove_admin"
-    end
-  end
+  resources :users, :only => [:index]
 
   resources :teams do
    resources :invitations
@@ -35,8 +30,12 @@ Competitor::Application.routes.draw do
       resources :guardian_memberships, :except => [:index, :edit, :update]
     end
     member do
-        put "close"
+      put "close"
     end
+  end
+
+  namespace :admin do
+    resources :users, :only => [:index, :edit, :update, :destroy]
   end
 
   match 'confirm/:token' => 'invitations#confirm'

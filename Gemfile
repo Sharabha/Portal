@@ -13,6 +13,9 @@ gem 'devise'
 gem 'cancan'
 gem 'i18n'
 
+gem 'inherited_resources'
+gem 'formtastic'
+
 gem 'paperclip'
 
 
