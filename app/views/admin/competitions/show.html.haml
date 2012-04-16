@@ -60,8 +60,8 @@
         %li
           = team.name
           ||
-          = link_to t(:destroy_team), competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), :confirm => t(:are_you_sure), :method => :delete
-    = link_to t(:new_team), new_competition_team_membership_path(@competition)
+          = link_to t(:destroy_team), admin_competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), :confirm => t(:are_you_sure), :method => :delete
+    = link_to t(:new_team), new_admin_competition_team_membership_path(@competition)
     %br/
     %br/
     %h3= t(:problems)
