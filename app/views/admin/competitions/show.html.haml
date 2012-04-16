@@ -46,12 +46,12 @@
     %br/
     %h3= t(:judges)
     %ul
-      - for judge in @competition.judges
+      - @competition.judges.each do |judge|
         %li
           = user_name(judge)
           ||
-          = link_to t(:destroy_judge), competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), :confirm => t(:are_you_sure), :method => :delete
-    = link_to t(:new_judge), new_competition_judge_membership_path(@competition)
+          = link_to t(:destroy_judge), admin_competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), :confirm => t(:are_you_sure), :method => :delete
+    = link_to t(:new_judge), new_admin_competition_judge_membership_path(@competition)
     %br/
     %br/
     %h3= t(:teams)

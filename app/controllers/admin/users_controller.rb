@@ -1,6 +1,7 @@
 class Admin::UsersController < Admin::AdminController
   inherit_resources
   actions :edit, :update, :index, :destroy
+  load_and_authorize_resource
 
   def make_admin
     @user = User.find(params[:id])

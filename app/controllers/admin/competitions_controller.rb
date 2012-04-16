@@ -1,7 +1,7 @@
 class Admin::CompetitionsController < Admin::AdminController
   inherit_resources
   actions :index, :edit, :new, :update, :create
-  load_and_authorize_resource :except => :index
+  load_and_authorize_resource
 
   def show
     @competition        = Competition.find(params[:id])
