@@ -1,14 +1,18 @@
-require 'addressable/template'
-
-#Responsible for communication between Web Application and Solutions Checker
+#responsible for communication between Web Application and Solutions Checker
+#based on RestClient (https://github.com/archiloque/rest-client)
 
 class Mychecker
-	CONF = CHECKER_CONFIG
 	def checker_url
 		protocol+"://"+host+":"+port.to_s
 	end
 	def initialize
-
+		setConfiguration(CHECKER_CONFIG)
+	end
+	def getConfiguration
+		@configuration
+	end
+	def setConfiguration(configuration)
+		@configuration= configuration
 	end
 	def checker
 		RestClient::Resource.new checker_url, :headers => {:accept=> :json, :content_type => :json}
@@ -19,15 +23,15 @@ class Mychecker
 	def problem(problem_id)
 		problems["/"+problem_id.to_s]
 	end
-	def createTest(problem_id)
-		test = {:test=>{:solution_input=>"spadaj", :checker_input => "spadaj", :time_limit=> 12, :memory_limit=> 1}}
-		problem(problem_id).post test.to_json	
+	def createTest(problem_id, input, output, time_limit, memory_limit)
+		test = {:test=>{:solution_input=> input, :checker_input => output, :time_limit=> time_limit, :memory_limit=> memory_limit} }
+		problem(problem_id).post test.to_json
 	end
 	def createProblem
 		problems.post "create_new".to_json
 	end
-	def createRun(problem_id)
-		run = {:run=> {:language=> "C", :solution => "main(){;}", :notify => notify_path}
+	def submitSolution(problem_id, language, solution)
+		run = {:run=> {:language=> language, :solution => solution, :notify => notify_path}}
 		problem(problem_id).post run.to_json
 	end
 	def run(problem_id, run_id)
@@ -47,9 +51,16 @@ class Mychecker
 		test(problem_id, test_id).delete	
 	end
 	def method_missing(sym, *args, &block)
-		if CONF.has_key?(sym.to_s) then
-			return CONF[sym.to_s]
+		if !@configuration.nil? and @configuration.has_key?(sym.to_s) then
+			return @configuration[sym.to_s]
 		end
 		super(sym, *args, &block)
+	end
+	def to_s
+		name = @configuration["name"]
+		url = checker_url
+		name = "UNKNOWN" if name.nil?
+		url = "UNKNOWN" if url.nil?
+		"<Checker: " + name + " | url: " + url + "\> "
 	end
 end

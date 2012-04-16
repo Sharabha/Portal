@@ -13,3 +13,10 @@ development:
   new_problem_url: /problem
   new_problem_test_url: /problem/{problem_id}
   new_problem_run_url: /problem/{problem_id}
+  
+test:
+  name: TestSharabha
+  protocol: http
+  host: localhost
+  port: 8080
+  notify_path: http://localhost:3000
