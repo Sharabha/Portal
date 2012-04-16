@@ -1,6 +1,7 @@
 require 'addressable/template'
 
-#Simulates interaction with Checker
+#Responsible for communication between Web Application and Solutions Checker
+
 class Mychecker
 	CONF = CHECKER_CONFIG
 	def checker_url
@@ -26,7 +27,7 @@ class Mychecker
 		problems.post "create_new".to_json
 	end
 	def createRun(problem_id)
-		run = {:run=> {:language=> "C", :solution => "main(){;}", :notify => "http://wontbecalledyet"}}
+		run = {:run=> {:language=> "C", :solution => "main(){;}", :notify => notify_path}
 		problem(problem_id).post run.to_json
 	end
 	def run(problem_id, run_id)
@@ -36,7 +37,7 @@ class Mychecker
 		problem(problem_id)["/test/"+test_id.to_s]
 	end
 	def repeatRun(problem_id, run_id)
-		recheck = {:recheck=> {:notify=> "http://uri"}}
+		recheck = {:recheck=> {:notify=> notify_path}}
 		run(problem_id, run_id).post recheck.to_json
 	end
 	def deleteRun(problem_id, run_id)
