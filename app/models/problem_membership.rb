@@ -5,10 +5,10 @@ class ProblemMembership < ActiveRecord::Base
 
   has_many :solutions
 
-  has_many :guardian_memberships, :dependent => :delete_all
+  has_many :guardian_memberships, :dependent => :destroy
   has_many :guardians, :through => :guardian_memberships
 
-  validates :problem_id, :presence => true 
+  validates :problem_id, :presence => true
   validates :competition_id, :presence => true
   validates :problem_id, :uniqueness => {:scope => :competition_id}
 
@@ -26,7 +26,7 @@ class ProblemMembership < ActiveRecord::Base
   end
 
   def not_ended?
-    if self.ended? 
+    if self.ended?
       errors[:end_time] = "must be before current time"
       false
     end

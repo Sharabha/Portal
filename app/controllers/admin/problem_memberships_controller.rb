@@ -5,10 +5,10 @@ class Admin::ProblemMembershipsController < Admin::AdminController
   load_and_authorize_resource
 
   def create
-    create! { @competition }
+    create! { [:admin, @competition] }
   end
 
   def update
-    update! { @competition }
+    update! { [:admin, @competition] }
   end
 end

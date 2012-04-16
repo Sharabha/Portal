@@ -78,10 +78,10 @@
           %br/
           = t(:guardians)
           %ul
-            - problem_membership.guardians.each do |guardian|
+            - problem_membership.guardian_memberships.each do |guardian_membership|
               %li
-                = user_name(guardian)
-                = link_to t(:destroy_guardian), admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), :confirm => t(:are_you_sure), :method => :delete
+                = user_name(guardian_membership.guardian)
+                = link_to t(:destroy_guardian), admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian_membership), :confirm => t(:are_you_sure), :method => :delete
 
     = link_to t(:new_problem), new_admin_competition_problem_membership_path(@competition)
 %br/

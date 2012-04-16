@@ -5,6 +5,6 @@ class Admin::TeamMembershipsController < Admin::AdminController
   load_and_authorize_resource
 
   def create
-    create! { @competition }
+    create! { [:admin, @competition] }
   end
 end
