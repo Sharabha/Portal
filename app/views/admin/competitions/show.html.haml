@@ -1,0 +1,86 @@
+.post
+  %h2.title
+    = @competition.name
+  %p.meta
+    %b #{t("activerecord.attributes.competition.organizer_id")}:
+    #{user_name(@competition.organizer)}
+    %br/
+    %b #{t("activerecord.attributes.competition.max_users")}:
+    #{@competition.max_users}
+    %br/
+    %b #{t("activerecord.attributes.competition.start")}:
+    - if @competition.start
+      = @competition.start
+    - else
+      = t(:none)
+    %br/
+    %b #{t("activerecord.attributes.competition.deadline")}:
+    - if @competition.deadline
+      = @competition.deadline
+    - else
+      t(:none)
+    %br/
+    %b #{t(:status)}:
+    - if !@competition.deadline_expired?
+      - if @competition.started?
+        = t(:status_ongoing)
+      - else
+        = t(:status_pending)
+    - else
+      = t(:status_expired)
+    %br
+    %b Opis:
+  .entry
+    = @competition.description
+    %br/
+    %br/
+    - if @competition.started?
+      - unless @competition.deadline_expired?
+        = link_to t(:edit_competition),  edit_admin_competition_path(@competition.id)
+        %br/
+        %br/
+        = link_to t(:close_competition), close_admin_competition_path(@competition.id), :method => :put
+    - else
+      = link_to t(:destroy_competition), @competition, :confirm => t(:are_you_sure), method: :delete
+    %br/
+    %br/
+    %h3= t(:judges)
+    %ul
+      - for judge in @competition.judges
+        %li
+          = user_name(judge)
+          ||
+          = link_to t(:destroy_judge), competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), :confirm => t(:are_you_sure), :method => :delete
+    = link_to t(:new_judge), new_competition_judge_membership_path(@competition)
+    %br/
+    %br/
+    %h3= t(:teams)
+    %ul
+      - for team in @competition.teams
+        %li
+          = team.name
+          ||
+          = link_to t(:destroy_team), competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), :confirm => t(:are_you_sure), :method => :delete
+    = link_to t(:new_team), new_competition_team_membership_path(@competition)
+    %br/
+    %br/
+    %h3= t(:problems)
+    %ul
+      - for problem_membership in @competition.problem_memberships
+        %li
+          = link_to problem_membership.problem.name, competition_problem_membership_path(@competition, problem_membership)
+          ||
+          = link_to t(:destroy_problem_membership), competition_problem_membership_path(@competition, problem_membership), :confirm => t(:are_you_sure), :method => :delete
+          ||
+          = link_to t(:new_problem_guardian), new_competition_problem_membership_guardian_membership_path(@competition, problem_membership)
+          %br/
+          = t(:guardians)
+          %ul
+            - for guardian in problem_membership.guardians
+              %li
+                = user_name(guardian)
+                = link_to t(:destroy_guardian), competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian), :confirm => t(:are_you_sure), :method => :delete
+
+    = link_to t(:new_problem), new_competition_problem_membership_path(@competition)
+%br/
+= link_to t(:back), admin_competitions_path

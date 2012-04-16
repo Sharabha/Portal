@@ -35,7 +35,13 @@ Competitor::Application.routes.draw do
   end
 
   namespace :admin do
+    root :to => 'users#show'
     resources :users, :only => [:index, :edit, :update, :destroy]
+    resources :competitions do
+      member do
+        put "close"
+      end
+    end
   end
 
   match 'confirm/:token' => 'invitations#confirm'
