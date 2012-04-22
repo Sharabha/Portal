@@ -37,6 +37,7 @@ Competitor::Application.routes.draw do
   namespace :admin do
     root :to => 'users#show'
     resources :users, :only => [:index, :edit, :update, :destroy]
+    resources :problems
     resources :competitions do
       resources :judge_memberships, :except => [:index, :edit, :update]
       resources :team_memberships, :except => [:index, :edit, :update]
