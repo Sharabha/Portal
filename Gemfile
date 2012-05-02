@@ -18,6 +18,9 @@ gem 'formtastic'
 
 gem 'paperclip'
 
+#for communication with online checker
+gem 'rest-client'
+gem 'addressable'
 
 # Gems used only for assets and not required
 # in production environments by default.

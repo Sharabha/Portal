@@ -17,9 +17,6 @@ Competitor::Application.routes.draw do
 
   resources :problems do
     resources :guardian_memberships
-    resource :checker, :only => [:show], :controller => 'checker' do
-      resources :checker_datas, :only => [:index, :new, :create, :destroy]
-    end
   end
 
   resources :competitions do

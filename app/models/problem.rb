@@ -18,14 +18,12 @@ class Problem < ActiveRecord::Base
   validates :description, :length => {:minimum => 3}
   validates_presence_of :points
 
-  has_one :checker
-
-  after_create :make_checker
+  after_create :notify_checker
 
   attr_protected :author_id
 
   private
-    def make_checker
-      self.create_checker
+    def notify_checker
+	  #to be implemented; this function should ask checker for creation of new problem
     end
 end
