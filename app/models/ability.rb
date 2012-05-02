@@ -30,8 +30,7 @@ class Ability
       can :read, ProblemMembership, :problem => { :competition => { :judges => { :id => user.id } } }
     else
       #ZAWODNIK
-      can :read, Competition, :teams => { :leader_id => user.id }
-      can :read, Competition, :team_members => { :id => user.id }
+      can :read, Competition
 
       can :read, ProblemMembership, :competition => { :teams => { :leader_id => user.id } }
       can :read, ProblemMembership, :competition => { :team_members => { :id => user.id } }

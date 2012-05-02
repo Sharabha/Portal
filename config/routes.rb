@@ -32,7 +32,7 @@ Competitor::Application.routes.draw do
   end
 
   namespace :admin do
-    root :to => 'users#show'
+    root :to => 'users#index'
     resources :users, :only => [:index, :edit, :update, :destroy]
     resources :problems
     resources :competitions do
