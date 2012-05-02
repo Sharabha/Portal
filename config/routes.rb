@@ -9,14 +9,10 @@ Competitor::Application.routes.draw do
   resources :users, :only => [:index]
 
   resources :teams do
-   resources :invitations
-   resources :users, :only => [:index] do
-     resources :user_team_memberships
-   end
-  end
-
-  resources :problems do
-    resources :guardian_memberships
+    resources :invitations
+    resources :users, :only => [:index] do
+      resources :user_team_memberships
+    end
   end
 
   resources :competitions, :only => [:index, :show]
