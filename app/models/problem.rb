@@ -22,6 +22,8 @@ class Problem < ActiveRecord::Base
 
   after_create :make_checker
 
+  attr_protected :author_id
+
   private
     def make_checker
       self.create_checker

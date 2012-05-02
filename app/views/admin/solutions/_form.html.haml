@@ -1,0 +1,12 @@
+= form_for [:admin, @competition, @problem_membership, @solution] do |f|
+  = render :partial => "errors"
+  .clearfix
+    = f.label :description
+    .input
+      = f.text_area :description, :class => "xlarge"
+  .clearfix
+    .input
+      = f.file_field :code
+  .actions.clearfix.center
+    = f.submit t(:save), :class => "btn primary"
+
