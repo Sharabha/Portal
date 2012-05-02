@@ -19,17 +19,7 @@ Competitor::Application.routes.draw do
     resources :guardian_memberships
   end
 
-  resources :competitions do
-    resources :judge_memberships, :except => [:index, :edit, :update]
-    resources :team_memberships, :except => [:index, :edit, :update]
-    resources :problem_memberships do
-      resources :solutions, :except => [:index]
-      resources :guardian_memberships, :except => [:index, :edit, :update]
-    end
-    member do
-      put "close"
-    end
-  end
+  resources :competitions, :only => [:index, :show]
 
   namespace :admin do
     root :to => 'users#index'
