@@ -1,7 +1,9 @@
 class Competition < ActiveRecord::Base
   belongs_to :organizer, :class_name => "User"
-  validates_presence_of :name
   validates_presence_of :organizer_id
+  validate :deadline, :after_start
+  validates :name, :length=> { :minimum => 5, :maximum=> 80 }
+  validates :is_active, :needs_confirmation, :inclusion => { :in => [true, false] }
   
   has_many :judge_memberships
   has_many :judges, :through => :judge_memberships
@@ -40,5 +42,10 @@ class Competition < ActiveRecord::Base
     if self.deadline and self.start
       ((self.deadline <= DateTime.now) and (self.start <= self.deadline))
     end
+  end
+  def after_start
+	if deadline and start and deadline < start
+	  errors.add(:deadline, :later_than_start)
+	end
   end
 end

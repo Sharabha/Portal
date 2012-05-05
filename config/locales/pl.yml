@@ -171,8 +171,8 @@ pl:
         accepted: "musi być zaakceptowane"
         empty: "nie może być puste"
         blank: "nie może być puste"
-        too_long: "jest za długie (maksymalnie %{count} znaków)"
-        too_short: "jest za krótkie (minimalnie %{count} znaków)"
+        too_long: "jest za długie (conajwyżej %{count} znaków)"
+        too_short: "jest za krótkie (conajmniej %{count} znaków)"
         wrong_length: "jest nieprawidłowej długości (powinna wynosić %{count} znaków)"
         taken: "jest już zajęte"
         not_a_number: "nie jest liczbą"
@@ -185,12 +185,21 @@ pl:
         odd: "musi być nieparzyste"
         even: "musi być parzyste"
         record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
+      models:
+        competition:
+          attributes:
+            name:
+              blank: "nie może być pusta"
+              too_short: "jest za krótka (conajmniej %{count} znaków)"
+            deadline:
+              later_than_start: "musi być późniejszy niż termin rozpoczęcia"
     models:
       user: Użytkownik
       team: Zespół
-      competition: Zawody
+      competition:
+        one: Zawody
+        other: Zawody
       problem: Zadanie
-       
     attributes:
       user:
         email: Adres e-mail
@@ -205,7 +214,7 @@ pl:
         name: Nazwa
         organizer_id: Organizator
         description: Opis
-        deadline: "Termin ukończenia"
+        deadline: "Termin zakończenia"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
       team_membership:
@@ -340,3 +349,4 @@ pl:
   score: Wynik
   pionts: pkt
   to_team: do zespołu
+  back_to_competitions: Pokaż wszystkie zawody
