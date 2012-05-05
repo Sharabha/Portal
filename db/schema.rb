@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218204423) do
+ActiveRecord::Schema.define(:version => 20120318121519) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -66,6 +66,12 @@ ActiveRecord::Schema.define(:version => 20111218204423) do
     t.integer  "author_id"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "solutions", :force => true do |t|
     t.integer  "team_membership_id"
     t.integer  "problem_membership_id"
@@ -93,6 +99,16 @@ ActiveRecord::Schema.define(:version => 20111218204423) do
     t.datetime "updated_at"
   end
 
+  create_table "user_roles", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_roles", ["role_id"], :name => "index_user_roles_on_role_id"
+  add_index "user_roles", ["user_id"], :name => "index_user_roles_on_user_id"
+
   create_table "user_team_memberships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "team_id"
@@ -101,8 +117,8 @@ ActiveRecord::Schema.define(:version => 20111218204423) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "",    :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -113,7 +129,6 @@ ActiveRecord::Schema.define(:version => 20111218204423) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                                 :default => false
     t.string   "login"
   end
 

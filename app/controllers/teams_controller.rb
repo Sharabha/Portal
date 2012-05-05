@@ -1,12 +1,10 @@
 class TeamsController < ApplicationController
 
-  load_and_authorize_resource :except => :index
+  load_and_authorize_resource
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @teams }
@@ -16,7 +14,6 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @team        =  Team.find(params[:id])
     @invitations =  @team.invitations
 
     respond_to do |format|
@@ -28,8 +25,6 @@ class TeamsController < ApplicationController
   # GET /teams/new
   # GET /teams/new.json
   def new
-    @team = Team.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @team }
@@ -38,14 +33,12 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
-    @team = Team.find(params[:id])
   end
 
   # POST /teams
   # POST /teams.json
   def create
-    params[:team][:leader_id] = current_user.id
-    @team = Team.new(params[:team])
+    @team.leader_id = current_user.id
 
     respond_to do |format|
       if @team.save

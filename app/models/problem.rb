@@ -20,6 +20,8 @@ class Problem < ActiveRecord::Base
 
   after_create :notify_checker
 
+  attr_protected :author_id
+
   private
     def notify_checker
 	  #to be implemented; this function should ask checker for creation of new problem

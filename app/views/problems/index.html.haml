@@ -1,9 +1,0 @@
-%h2
-  = t(:problems)
-- for problem in @problems
-  .post
-    %h3.title
-      = link_to problem.name, problem_path(problem)
-%br/
-
-= link_to t(:new_problem), new_problem_path

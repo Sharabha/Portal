@@ -1,0 +1,15 @@
+.post
+  %h2.title
+    = @problem.name
+  %p.meta
+    %h3
+      = t(:description)
+    %p
+      = @problem.description
+%h3
+  = link_to t(:cheker), problem_checker_path(@problem)
+%br/
+= link_to t(:destroy_problem), [:admin, @problem], :method => 'delete', :confirm => t(:are_you_sure)
+%br/
+%br/
+= link_to t(:back), admin_problems_path

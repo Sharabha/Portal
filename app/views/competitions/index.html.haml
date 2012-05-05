@@ -1,6 +1,6 @@
 %h2
   = t(:competitions)
-- for competition in @competitions
+- @competitions.each do |competition|
   .post
     %h3.title
       = link_to competition.name, competition_path(competition)
@@ -12,12 +12,9 @@
       - if competition.deadline
         #{competition.deadline},
       - else
-        = t(:none) 
-      status: 
+        = t(:none)
+      status:
       - if !competition.deadline_expired?
         = t(:status_ongoing)
       - else
         = t(:status_expired)
-      
-= link_to t(:new_competition), new_competition_path
-    

@@ -6,33 +6,32 @@ Competitor::Application.routes.draw do
 
   root :to => "home#index"
   devise_for :users
-  resources :users, :only => [:index] do
-    member do
-      put "make_admin"
-      put "remove_admin"
-    end
-  end
+  resources :users, :only => [:index]
 
   resources :teams do
-   resources :invitations
-   resources :users, :only => [:index] do
-     resources :user_team_memberships
-   end
-  end
-
-  resources :problems do
-    resources :guardian_memberships
-  end
-
-  resources :competitions do
-    resources :judge_memberships, :except => [:index, :edit, :update]
-    resources :team_memberships, :except => [:index, :edit, :update]
-    resources :problem_memberships do
-      resources :solutions, :except => [:index]
-      resources :guardian_memberships, :except => [:index, :edit, :update]
+    resources :invitations
+    resources :users, :only => [:index] do
+      resources :user_team_memberships
     end
-    member do
+  end
+
+  resources :competitions, :only => [:index, :show]
+
+  namespace :admin do
+    root :to => 'users#index'
+    resources :users, :only => [:index, :edit, :update, :destroy]
+    resources :problems
+    resources :competitions do
+      resources :judge_memberships, :except => [:index, :edit, :update]
+      resources :team_memberships, :except => [:index, :edit, :update]
+      resources :problem_memberships do
+        resources :solutions, :except => [:index]
+        resources :guardian_memberships, :except => [:index, :edit, :update]
+      end
+
+      member do
         put "close"
+      end
     end
   end
 
