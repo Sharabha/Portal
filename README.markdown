@@ -16,9 +16,12 @@ Both parts communicate with each other through RESTful web API.
 
 ## Portal Contributors
 
-###### List of people involved in creation of portal component:
+###### List of people currently involved in creation of portal component:
 
++ [Michał Banasiak](mailto: m.banasiak@aol.pl)
++ [Michał Duda](mailto: ostrzy@ostrzy.net)
 + [Lukasz Zatorski](mailto: lzatorski@gmail.com)
+
 + ... i will add others, if they want to :) ...
 
 ## License
