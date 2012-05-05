@@ -4,7 +4,6 @@ class CompetitionsController < ApplicationController
 
   def index
   end
-
   def show
     @judge_memberships = @competition.judge_memberships
     @team_memberships = @competition.team_memberships
