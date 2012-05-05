@@ -3,38 +3,9 @@
   %head
     %title Sharabha
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
-    /= stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
-    /= csrf_meta_tags
-    %link{:href => "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css", :rel => "stylesheet"}
-    :css
-      body {
-        padding-top: 55px;
-      }
-      .user {
-        float: right;
-        color: white;
-        line-height: 44px;
-      }
-      .topbar .inline-inputs label {
-        float: none;
-        color: white;
-      }
-      .topbar div > .brand, .topbar div > ul, .nav
-      {
-        margin-top: 4px;
-      }
-      .label
-      {
-        padding-top: 2px;
-        padding-bottom: 3px;
-      }
-      .actions
-      {
-        background: none;
-        padding-top: 10px;
-        padding-left: 50px;
-      }
+    = stylesheet_link_tag    "application", media: "all" 
+    = javascript_include_tag "application" 
+    = csrf_meta_tags 
   %body
     .topbar
       .topbar-inner
@@ -57,9 +28,9 @@
             = form_tag new_user_session_path, :style => "float: right; margin-top: 5px" do
               .inline-inputs
                 %label= t(:email).capitalize 
-                = text_field_tag 'user[email]', '', :class => 'small'
+                = text_field_tag 'user[email]', '', :class => 'loginform'
                 %label= t(:password).capitalize 
-                = password_field_tag 'user[password]', '', :class => 'small'
+                = password_field_tag 'user[password]', '', :class => 'loginform'
                 %button.btn.primary= t(:sign_in)
                 %label{:style=>'float: none;'}
                   = check_box_tag 'user[remember_me]', "checked"
