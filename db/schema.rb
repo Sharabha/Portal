@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318121519) do
+ActiveRecord::Schema.define(:version => 20120505225157) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(:version => 20120318121519) do
     t.datetime "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "max_users",    :default => 1
+    t.integer  "max_users",          :default => 1
     t.datetime "start"
+    t.boolean  "is_active",          :default => false, :null => false
+    t.boolean  "needs_confirmation", :default => false, :null => false
   end
 
   create_table "guardian_memberships", :force => true do |t|

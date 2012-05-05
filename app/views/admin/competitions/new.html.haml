@@ -1,5 +1,3 @@
-%h2
-  = t(:new_competition)
+%h2= t(:new_competition)
 = render :partial => "form"
-= link_to t(:back), admin_competitions_path
-
+= link_to t(:back_to_competitions), admin_competitions_path
