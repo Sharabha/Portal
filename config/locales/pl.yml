@@ -217,6 +217,8 @@ pl:
         deadline: "Termin zakończenia"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
+        is_active: aktywne
+        needs_confirmation: Udział wymaga potwierdzenia
       team_membership:
         team_id: Zespół
       judge_membership:

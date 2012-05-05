@@ -11,12 +11,19 @@
     .input= f.number_field :max_users, :class => "small", :min => 1
   .clearfix
     = f.label :description
-    .input= f.text_area :description, :class => "xxlarge"
+    .input= f.text_area :description, :class => "xxlarge", :rows=> 10
   .clearfix
     = f.label :start
-    .input= datetime_select "competition", "start", {:order => [:hour, :minute, :day, :month, :year]}
+    .input= f.text_field :start, :class => 'date_entry medium' , :value => date_for_form(@competition.start), :size => 15
   .clearfix
     = f.label :deadline
-    .input= datetime_select "competition", "deadline", {:order => [:hour, :minute, :day, :month, :year]}
+    .input= f.text_field :deadline, :class => 'date_entry medium' , :value => date_for_form(@competition.deadline), :size=>15
+  .clearfix
+    = f.label :is_active
+    .input= f.check_box :is_active
+  .clearfix
+    = f.label :needs_confirmation
+    .input= f.check_box :needs_confirmation
   .actions.clearfix.center
     = f.submit t(:save), :class => "btn primary"
+
