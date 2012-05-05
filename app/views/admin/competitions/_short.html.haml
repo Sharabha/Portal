@@ -1,0 +1,11 @@
+.post
+  %h3.title
+    = link_to competition.name, competition_path(competition)
+  %p.meta
+    #{t("activerecord.attributes.competition.organizer_id")}:
+    = user_name(competition.organizer)
+    #{t("activerecord.attributes.competition.deadline")}:
+    - if competition.deadline
+      #{competition.deadline}
+    - else
+      = t(:none)

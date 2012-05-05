@@ -352,3 +352,6 @@ pl:
   pionts: pkt
   to_team: do zespołu
   back_to_competitions: Pokaż wszystkie zawody
+  current_competitions: Trwające zawody
+  archive_competitions: Archiwum zawodów
+  planned_competitions: Planowane zawody

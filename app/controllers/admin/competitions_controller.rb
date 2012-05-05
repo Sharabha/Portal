@@ -1,8 +1,15 @@
 class Admin::CompetitionsController < Admin::AdminController
   inherit_resources
-  actions :index, :new
+  actions :new
   load_and_authorize_resource
-
+  
+  def index
+    current_time = Time.now
+    @current_competitions = Competition.where("start <= ? AND deadline >= ?", current_time, current_time)
+    @planned_competitions = Competition.where("start > ? ", current_time)
+    @archive_competitions = Competition.where("deadline < ?", current_time)
+  end
+  
   def show
     @competition = Competition.find(params[:id])
     @judge_memberships = @competition.judge_memberships

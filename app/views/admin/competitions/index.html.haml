@@ -1,23 +1,14 @@
-%h2
-  = t(:competitions)
-- @competitions.each do |competition|
-  .post
-    %h3.title
-      = link_to competition.name, admin_competition_path(competition)
-    %p.meta
-      #{t("activerecord.attributes.competition.organizer_id")}:
-      = user_name(competition.organizer)
-      %br/
-      #{t("activerecord.attributes.competition.deadline")}:
-      - if competition.deadline
-        #{competition.deadline},
-      - else
-        = t(:none)
-      status:
-      - if !competition.deadline_expired?
-        = t(:status_ongoing)
-      - else
-        = t(:status_expired)
+-if !@current_competitions.nil?
+  %h2= t(:current_competitions)
+  -  @current_competitions.each do |competition|
+    = render :partial => "short", :locals =>  {:competition => competition}
 
-= link_to t(:new_competition), new_admin_competition_path
+-if !@planned_competitions.nil?
+  %h2= t(:planned_competitions)
+  -  @planned_competitions.each do |competition|
+    = render :partial => "short", :locals =>  {:competition => competition}
 
+-if !@archive_competitions.nil?
+  %h2= t(:archive_competitions)
+  -  @archive_competitions.each do |competition|
+    = render :partial => "short", :locals =>  {:competition => competition}
