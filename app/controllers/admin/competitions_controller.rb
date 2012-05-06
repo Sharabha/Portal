@@ -12,7 +12,6 @@ class Admin::CompetitionsController < Admin::AdminController
   
   def show
     @competition = Competition.find(params[:id])
-    @judge_memberships = @competition.judge_memberships
     @team_memberships = @competition.team_memberships
     @problems = @competition.problems
   end
@@ -51,5 +50,9 @@ class Admin::CompetitionsController < Admin::AdminController
     else
       render :action => "show"
     end
+  end
+  def judges
+    @competition = Competition.find(params[:competition_id])
+    @judge_memberships = @competition.judge_memberships
   end
 end
