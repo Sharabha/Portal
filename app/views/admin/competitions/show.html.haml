@@ -1,4 +1,14 @@
-.post
+.competition
+  .header
+    %ul
+      %li= link_to t(:edit_competition),  edit_admin_competition_path(@competition)
+      %li= "Wiadomości"
+      %li= "Zgłoszenia"
+      %li= "Ranking"
+      %li= "Zadania"
+      %li= "Zespoły"
+      %li= "Sędziowe"
+      %li= link_to t(:close_competition), close_admin_competition_path(@competition), :method=> :put
   %h2.title
     = @competition.name
   %p.meta
@@ -36,10 +46,10 @@
     %br/
     - if @competition.started?
       - unless @competition.deadline_expired?
-        = link_to t(:edit_competition),  edit_admin_competition_path(@competition.id)
+        
         %br/
         %br/
-        = link_to t(:close_competition), close_admin_competition_path(@competition.id), :method => :put
+        
     - else
       = link_to t(:destroy_competition), @competition, :confirm => t(:are_you_sure), :method => :delete
     %br/
