@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318121519) do
+ActiveRecord::Schema.define(:version => 20120506220307) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20120318121519) do
     t.integer  "points"
     t.text     "description"
     t.integer  "author_id"
+    t.integer  "max_memory"
   end
 
   create_table "roles", :force => true do |t|

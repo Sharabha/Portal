@@ -6,8 +6,8 @@
       = t(:description)
     %p
       = @problem.description
-%h3
-<!--  = link_to t(:cheker), problem_checker_path(@problem) -->
+    %h3 
+      = t(:tests)
 %br/
 = link_to t(:destroy_problem), [:admin, @problem], :method => 'delete', :confirm => t(:are_you_sure)
 %br/
