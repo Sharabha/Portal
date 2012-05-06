@@ -9,7 +9,6 @@ class CompetitionsController < ApplicationController
     @archive_competitions = Competition.where("is_active = ? AND deadline < ?", true, current_time)
   end
   def show
-    @team_memberships = @competition.team_memberships
-    @problems = @competition.problems
+    @competition = Competition.find(params[:id])
   end
 end

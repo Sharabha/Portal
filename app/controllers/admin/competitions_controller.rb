@@ -12,8 +12,6 @@ class Admin::CompetitionsController < Admin::AdminController
   
   def show
     @competition = Competition.find(params[:id])
-    @team_memberships = @competition.team_memberships
-    @problems = @competition.problems
   end
   def update
     @competition = Competition.find(params[:id])
@@ -54,5 +52,16 @@ class Admin::CompetitionsController < Admin::AdminController
   def judges
     @competition = Competition.find(params[:competition_id])
     @judge_memberships = @competition.judge_memberships
+  end
+  def ranking
+    @competition = Competition.find(params[:competition_id])
+  end
+  def teams
+    @competition = Competition.find(params[:competition_id])
+    @team_memberships = @competition.team_memberships
+  end
+  def problems
+    @competition = Competition.find(params[:competition_id])
+    @problems = @competition.problems
   end
 end
