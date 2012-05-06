@@ -1,0 +1,10 @@
+.not_active{
+	background: #EFEFE9;
+}
+.competition{
+  margin-bottom: 20px;
+  padding: 19px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}

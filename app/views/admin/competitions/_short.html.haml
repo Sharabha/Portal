@@ -1,10 +1,7 @@
-.post
-  %h3.title
-    = link_to competition.name, competition_path(competition)
+%div{:class=>["competition", competition.is_active ? nil : "not_active"]}
+  %h3.title= link_to competition.name, admin_competition_path(competition)
   %p.meta
-    #{t("activerecord.attributes.competition.organizer_id")}:
-    = user_name(competition.organizer)
-    #{t("activerecord.attributes.competition.deadline")}:
+    #{Competition.human_attribute_name("deadline")}:
     - if competition.deadline
       #{competition.deadline}
     - else
