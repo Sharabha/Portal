@@ -7,8 +7,14 @@
     = f.label :description
     .input= f.text_area :description, :class => "xxlarge"
   .clearfix
+    = f.label :language
+    .input= f.select :language, options_for_select([["plain text", "p"], ["simple html", "s"]]), :class => "xxlarge"
+  .clearfix
     = f.label :points
     .input= f.text_field :points, :class => "large"
+  .clearfix
+    = f.label :max_memory
+    .input= f.text_field :max_memory, :class => "large"
   .clearfix.center
     = f.submit t(:save), :class => "btn primary"
   
