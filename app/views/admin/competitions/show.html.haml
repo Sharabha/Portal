@@ -1,4 +1,5 @@
-.post
+.competition
+  = render :partial => "navigation", :locals =>  {:competition => @competition}
   %h2.title
     = @competition.name
   %p.meta
@@ -36,53 +37,12 @@
     %br/
     - if @competition.started?
       - unless @competition.deadline_expired?
-        = link_to t(:edit_competition),  edit_admin_competition_path(@competition.id)
+        
         %br/
         %br/
-        = link_to t(:close_competition), close_admin_competition_path(@competition.id), :method => :put
+        
     - else
       = link_to t(:destroy_competition), @competition, :confirm => t(:are_you_sure), :method => :delete
-    %br/
-    %br/
-    %h3= t(:judges)
-    %ul
-      - @competition.judges.each do |judge|
-        %li
-          = user_name(judge)
-          ||
-          = link_to t(:destroy_judge), admin_competition_judge_membership_path(@competition.id,@judge_memberships.find_by_judge_id(judge.id)), :confirm => t(:are_you_sure), :method => :delete
-    = link_to t(:new_judge), new_admin_competition_judge_membership_path(@competition)
-    %br/
-    %br/
-    %h3= t(:teams)
-    %ul
-      - @competition.teams.each do |team|
-        %li
-          = team.name
-          ||
-          = link_to t(:destroy_team), admin_competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), :confirm => t(:are_you_sure), :method => :delete
-    = link_to t(:new_team), new_admin_competition_team_membership_path(@competition)
-    %br/
-    %br/
-    %h3= t(:problems)
-    %ul
-      - @competition.problem_memberships.each do |problem_membership|
-        %li
-          = link_to problem_membership.problem.name, admin_competition_problem_membership_path(@competition, problem_membership)
-          ||
-          = link_to t(:edit_problem_membership), edit_admin_competition_problem_membership_path(@competition, problem_membership)
-          ||
-          = link_to t(:destroy_problem_membership), admin_competition_problem_membership_path(@competition, problem_membership), :confirm => t(:are_you_sure), :method => :delete
-          ||
-          = link_to t(:new_problem_guardian), new_admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership)
-          %br/
-          = t(:guardians)
-          %ul
-            - problem_membership.guardian_memberships.each do |guardian_membership|
-              %li
-                = user_name(guardian_membership.guardian)
-                = link_to t(:destroy_guardian), admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian_membership), :confirm => t(:are_you_sure), :method => :delete
 
-    = link_to t(:new_problem), new_admin_competition_problem_membership_path(@competition)
 %br/
 = link_to t(:back), admin_competitions_path

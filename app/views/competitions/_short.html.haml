@@ -1,0 +1,8 @@
+.competition
+  %h3.title= link_to competition.name, competition_path(competition)
+  %p.meta
+    #{Competition.human_attribute_name("deadline")}:
+    - if competition.deadline
+      #{competition.deadline}
+    - else
+      = t(:none)

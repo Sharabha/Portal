@@ -1,0 +1,8 @@
+%div{:class=>["competition", competition.is_active ? nil : "not_active"]}
+  %h3.title= link_to competition.name, admin_competition_path(competition)
+  %p.meta
+    #{Competition.human_attribute_name("deadline")}:
+    - if competition.deadline
+      #{competition.deadline}
+    - else
+      = t(:none)

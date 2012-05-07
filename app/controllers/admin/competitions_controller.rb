@@ -1,13 +1,17 @@
 class Admin::CompetitionsController < Admin::AdminController
   inherit_resources
-  actions :index, :new
+  actions :new
   load_and_authorize_resource
-
+  
+  def index
+    current_time = Time.now
+    @current_competitions = Competition.where("start <= ? AND deadline >= ?", current_time, current_time)
+    @planned_competitions = Competition.where("start > ? ", current_time)
+    @archive_competitions = Competition.where("deadline < ?", current_time)
+  end
+  
   def show
     @competition = Competition.find(params[:id])
-    @judge_memberships = @competition.judge_memberships
-    @team_memberships = @competition.team_memberships
-    @problems = @competition.problems
   end
   def update
     @competition = Competition.find(params[:id])
@@ -26,7 +30,6 @@ class Admin::CompetitionsController < Admin::AdminController
 		render :action=> 'new'
     end
   end
-
   def destroy
     @competition = Competition.find(params[:id])
     if @competition.destroy
@@ -35,7 +38,6 @@ class Admin::CompetitionsController < Admin::AdminController
       render :action => "show"
     end
   end
-  
   def close
     @competition = Competition.find(params[:id])
     @competition.deadline = DateTime.now()
@@ -44,5 +46,20 @@ class Admin::CompetitionsController < Admin::AdminController
     else
       render :action => "show"
     end
+  end
+  def judges
+    @competition = Competition.find(params[:competition_id])
+    @judge_memberships = @competition.judge_memberships
+  end
+  def ranking
+    @competition = Competition.find(params[:competition_id])
+  end
+  def teams
+    @competition = Competition.find(params[:competition_id])
+    @team_memberships = @competition.team_memberships
+  end
+  def problems
+    @competition = Competition.find(params[:competition_id])
+    @problems = @competition.problems
   end
 end

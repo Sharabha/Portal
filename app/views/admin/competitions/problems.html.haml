@@ -1,0 +1,22 @@
+.competition
+  = render :partial => "navigation", :locals =>  {:competition => @competition}
+  %h2= @competition.name + " - " + t(:problems)
+  %ul
+    - @competition.problem_memberships.each do |problem_membership|
+      %li
+        = link_to problem_membership.problem.name, admin_competition_problem_membership_path(@competition, problem_membership)
+        ||
+        = link_to t(:edit_problem_membership), edit_admin_competition_problem_membership_path(@competition, problem_membership)
+        ||
+        = link_to t(:destroy_problem_membership), admin_competition_problem_membership_path(@competition, problem_membership), :confirm => t(:are_you_sure), :method => :delete
+        ||
+        = link_to t(:new_problem_guardian), new_admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership)
+  
+        = t(:guardians)
+        %ul
+          - problem_membership.guardian_memberships.each do |guardian_membership|
+            %li
+              = user_name(guardian_membership.guardian)
+              = link_to t(:destroy_guardian), admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian_membership), :confirm => t(:are_you_sure), :method => :delete
+
+  = link_to t(:new_problem), new_admin_competition_problem_membership_path(@competition)

@@ -1,0 +1,10 @@
+.header
+  %ul
+    %li= link_to "Zawody", admin_competition_path(competition)
+    %li= link_to "Ustawienia",  edit_admin_competition_path(competition)
+    %li= "Wiadomości"
+    %li= "Zgłoszenia"
+    %li= link_to t(:ranking), admin_competition_ranking_path(competition)
+    %li= link_to "Zadania", admin_competition_problems_path(competition)
+    %li= link_to "Zespoły", admin_competition_teams_path(competition)
+    %li= link_to "Sędziowe", admin_competition_judges_path(competition)
