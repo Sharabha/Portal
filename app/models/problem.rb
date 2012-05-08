@@ -2,6 +2,8 @@ class Problem < ActiveRecord::Base
 
   belongs_to :author, :class_name => "User"
 
+  has_many :tests
+
   has_many :solutions
   has_many :teams, :through => :solutions
 

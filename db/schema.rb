@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506222129) do
+ActiveRecord::Schema.define(:version => 20120508031842) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(:version => 20120506222129) do
     t.datetime "end_time"
   end
 
+  create_table "problem_tests", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "problems", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -97,6 +103,14 @@ ActiveRecord::Schema.define(:version => 20120506222129) do
   create_table "teams", :force => true do |t|
     t.integer  "leader_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tests", :force => true do |t|
+    t.string   "name"
+    t.integer  "max_memory"
+    t.binary   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
