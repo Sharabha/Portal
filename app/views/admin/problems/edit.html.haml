@@ -1,7 +1,7 @@
 %h2
   = t(:edit_problem)
 = render :partial => "form"
-= link_to t(:show_problem), @problem
+= link_to t(:show_problem), admin_problem_path(@problem)
 %br/
 %br/
 = link_to t(:back), admin_problems_path
