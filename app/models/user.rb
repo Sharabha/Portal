@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
   has_many :user_roles
   has_many :roles, :through => :user_roles
+  
+  has_many :posts
 
   def lead_teams
     Team.where(:leader_id => self.id)

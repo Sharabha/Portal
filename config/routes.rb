@@ -1,5 +1,7 @@
 Competitor::Application.routes.draw do
 
+  resources :posts
+
   get "user_team_membership/new"
 
   get "user_team_membership/destroy"
