@@ -3,8 +3,12 @@
     = @post.title
   %p.meta
     %h4
-      = @post.content
+      = @post.user.login
     %br/
+    %h5
+      = @post.publication_date
+    %br/
+    = @post.content
   %br/
 %br/
 
