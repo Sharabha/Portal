@@ -27,10 +27,16 @@ class PostsController < InheritedResources::Base
 
   def update
 	@post = Post.find(params[:id])
+	if @post.update_attributes(params[:post])
+      redirect_to @post
+    else
+      render :action => "edit"
+    end
   end
 
   def destroy
 	@post = Post.find(params[:id])
+	@post.destroy
   end
 
 end
