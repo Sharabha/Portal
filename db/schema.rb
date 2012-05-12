@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505225157) do
+ActiveRecord::Schema.define(:version => 20120512212928) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20120505225157) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "organization"
   end
 
   create_table "user_roles", :force => true do |t|
@@ -132,6 +133,10 @@ ActiveRecord::Schema.define(:version => 20120505225157) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "login"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nick"
+    t.string   "tshirt_size"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

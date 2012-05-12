@@ -10,8 +10,12 @@ pl:
       user:
         login: Login
         email: Email
+        first_name: Imię
+        last_name: Nazwisko
+        tshirt_size: Rozmiar koszulki
         password: Hasło
         password_confirmation: "Potwierdź hasło"
+        current_password: Obecne hasło
       team:
         name: Nazwa
         competition_id: Zawody
@@ -26,11 +30,11 @@ pl:
       judge_membership:
         judge_id: Sędzia
       team_membership:
-        team_id: Zespół  
+        team_id: Zespół
       problem_membership:
         start_time: Czas rozpoczęcia
         end_time: Czas zakończenia
-        problem_id: Zadanie 
+        problem_id: Zadanie
       problem:
         problem: Zadanie
         name: Nazwa
@@ -203,12 +207,16 @@ pl:
     attributes:
       user:
         email: Adres e-mail
+        first_name: Imię
+        last_name: Nazwisko
+        tshirt_size: Rozmiar koszulki
         password: Hasło
       team:
         name: Nazwa
         competition_id: Zawody
         leader: Lider
-        invitations: Zaproszenia        
+        organization: Organizacja
+        invitations: Zaproszenia
         members: Członkowie
       competition:
         name: Nazwa
@@ -312,7 +320,7 @@ pl:
   guardians: Opiekunowie
   new_problem: Dodaj nowe zadanie
   destroy_guardian: Usuń opiekuna
-  new_team_membership: Dodaj nowy zespół 
+  new_team_membership: Dodaj nowy zespół
   judge_id: Sędzia
   team_id: Zespół
   new_problem_membership: Dołącz zadanie

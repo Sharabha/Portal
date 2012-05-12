@@ -1,4 +1,9 @@
 = semantic_form_for [:admin, @user] do |f|
-  = f.inputs :email, :roles
+  = f.inputs do
+    = f.input :email
+    = f.input :roles
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :tshirt_size
   = f.buttons
 
