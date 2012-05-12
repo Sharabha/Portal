@@ -11,6 +11,11 @@ class PostsController < InheritedResources::Base
 
   def show
 	@post = Post.find(params[:id])
+	if @post.competition_id?
+		@return_path = competition_posts_path(@post.competition_id)
+	else
+		@return_path = posts_path
+	end
   end
 
   def new
