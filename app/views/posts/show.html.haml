@@ -9,6 +9,11 @@
       = @post.publication_date
     %br/
     = @post.content
+    %br/
+    = @post.active
   %br/
+  = link_to t(:edit_post), edit_post_path(@post)
+  %br/
+  = link_to t(:delete_post), @post, :method => :delete
 %br/
 

@@ -1,6 +1,7 @@
 class PostsController < InheritedResources::Base
   def index
-	
+	#add filtering based on competition and publication date here
+	@posts = Post.all
   end
 
   def show

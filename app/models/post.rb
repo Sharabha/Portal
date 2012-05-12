@@ -5,5 +5,5 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :competition
 	
-	validates_presence_of :title, :content, :user_id, :publication_date, :active
+	validates_presence_of :title, :content, :user_id, :publication_date
 end
