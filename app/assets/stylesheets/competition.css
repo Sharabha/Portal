@@ -8,6 +8,9 @@
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
+.competition h2{
+    margin-bottom: 20px;
+}
 .competition .header{
   float: right;
   margin-right: 250px;
@@ -24,4 +27,14 @@
 }
 .emptyfix{
   margin-bottom: 18px;
+}
+.competition .problem_list{
+  list-style: none outside none;
+}
+.competition .problem_list li{
+  padding: 10px;
+}
+.competition .problem_list li .problem_name{
+  font-size: 16px;
+  padding: 2px;
 }

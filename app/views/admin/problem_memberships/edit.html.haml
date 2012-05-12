@@ -1,5 +1,6 @@
-%h2=@competition.name + " - " + t(:edit_problem_membership)
+.competition
+  %h2=@competition.name + " - " + t(:edit_problem_membership)
 
-= render :partial => 'form'
+  = render :partial => 'form'
 
-= link_to t(:back_to_problems), admin_competition_problems_path(@competition)
+  = link_to t(:back_to_problems), admin_competition_problems_path(@competition)
