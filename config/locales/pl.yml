@@ -13,6 +13,7 @@ pl:
         first_name: Imię
         last_name: Nazwisko
         tshirt_size: Rozmiar koszulki
+        nick: Pseudonim
         password: Hasło
         password_confirmation: "Potwierdź hasło"
         current_password: Obecne hasło
@@ -210,6 +211,7 @@ pl:
         first_name: Imię
         last_name: Nazwisko
         tshirt_size: Rozmiar koszulki
+        nick: Pseudonim
         password: Hasło
       team:
         name: Nazwa

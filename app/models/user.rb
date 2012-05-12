@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
   def has_role?(role)
     self.roles.map(&:name).include?(role.to_s)
   end
+
+  def display_name
+    "#{first_name}#{nick ? %Q! "#{nick}"! : ''} #{last_name}"
+  end
 end
