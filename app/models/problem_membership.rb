@@ -11,36 +11,15 @@ class ProblemMembership < ActiveRecord::Base
   validates :problem_id, :presence => true
   validates :competition_id, :presence => true
   validates :problem_id, :uniqueness => {:scope => :competition_id}
-
-  # ever heard of validate?
-  before_save :start_time_before_end_time?
-  before_save :not_ended?
-  before_destroy :not_underway?
-
+  validate :end_time, :after_start
   def started?
     self.start_time < DateTime.now if self.start_time
   end
-
   def ended?
     self.end_time < DateTime.now if self.end_time
   end
-
-  def not_ended?
-    if self.ended?
-      errors[:end_time] = "must be before current time"
-      false
-    end
-  end
-
   def underway?
     self.started? && !self.ended?
-  end
-
-  def not_underway?
-    if self.underway?
-      errors[:base] = "can't remove ongoing problem"
-      false
-    end
   end
 
   def start_time_before_end_time?
@@ -49,5 +28,9 @@ class ProblemMembership < ActiveRecord::Base
       false
     end
   end
-
+  def after_start
+	if end_time and start_time and end_time < start_time
+	  errors.add(:end_time, :later_than_start)
+	end
+  end
 end
