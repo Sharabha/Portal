@@ -5,7 +5,7 @@ class PostsController < InheritedResources::Base
 		@posts = Post.where(:competition_id => params[:competition_posts])
 		@competition = Competition.find(params[:competition_posts])
 	else
-		@posts = Post.all
+		@posts = Post.where("competition_id IS NULL")
 	end
   end
 
