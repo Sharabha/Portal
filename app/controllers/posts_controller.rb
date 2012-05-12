@@ -1,7 +1,12 @@
 class PostsController < InheritedResources::Base
   def index
-	#add filtering based on competition and publication date here
-	@posts = Post.all
+	#add filtering based on publication date here
+	if params[:competition_posts]
+		@posts = Post.where(:competition_id => params[:competition_posts])
+		@competition = Competition.find(params[:competition_posts])
+	else
+		@posts = Post.all
+	end
   end
 
   def show

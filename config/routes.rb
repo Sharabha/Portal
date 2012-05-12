@@ -1,7 +1,8 @@
 Competitor::Application.routes.draw do
 
   resources :posts
-
+  match 'competitions/:competition_posts/posts' => 'Posts#index', :as => 'competition_posts'
+  
   get "user_team_membership/new"
 
   get "user_team_membership/destroy"
