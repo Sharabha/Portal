@@ -4,10 +4,11 @@
   Role.create(:name => role)
 end
 
-admin = User.new(:email => "admin@a.com", :password => "123456")
+tshirt_size = Settings.tshirt_sizes.first
+admin = User.new(:email => "admin@a.com", :password => "123456", :first_name => 'Admin', :tshirt_size => tshirt_size)
 admin.roles << Role.all
 
 (1..10).each do |i|
-  User.create!(:email => "user#{i}@a.com", :password => "123456")
+  User.create!(:email => "user#{i}@a.com", :password => "123456", :first_name => 'User', :tshirt_size => tshirt_size)
 end
 

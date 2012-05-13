@@ -16,7 +16,7 @@
     .input= f.text_field :nick
   .clearfix
     = f.label :tshirt_size
-    .input= f.text_field :tshirt_size
+    .input= f.select :tshirt_size, options_for_select(Settings.tshirt_sizes)
   .clearfix
     = f.label :password
     .input

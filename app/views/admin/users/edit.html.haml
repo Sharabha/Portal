@@ -5,6 +5,6 @@
     = f.input :first_name
     = f.input :last_name
     = f.input :nick
-    = f.input :tshirt_size
+    = f.input :tshirt_size, :as => :select, :multiple => false, :collection => Settings.tshirt_sizes
   = f.buttons
 
