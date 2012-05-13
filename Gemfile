@@ -10,6 +10,7 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'therubyracer', :platforms => :ruby
 
+gem "squeel", "~> 0.9.3"
 gem 'haml'
 gem 'devise'
 gem 'cancan'
