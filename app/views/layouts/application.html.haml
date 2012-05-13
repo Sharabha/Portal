@@ -3,9 +3,9 @@
   %head
     %title Sharabha
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
-    = stylesheet_link_tag    "application", media: "all" 
-    = javascript_include_tag "application" 
-    = csrf_meta_tags 
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
   %body
     .topbar
       .topbar-inner
@@ -27,9 +27,9 @@
           - else
             = form_tag new_user_session_path, :style => "float: right; margin-top: 5px" do
               .inline-inputs
-                %label= t(:email).capitalize 
+                %label= t(:email).capitalize
                 = text_field_tag 'user[email]', '', :class => 'loginform'
-                %label= t(:password).capitalize 
+                %label= t(:password).capitalize
                 = password_field_tag 'user[password]', '', :class => 'loginform'
                 %button.btn.primary= t(:sign_in)
                 %label{:style=>'float: none;'}
@@ -42,6 +42,8 @@
           %ul
             %li
               = link_to t(:teams), teams_path
+            %li
+              = link_to t(:invitations), invitations_path
             %li
               = link_to t(:competitions), competitions_path
 

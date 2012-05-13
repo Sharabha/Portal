@@ -44,6 +44,9 @@ class Ability
       can :read, UserTeamMembership, :team => { :team_members => { :id => user.id } }
       can :read, UserTeamMembership, :team => { :leader_id => user.id }
 
+      can :index, Invitation
+      can :manage, Invitation, :team => { :leader_id => user.id }
+
       #NOBODY
       can :index, Competition
     end

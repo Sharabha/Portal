@@ -8,6 +8,7 @@ Competitor::Application.routes.draw do
   devise_for :users
   resources :users, :only => [:index]
 
+  resources :invitations, :only => [:index]
   resources :teams do
     resources :invitations
     resources :users, :only => [:index] do

@@ -10,10 +10,11 @@
     %br/
     %b #{t("activerecord.attributes.team.name")}:
     = @team.name
+  - if can? :manage, Invitation.new(:team => @team)
   %b #{t("activerecord.attributes.team.invitations")}:
-  - for invitation in @invitations
+    - @invitations.each do |invitation|
     %p
-      = user_name(User.find(invitation.user_id))
+        = invitation.user.display_name
       |
       - if invitation.confirmed
         = t(:status_confirmed)
