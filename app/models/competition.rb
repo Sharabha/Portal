@@ -4,12 +4,11 @@ class Competition < ActiveRecord::Base
   validate :deadline, :after_start
   validates :name, :length=> { :minimum => 5, :maximum=> 80 }
   validates :is_active, :needs_confirmation, :inclusion => { :in => [true, false] }
-  
+
   has_many :judge_memberships
   has_many :judges, :through => :judge_memberships
 
-  has_many :team_memberships
-  has_many :teams, :through => :team_memberships
+  has_many :teams
   has_many :user_team_memberships, :through => :teams
   has_many :team_members, :through => :user_team_memberships, :source => :user
 
@@ -22,7 +21,7 @@ class Competition < ActiveRecord::Base
 
   def organizer_is_judge
     JudgeMembership.create(:judge_id => self.organizer_id, :competition_id => self.id)
-  end 
+  end
   def started?
     if self.start
       self.start <= DateTime.now
