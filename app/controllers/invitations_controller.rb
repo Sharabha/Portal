@@ -2,7 +2,7 @@ class InvitationsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @invitations = Invitation.where(:user => current_user)
+    @invitations = Invitation.where(:user_id => current_user.id, :confirmed => false)
   end
 
   def confirm
