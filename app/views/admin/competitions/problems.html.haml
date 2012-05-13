@@ -11,12 +11,12 @@
         = link_to t(:destroy_problem_membership), admin_competition_problem_membership_path(@competition, problem_membership), :confirm => t(:are_you_sure), :method => :delete
         ||
         = link_to t(:new_problem_guardian), new_admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership)
-  
+
         = t(:guardians)
         %ul
           - problem_membership.guardian_memberships.each do |guardian_membership|
             %li
-              = user_name(guardian_membership.guardian)
+              = guardian_membership.guardian.display_name
               = link_to t(:destroy_guardian), admin_competition_problem_membership_guardian_membership_path(@competition, problem_membership, guardian_membership), :confirm => t(:are_you_sure), :method => :delete
 
   = link_to t(:new_problem), new_admin_competition_problem_membership_path(@competition)

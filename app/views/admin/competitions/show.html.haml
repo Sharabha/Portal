@@ -4,7 +4,7 @@
     = @competition.name
   %p.meta
     %b #{t("activerecord.attributes.competition.organizer_id")}:
-    #{user_name(@competition.organizer)}
+    #{@competition.organizer.display_name}
     %br/
     %b #{t("activerecord.attributes.competition.max_users")}:
     #{@competition.max_users}
@@ -37,10 +37,10 @@
     %br/
     - if @competition.started?
       - unless @competition.deadline_expired?
-        
+
         %br/
         %br/
-        
+
     - else
       = link_to t(:destroy_competition), @competition, :confirm => t(:are_you_sure), :method => :delete
 

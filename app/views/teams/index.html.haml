@@ -6,7 +6,7 @@
       = link_to team.name, team_path(team)
     %p.meta
       %b #{t("activerecord.attributes.team.leader")}
-      = user_name(team.leader)
+      = team.leader.display_name
       %br/
       %b #{t("activerecord.attributes.team.competition_id")}
       = link_to competition_name(team.competition), team.competition
