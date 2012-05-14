@@ -1,11 +1,16 @@
 class InvitationsController < ApplicationController
+  before_filter :authenticate_user!
+
+  def index
+    @invitations = Invitation.where(:user_id => current_user.id, :confirmed => false)
+  end
 
   def confirm
     @invitation = Invitation.find_by_token(params[:token])
     if not @invitation.confirmed
       @invitation.confirmed = true
       if @invitation.save
-        @user_team_membership = UserTeamMembership.new(:user_id => @invitation.user_id, 
+        @user_team_membership = UserTeamMembership.new(:user_id => @invitation.user_id,
                                                        :team_id => @invitation.team_id)
         if @user_team_membership.save
           redirect_to team_path(@invitation.team_id)
@@ -39,9 +44,7 @@ class InvitationsController < ApplicationController
   end
 
   private
-  
-  def generate_token
-    rand(36**15).to_s(36)
-  end
-
+    def generate_token
+      rand(36**15).to_s(36)
+    end
 end

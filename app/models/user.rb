@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :login
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :login, :first_name, :last_name, :tshirt_size, :nick
 
   has_many :organized_competitions, :as => :organizer
 
@@ -21,11 +21,18 @@ class User < ActiveRecord::Base
   has_many :user_roles
   has_many :roles, :through => :user_roles
 
+  validates_presence_of :first_name
+  validates_inclusion_of :tshirt_size, :in => Settings.tshirt_sizes
+
   def lead_teams
     Team.where(:leader_id => self.id)
   end
 
   def has_role?(role)
     self.roles.map(&:name).include?(role.to_s)
+  end
+
+  def display_name
+    "#{first_name}#{nick ? %Q! "#{nick}"! : ''} #{last_name}"
   end
 end

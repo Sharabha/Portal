@@ -10,10 +10,12 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'therubyracer', :platforms => :ruby
 
+gem "squeel", "~> 0.9.3"
 gem 'haml'
 gem 'devise'
 gem 'cancan'
 gem 'i18n'
+gem 'rails_config'
 
 gem 'inherited_resources'
 gem 'formtastic'
@@ -29,7 +31,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass', '~>2.0.2'	
+  gem 'bootstrap-sass', '~>2.0.2'
 end
 
 gem 'jquery-rails'

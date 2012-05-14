@@ -42,17 +42,8 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        @team_membership = TeamMembership.new({
-            :team_id => @team.id,
-            :competition_id => params[:competition_id]
-        })
-        if @team_membership.save
-          format.html { redirect_to @team, notice: 'Team was successfully created.' }
-          format.json { render json: @team, status: :created, location: @team }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @team_membership.errors, status: :unprocessable_entity }
-        end
+        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.json { render json: @team, status: :created, location: @team }
       else
         format.html { render action: "new" }
         format.json { render json: @team.errors, status: :unprocessable_entity }

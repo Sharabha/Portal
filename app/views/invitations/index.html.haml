@@ -1,0 +1,11 @@
+%h2= t(:invitations)
+%br
+%p= t(:no_invitations) if @invitations.empty?
+- @invitations.each do |invitation|
+  .p
+    = invitation.team.name
+    - if invitation.confirmed
+      = t(:confirmed)
+    - else
+      = t(:not_confirmed)
+      = link_to t(:confirm), "/confirm/#{invitation.token}"

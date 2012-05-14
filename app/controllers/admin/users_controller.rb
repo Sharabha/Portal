@@ -3,10 +3,15 @@ class Admin::UsersController < Admin::AdminController
   actions :edit, :update, :index, :destroy
   load_and_authorize_resource
 
+  def update
+    resource.roles = Role.where(:id => params[:user][:role_ids])
+    update!
+  end
+
   def make_admin
     @user = User.find(params[:id])
     authorize! :make_admin, @user
-    @user.roles << Role.all
+    @user.roles << Role.find_by_name('admin')
     if @user.save
       redirect_to users_path
     end

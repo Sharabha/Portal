@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506231500) do
+
+ActiveRecord::Schema.define(:version => 20120513124159) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -83,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20120506231500) do
   end
 
   create_table "solutions", :force => true do |t|
-    t.integer  "team_membership_id"
+    t.integer  "team_id"
     t.integer  "problem_membership_id"
     t.string   "code_file_name"
     t.string   "code_content_type"
@@ -95,18 +96,13 @@ ActiveRecord::Schema.define(:version => 20120506231500) do
     t.float    "score",                 :default => 0.0
   end
 
-  create_table "team_memberships", :force => true do |t|
-    t.integer  "team_id"
-    t.integer  "competition_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "teams", :force => true do |t|
     t.integer  "leader_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "organization"
+    t.integer  "competition_id"
   end
 
   create_table "tests", :force => true do |t|
@@ -148,6 +144,10 @@ ActiveRecord::Schema.define(:version => 20120506231500) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "login"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nick"
+    t.string   "tshirt_size"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

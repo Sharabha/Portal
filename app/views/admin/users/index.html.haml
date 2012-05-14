@@ -5,5 +5,5 @@
     %ul
       - @users.each do |user|
         %li
-          = user_name(user)
+          = user.display_name
           = link_to t(:edit), edit_admin_user_path(user)
