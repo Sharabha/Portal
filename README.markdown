@@ -20,6 +20,7 @@ Both parts communicate with each other through RESTful web API.
 
 + [Michał Banasiak](mailto: m.banasiak@aol.pl)
 + [Michał Duda](mailto: ostrzy@ostrzy.net)
++ [Maciej Jaromin](mailto: maciej_jaromin@o2.pl)
 + [Lukasz Zatorski](mailto: lzatorski@gmail.com)
 
 + ... i will add others, if they want to :) ...
