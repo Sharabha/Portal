@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20120513124159) do
 
   create_table "competitions", :force => true do |t|
@@ -50,6 +49,17 @@ ActiveRecord::Schema.define(:version => 20120513124159) do
     t.datetime "updated_at"
   end
 
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "publication_date"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "problem_memberships", :force => true do |t|
     t.integer  "problem_id"
     t.integer  "competition_id"
@@ -58,12 +68,6 @@ ActiveRecord::Schema.define(:version => 20120513124159) do
     t.integer  "points"
     t.datetime "start_time"
     t.datetime "end_time"
-  end
-
-  create_table "problem_tests", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "problems", :force => true do |t|

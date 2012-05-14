@@ -1,0 +1,10 @@
+- if @post.errors.any?
+  %div.alert-message.block-message.error
+    %h4= t(:errors)
+    - @post.errors.each do |attr, msg|
+      %li
+        = t(:field)
+        %strong
+          = t(attr)
+        = msg
+%br/

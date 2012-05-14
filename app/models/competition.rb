@@ -14,6 +14,8 @@ class Competition < ActiveRecord::Base
 
   has_many :problem_memberships
   has_many :problems, :through => :problem_memberships
+  
+  has_many :posts
 
   before_save    :deadline_not_expired?
   after_create   :organizer_is_judge

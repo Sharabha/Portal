@@ -1,0 +1,21 @@
+.post
+  %h2.title 
+    = @post.title
+  %p.meta
+    %h4
+      = @post.user.login
+    %br/
+    %h5
+      = @post.publication_date
+    %br/
+    = @post.content
+    %br/
+    = @post.competition_id
+  %br/
+  = link_to t(:edit_post), edit_post_path(@post)
+  %br/
+  = link_to t(:delete_post), @post, :method => :delete
+  %br/
+  = link_to t(:back), @return_path
+%br/
+
