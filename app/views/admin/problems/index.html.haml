@@ -3,7 +3,16 @@
 - for problem in @problems
   .post
     %h3.title
-      = link_to problem.name, admin_problem_path(problem)
+      = link_to problem.name, admin_problem_path(problem)  
+    %p
+      Liczba punktów:   
+      = problem.points  
+      |
+      = link_to t(:edit_problem), edit_admin_problem_path(problem)
+      |
+      = link_to t(:destroy_problem),admin_problem_path(problem), :confirm => t(:are_you_sure), :method => :delete
+      |
+
 %br/
 
 = link_to t(:new_problem), new_admin_problem_path
