@@ -1,9 +1,5 @@
-%h2
-  = t(:new_problem_membership)
-  = t(:for_competition)
-  = @competition.name
-
+%h2=@competition.name + " - " + t(:new_problem_membership)
 
 = render :partial => 'form'
 
-= link_to t(:back), admin_competition_problem_memberships_path(@competition)
+= link_to t(:back_to_problems), admin_competition_problems_path(@competition)

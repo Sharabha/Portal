@@ -193,6 +193,12 @@ pl:
               too_short: "jest za krótka (conajmniej %{count} znaków)"
             deadline:
               later_than_start: "musi być późniejszy niż termin rozpoczęcia"
+        problem_membership:
+          attributes:
+            end_time:
+              later_than_start: "musi być późniejszy niż czas rozpoczęcia"
+            problem_id:
+              taken: "jest już dołączone do tych zawodów"
     models:
       user: Użytkownik
       team: Zespół
@@ -355,3 +361,4 @@ pl:
   current_competitions: Trwające zawody
   archive_competitions: Archiwum zawodów
   planned_competitions: Planowane zawody
+  back_to_problems: Pokaż pozostałe zadania
