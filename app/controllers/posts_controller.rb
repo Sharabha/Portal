@@ -47,7 +47,16 @@ class PostsController < InheritedResources::Base
 
   def destroy
 	@post = Post.find(params[:id])
-	@post.destroy
+	if @post.competition_id?
+		@return_path = competition_posts_path(@post.competition_id)
+	else
+		@return_path = posts_path
+	end
+	if @post.destroy
+      redirect_to @return_path
+    else
+      render :action => "show"
+    end
   end
 
 end
