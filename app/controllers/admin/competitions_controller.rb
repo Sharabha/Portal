@@ -5,9 +5,9 @@ class Admin::CompetitionsController < Admin::AdminController
 
   def index
     current_time = Time.now
-    @current_competitions = Competition.where("start <= ? AND deadline >= ?", current_time, current_time)
-    @planned_competitions = Competition.where("start > ? ", current_time)
-    @archive_competitions = Competition.where("deadline < ?", current_time)
+    @current_competitions = Competition.where("start <= ? AND deadline >= ?", current_time, current_time).accessible_by(current_ability)
+    @planned_competitions = Competition.where("start > ? ", current_time).accessible_by(current_ability)
+    @archive_competitions = Competition.where("deadline < ?", current_time).accessible_by(current_ability)
   end
 
   def update
