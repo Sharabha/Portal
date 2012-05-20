@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
- 
+
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
   end
@@ -13,9 +13,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  rescue_from CanCan::AccessDenied do |exception|  
-    flash[:error] = "Nie masz prawa do wykonania tej akcji!"  
-    redirect_to root_url  
-  end  
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Nie masz prawa do wykonania tej akcji!"
+    redirect_to root_url
+  end
 
 end

@@ -2,7 +2,7 @@ Competitor::Application.routes.draw do
 
   resources :posts
   match 'competitions/:competition_posts/posts' => 'Posts#index', :as => 'competition_posts'
-  
+
   get "user_team_membership/new"
 
   get "user_team_membership/destroy"
@@ -12,8 +12,10 @@ Competitor::Application.routes.draw do
   resources :users, :only => [:index]
 
   resources :invitations, :only => [:index]
+  match 'confirm/:token/:answer' => 'invitations#confirm', :as => :invitation_confirm
+
   resources :teams do
-    resources :invitations
+    resources :invitations, :only => [:new, :create]
     resources :user_team_memberships, :only => [:destroy]
     member do
       put :change_leader
@@ -43,7 +45,6 @@ Competitor::Application.routes.draw do
     end
   end
 
-  match 'confirm/:token' => 'invitations#confirm'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
