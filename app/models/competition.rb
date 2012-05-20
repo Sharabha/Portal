@@ -16,10 +16,8 @@ class Competition < ActiveRecord::Base
   has_many :problems, :through => :problem_memberships
   
   has_many :posts
-
-  before_save    :deadline_not_expired?
+  
   after_create   :organizer_is_judge
-  before_destroy :not_started?
 
   def organizer_is_judge
     JudgeMembership.create(:judge_id => self.organizer_id, :competition_id => self.id)
