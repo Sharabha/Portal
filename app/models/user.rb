@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   has_many :user_roles
   has_many :roles, :through => :user_roles
-  
+
   has_many :posts
 
   validates_presence_of :first_name
@@ -35,6 +35,6 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    "#{first_name}#{nick ? %Q! "#{nick}"! : ''} #{last_name}"
+    "#{first_name}#{nick.blank? ? '' : %Q! "#{nick}"!} #{last_name}"
   end
 end
