@@ -1,6 +1,6 @@
 class CompetitionsController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:index]
 
   def index
     current_time = Time.now
@@ -8,7 +8,7 @@ class CompetitionsController < ApplicationController
     @planned_competitions = Competition.where("is_active = ? AND start > ? ", true, current_time)
     @archive_competitions = Competition.where("is_active = ? AND deadline < ?", true, current_time)
   end
+
   def show
-    @competition = Competition.find(params[:id])
   end
 end
