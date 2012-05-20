@@ -7,7 +7,7 @@ class InvitationsController < ApplicationController
 
   def confirm
     @invitation = Invitation.find_by_token(params[:token])
-    if not @invitation.confirmed
+    unless @invitation.confirmed
       @invitation.confirmed = true
       if @invitation.save
         @user_team_membership = UserTeamMembership.new(:user_id => @invitation.user_id,

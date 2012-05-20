@@ -374,3 +374,4 @@ pl:
   back_to_problems: Pokaż pozostałe zadania
   leader: Lider
   no_invitations: Nie masz obecnie żadnych zaproszeń.
+  team_cannot_be_empty: Drużyna nie może pozostać bez członków.

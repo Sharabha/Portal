@@ -14,8 +14,9 @@ Competitor::Application.routes.draw do
   resources :invitations, :only => [:index]
   resources :teams do
     resources :invitations
-    resources :users, :only => [:index] do
-      resources :user_team_memberships
+    resources :user_team_memberships, :only => [:destroy]
+    member do
+      put :change_leader
     end
   end
 

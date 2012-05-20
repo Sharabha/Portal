@@ -38,7 +38,8 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team.leader_id = current_user.id
+    @team.leader_id = @team.admin_id = current_user.id
+    @team.team_members << current_user
 
     respond_to do |format|
       if @team.save
@@ -54,8 +55,6 @@ class TeamsController < ApplicationController
   # PUT /teams/1
   # PUT /teams/1.json
   def update
-    @team = Team.find(params[:id])
-
     respond_to do |format|
       if @team.update_attributes(params[:team])
         format.html { redirect_to @team, notice: 'Team was successfully updated.' }
@@ -67,10 +66,16 @@ class TeamsController < ApplicationController
     end
   end
 
+  def change_leader
+    if @team.team_member_ids.include? params[:new_leader_id].to_i
+      @team.update_attribute('leader_id', params[:new_leader_id])
+    end
+    redirect_to @team
+  end
+
   # DELETE /teams/1
   # DELETE /teams/1.json
   def destroy
-    @team = Team.find(params[:id])
     @team.destroy
 
     respond_to do |format|
