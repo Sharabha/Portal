@@ -2,7 +2,7 @@ Competitor::Application.routes.draw do
 
   resources :posts
   match 'competitions/:competition_posts/posts' => 'Posts#index', :as => 'competition_posts'
-  
+
   get "user_team_membership/new"
 
   get "user_team_membership/destroy"
@@ -32,12 +32,12 @@ Competitor::Application.routes.draw do
         resources :solutions, :except => [:index]
         resources :guardian_memberships, :except => [:index, :edit, :update]
       end
-      get 'judges'
-      get 'ranking'
-      get 'problems'
-      get 'teams'
       member do
         put "close"
+        get 'judges'
+        get 'ranking'
+        get 'problems'
+        get 'teams'
       end
     end
   end
