@@ -204,6 +204,10 @@ pl:
               later_than_start: "musi być późniejszy niż czas rozpoczęcia"
             problem_id:
               taken: "jest już dołączone do tych zawodów"
+        judge_membership:
+          attributes:
+            judge_id:
+              taken: "o takim imieniu jest już przydzielony do tych zawodów"      
     models:
       user: Użytkownik
       team: Zespół
