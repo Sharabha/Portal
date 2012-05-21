@@ -1,0 +1,47 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1337635840.7706175:@value{	I"length:EFiÌI"digest;
+F"%885d4d00159ce4c6fa653986db25aa9dI"source;
+FI"Ì/* line 1, /home/megaemce/Portal/app/assets/stylesheets/custom.css.scss */
+body {
+  padding-top: 55px;
+}
+
+/* line 4, /home/megaemce/Portal/app/assets/stylesheets/custom.css.scss */
+.user {
+  float: right;
+  color: white;
+  line-height: 44px;
+}
+
+/* line 9, /home/megaemce/Portal/app/assets/stylesheets/custom.css.scss */
+.topbar .inline-inputs label {
+  float: none;
+  color: white;
+}
+
+/* line 14, /home/megaemce/Portal/app/assets/stylesheets/custom.css.scss */
+.topbar div > .brand, .topbar div > ul, .nav {
+  margin-top: 4px;
+}
+
+/* line 18, /home/megaemce/Portal/app/assets/stylesheets/custom.css.scss */
+.label {
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+
+/* line 23, /home/megaemce/Portal/app/assets/stylesheets/custom.css.scss */
+.actions {
+  background: none;
+  padding-top: 10px;
+  padding-left: 50px;
+}
+
+/* line 29, /home/megaemce/Portal/app/assets/stylesheets/custom.css.scss */
+input.loginform {
+  width: 90px;
+  background-color: #ffffff;
+  color: #000000;
+}
+;
+FI"_version;
+F"%531e72debfab9af3701f7adca00c39ed

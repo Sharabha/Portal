@@ -1,0 +1,70 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1337640160.3193195:@value{	I"length:EFiI"digest;
+F"%f3c212c90b1c00aff55fc0e9ba0db343I"source;
+FI".not_active{
+	background: #EFEFE9;
+}
+
+.compwell{
+  background-color:#f3ffe6;
+  margin-bottom:15px;
+  padding-top: 0px;
+  padding-right: 19px;
+  padding-bottom: 0px;
+  padding-left: 19px;
+  min-height:20px;
+  max-width:400px;
+  border:1px solid #eee;
+  border:1px solid rgba(0, 0, 0, 0.02);
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  -webkit-box-shadow:inset 0 33px 1px rgba(0, 0, 0, 0.02);
+  -moz-box-shadow:inset 0 33px 1px rgba(0, 0, 0, 0.02);
+  box-shadow:inset 0 33px 1px rgba(0, 0, 0, 0.02);
+  }.
+  compwell blockquote{
+	border-color:#ddd;
+	border-color:rgba(0, 0, 0, 0.15);
+	}
+	
+	
+.competition{
+  margin-bottom: 20px;
+  padding: 19px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.competition h2{
+    margin-bottom: 20px;
+}
+.competition .header{
+  float: right;
+  margin-right: 250px;
+  font-size: 18px;
+}
+.competition .header ul{
+  list-style: none outside none;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+}
+.competition .header ul li{
+  display: block;
+  padding: 5px;
+}
+.emptyfix{
+  margin-bottom: 18px;
+}
+.competition .problem_list{
+  list-style: none outside none;
+}
+.competition .problem_list li{
+  padding: 10px;
+}
+.competition .problem_list li .problem_name{
+  font-size: 16px;
+  padding: 2px;
+}
+;
+FI"_version;
+F"%6feb439065e8069231c40e5afbb6c3e9

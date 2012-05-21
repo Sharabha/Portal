@@ -1,0 +1,17 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1337638870.258597:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%7fc52be8fa77bbf9769fa8e9a991623eI"logical_path;
+FI"2images/ui-bg_gloss-wave_55_5c9ccc_500x100.png;
+TI"pathname;
+FI"J$root/app/assets/images/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png;
+FI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2012-05-21T12:46:32+02:00;
+FI"length;
+FI"	3457;
+FI"digest;
+F"%f1a2dafd8f0e5bf70578b34a15322842I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

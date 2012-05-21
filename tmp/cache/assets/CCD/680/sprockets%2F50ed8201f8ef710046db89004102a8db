@@ -1,0 +1,17 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1337638874.233189:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%cdc57ec3c0364e93327c6947571e6228I"logical_path;
+FI"1images/ui-bg_inset-hard_100_f5f8f9_1x100.png;
+TI"pathname;
+FI"I$root/app/assets/images/images/ui-bg_inset-hard_100_f5f8f9_1x100.png;
+FI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2012-05-21T12:46:32+02:00;
+FI"length;
+FI"104;
+FI"digest;
+F"%78cd5b4140739c27b502f679b95ab824I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5
