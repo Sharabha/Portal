@@ -26,6 +26,7 @@ pl:
         organizer_id: Organizator
         description: Opis
         deadline: "Termin ukończenia"
+        freeze_time: "Termin mrożenia rankingu"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
       judge_membership:
@@ -236,6 +237,7 @@ pl:
         organizer_id: Organizator
         description: Opis
         deadline: "Termin zakończenia"
+        freeze_time: "Termin mrożenia rankingu"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
         is_active: aktywne

@@ -1,8 +1,14 @@
-.competition
+.compwell
   %h3.title= link_to competition.name, competition_path(competition)
   %p.meta
     #{Competition.human_attribute_name("deadline")}:
     - if competition.deadline
       #{competition.deadline}
+    - else
+      = t(:none)
+    %br/
+    #{Competition.human_attribute_name("freeze_time")}:
+    - if competition.freeze_time
+      #{competition.freeze_time}
     - else
       = t(:none)
