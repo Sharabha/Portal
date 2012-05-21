@@ -35,6 +35,6 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    "#{first_name}#{nick ? %Q! "#{nick}"! : ''} #{last_name}"
+    "#{first_name}#{nick.blank? ? '' : %Q! "#{nick}"!} #{last_name}"
   end
 end
