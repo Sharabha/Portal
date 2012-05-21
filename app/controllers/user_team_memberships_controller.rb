@@ -1,29 +1,14 @@
 class UserTeamMembershipsController < ApplicationController
 
-  load_and_authorize_resource :except => :index
-
-  def new
-    @team = Team.find(params[:team_id])
-    @user = User.find(params[:user_id])
-    @user.team_memberships.new(:team => @team)
-  end
-
-  def create
-    @team = Team.find(params[:team_id])
-    @user = User.find(params[:user_id])
-    @user.team_memberships.new(:team => @team)
-    if @user_team_membership.save
-      redirect_to team_path(@team)
-    else
-      render :action => :new
-    end
-  end
+  load_and_authorize_resource :only => :destroy
 
   def destroy
-    @team = Team.find(params[:team_id])
-    @user = User.find(params[:user_id])
-    @user.team_memberships.destroy(:team => @team)
-    redirect_to team_path(@team)
+    if @user_team_membership.team.team_members.count > 1
+      @user_team_membership.destroy
+    else
+      flash[:error] = I18n.t(:team_cannot_be_empty)
+    end
+    redirect_to @user_team_membership.team
   end
 
 end

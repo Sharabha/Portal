@@ -1,11 +1,11 @@
 = form_for [@team, @invitation] do |f|
   .clearfix
     %h3
-      = t(:competitions) 
-      #{Competition.find(TeamMembership.find_by_team_id(@team.id).competition_id).name}
+      = t(:competitions)
+      = @team.competition.name
   .clearfix
     = f.label :user_id
-    .input= select "invitation", "user_id",  User.all.reject{|p| p.id == @team.leader_id}.collect {|p| [ p.email, p.id ] }, :class => "xlarge" 
+    .input= select "invitation", "user_id", User.all.collect {|p| [ p.display_name, p.id ] }, :class => "xlarge"
   .clearfix.center
     = f.submit t(:save), :class => "btn primary"
 
