@@ -1,9 +1,8 @@
 %h2
   = t(:posts)
 -  for post in @posts
-  .post
-    %h3.title
-      = link_to post.title, post
+  = render :partial => "short", :locals =>  {:post => post}
+
 %br/
 = link_to t(:new_post), new_post_path
 %br/
