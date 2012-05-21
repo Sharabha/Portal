@@ -298,6 +298,7 @@ pl:
   confirmed: "Potwierdzone"
   not_confirmed: "Niepotwierdzone"
   confirm: "Potwierdź"
+  reject: Odmów
   new_team: "Dodaj nowy zespół"
   edit_team: "Edytuj zespół"
   destroy_team: "Usuń zespół"
@@ -374,3 +375,8 @@ pl:
   back_to_problems: Pokaż pozostałe zadania
   leader: Lider
   no_invitations: Nie masz obecnie żadnych zaproszeń.
+  team_cannot_be_empty: Drużyna nie może pozostać bez członków.
+  already_invited: Wybrany użytkownik został już zaproszony do drużyny.
+  something_went_wrong: Przepraszamy, ale coś poszło nie tak. Spróbuj ponownie za jakiś czas.
+  team: Drużyna
+  competition: Zawody

@@ -1,9 +1,9 @@
 .post
-  %h2.title 
+  %h2.title
     = @post.title
   %p.meta
     %h4
-      = @post.user.login
+      = @post.user.display_name
     %br/
     %h5
       = @post.publication_date

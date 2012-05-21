@@ -27,10 +27,16 @@
     %br/
   %br/
   %b #{t("activerecord.attributes.team.members")}:
-  %p= "(#{t(:leader)}) #{@team.leader.display_name}"
-  - @team.team_members.each do |team_member|
-    %p
+  %ul
+  - @team.user_team_memberships.each do |user_team_membership|
+    %li
+      = "(#{t(:leader)}) " if (team_member = user_team_membership.user).id == @team.leader_id
       = team_member.display_name
+      - if can? :manage, UserTeamMembership.new(:team => @team)
+        |
+        = link_to t(:make_leader), change_leader_team_path(@team, :new_leader_id => team_member.id), :method => :put
+        |
+        = link_to t(:remove), team_user_team_membership_path(@team, user_team_membership), :method => :delete, :confirm => t(:are_you_sure)
   %br/
 - if can? :edit, @team
   %br/

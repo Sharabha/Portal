@@ -7,18 +7,17 @@ class InvitationsController < ApplicationController
 
   def confirm
     @invitation = Invitation.find_by_token(params[:token])
-    if not @invitation.confirmed
-      @invitation.confirmed = true
-      if @invitation.save
-        @user_team_membership = UserTeamMembership.new(:user_id => @invitation.user_id,
-                                                       :team_id => @invitation.team_id)
-        if @user_team_membership.save
-          redirect_to team_path(@invitation.team_id)
-          return
-        end
+    not_found unless @invitation && !@invitation.confirmed && @invitation.user_id == current_user.id
+    if params[:answer] == 'yes'
+      @invitation.update_attribute(:confirmed, true)
+      unless UserTeamMembership.new(:user_id => @invitation.user_id, :team_id => @invitation.team_id).save
+        flash[:error] = I18n.t(:something_went_wrong)
       end
+      redirect_to @invitation.team
+    else
+      @invitation.destroy
+      redirect_to root_path
     end
-    redirect_to root_path
   end
 
   def new
@@ -37,8 +36,9 @@ class InvitationsController < ApplicationController
 
     if @invitation.save
       InvitationMailer.invitation_email(@user,@invitation.token).deliver
-      redirect_to team_path(@team)
+      redirect_to @team
     else
+      flash[:error] = I18n.t(:already_invited)
       render :action => :new
     end
   end
