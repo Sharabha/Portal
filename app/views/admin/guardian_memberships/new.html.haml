@@ -1,0 +1,12 @@
+= form_for [:admin, @competition, @problem_membership, @guardian_membership] do |f|
+  .clearfix
+    %b= t(:competitions)
+    #{@competition.name}
+  .clearfix
+    %b= t(:problem)
+    #{@problem_membership.problem.name}
+  .clearfix
+    = f.label :guardian_id
+    .input= select "guardian_membership", "guardian_id",  @competition.judges.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge"
+  .clearfix.center
+    = f.submit t(:save), :class => "btn primary"

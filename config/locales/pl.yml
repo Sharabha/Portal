@@ -1,0 +1,387 @@
+# Polish translations for Ruby on Rails
+# by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
+
+# modified for Sharabha use by Magda Sikorska & Jadzik
+# (Girls on Rails [tm])
+
+pl:
+  helpers:
+    label:
+      user:
+        login: Login
+        email: Email
+        first_name: Imię
+        last_name: Nazwisko
+        tshirt_size: Rozmiar koszulki
+        nick: Pseudonim
+        password: Hasło
+        password_confirmation: "Potwierdź hasło"
+        current_password: Obecne hasło
+      team:
+        name: Nazwa
+        competition_id: Zawody
+        invitations: Zaproszenia
+      competition:
+        name: Nazwa
+        organizer_id: Organizator
+        description: Opis
+        deadline: "Termin ukończenia"
+        start: "Termin rozpoczęcia"
+        max_users: "Maksymalna liczba uczestników"
+      judge_membership:
+        judge_id: Sędzia
+      team_membership:
+        team_id: Zespół
+      problem_membership:
+        start_time: Czas rozpoczęcia
+        end_time: Czas zakończenia
+        problem_id: Zadanie
+      problem:
+        problem: Zadanie
+        name: Nazwa
+        description: Opis
+        points: Punkty
+        guardian_id: Opiekun
+      checker_data:
+        input: Dane wejściowe
+        output: Dane wyjściowe
+      solution:
+        description: Opis
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 2
+    currency:
+      format:
+        format: "%n %u"
+        unit: "PLN"
+        separator: ","
+        delimiter: " "
+        precision: 2
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "bajt"
+            other: "bajty"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [Niedziela, Poniedziałek, Wtorek, Środa, Czwartek, Piątek, Sobota]
+    abbr_day_names: [nie, pon, wto, śro, czw, pia, sob]
+
+    month_names: [~, Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
+    abbr_month_names: [~, sty, lut, mar, kwi, maj, cze, lip, sie, wrz, paź, lis, gru]
+    order: [ :year, :month, :day ]
+
+  time:
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+      medium: "%d-%m-%Y %H:%M"
+      long: "%d %B %Y, %H:%M"
+    am: "przed południem"
+    pm: "po południu"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "pół minuty"
+      less_than_x_seconds:
+        one:   "mniej niż sekundę"
+        few:   "mniej niż %{count} sekundy"
+        other: "mniej niż %{count} sekund"
+      x_seconds:
+        one:   "sekundę"
+        few:   "%{count} sekundy"
+        other: "%{count} sekund"
+      less_than_x_minutes:
+        one:   "mniej niż minutę"
+        few:   "mniej niż %{count} minuty"
+        other: "mniej niż %{count} minut"
+      x_minutes:
+        one:   "minutę"
+        few:   "%{count} minuty"
+        other: "%{count} minut"
+      about_x_hours:
+        one:   "około godziny"
+        other: "około %{count} godzin"
+      x_days:
+        one:   "1 dzień"
+        other: "%{count} dni"
+      about_x_months:
+        one:   "około miesiąca"
+        other: "około %{count} miesięcy"
+      x_months:
+        one:   "1 miesiąc"
+        few:   "%{count} miesiące"
+        other: "%{count} miesięcy"
+      about_x_years:
+        one:   "około roku"
+        other: "około %{count} lat"
+      almost_x_years:
+        one:   "prawie rok"
+        few:   "prawie %{count} lata"
+        other: "prawie %{count} lat"
+      over_x_years:
+        one:   "ponad rok"
+        few:   "ponad %{count} lata"
+        other: "ponad %{count} lat"
+    prompts:
+      second: "sekundy"
+      minute: "minuty"
+      hour:   "godziny"
+      day:    "dzień"
+      month:  "miesiąc"
+      year:   "rok"
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "%{model} nie został zachowany z powodu jednego błędu"
+          other:  "%{model} nie został zachowany z powodu %{count} błędów"
+        body: "Błędy dotyczą następujących pól:"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "%{model} nie został zachowany z powodu jednego błędu"
+          other:  "%{model} nie został zachowany z powodu %{count} błędów"
+        body: "Błędy dotyczą następujących pól:"
+      messages:
+        inclusion: "nie znajduje się na liście dopuszczalnych wartości"
+        exclusion: "znajduje się na liście zabronionych wartości"
+        invalid: "jest nieprawidłowy"
+        confirmation: "nie zgadza się z potwierdzeniem"
+        accepted: "musi być zaakceptowane"
+        empty: "nie może być puste"
+        blank: "nie może być puste"
+        too_long: "jest za długie (conajwyżej %{count} znaków)"
+        too_short: "jest za krótkie (conajmniej %{count} znaków)"
+        wrong_length: "jest nieprawidłowej długości (powinna wynosić %{count} znaków)"
+        taken: "jest już zajęte"
+        not_a_number: "nie jest liczbą"
+        not_an_integer: "nie jest liczbą całkowitą"
+        greater_than: "musi być większe niż %{count}"
+        greater_than_or_equal_to: "musi być większe lub równe %{count}"
+        equal_to: "musi być równe %{count}"
+        less_than: "musi być mniejsze niż %{count}"
+        less_than_or_equal_to: "musi być mniejsze lub równe %{count}"
+        odd: "musi być nieparzyste"
+        even: "musi być parzyste"
+        record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
+      models:
+        competition:
+          attributes:
+            name:
+              blank: "nie może być pusta"
+              too_short: "jest za krótka (conajmniej %{count} znaków)"
+            deadline:
+              later_than_start: "musi być późniejszy niż termin rozpoczęcia"
+        problem_membership:
+          attributes:
+            end_time:
+              later_than_start: "musi być późniejszy niż czas rozpoczęcia"
+            problem_id:
+              taken: "jest już dołączone do tych zawodów"
+        judge_membership:
+          attributes:
+            judge_id:
+              taken: "o takim imieniu jest już przydzielony do tych zawodów"      
+    models:
+      user: Użytkownik
+      team: Zespół
+      competition:
+        one: Zawody
+        other: Zawody
+      problem: Zadanie
+    attributes:
+      user:
+        email: Adres e-mail
+        first_name: Imię
+        last_name: Nazwisko
+        tshirt_size: Rozmiar koszulki
+        nick: Pseudonim
+        password: Hasło
+      team:
+        name: Nazwa
+        competition_id: Zawody
+        leader: Lider
+        organization: Organizacja
+        invitations: Zaproszenia
+        members: Członkowie
+      competition:
+        name: Nazwa
+        organizer_id: Organizator
+        description: Opis
+        deadline: "Termin zakończenia"
+        start: "Termin rozpoczęcia"
+        max_users: "Maksymalna liczba uczestników"
+        is_active: aktywne
+        needs_confirmation: Udział wymaga potwierdzenia
+      team_membership:
+        team_id: Zespół
+      judge_membership:
+        judge_id: Sędzia
+      problem_membership:
+        start_time: Czas rozpoczęcia
+        end_time: Czas zakończenia
+        problem_id: Zadanie
+      guardian_membership:
+        guardian_id: Opiekun
+
+  support:
+    array:
+      sentence_connector: "i"
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " i "
+      last_word_connector: " i "
+    select:
+      prompt: "Proszę wybrać:"
+
+  ii_uwr: Instytut Informatyki Uniwersytetu Wrocławskiego
+  news: Aktualności
+  about_project: O projekcie
+  contact: Kontakt
+  user: Użytkownik
+  users: Użytkownicy
+  admin: Administrator
+  admins: Administratorzy
+  make_admin: Nadaj prawa administratora
+  remove_admin: Usuń prawa administratora
+  email: "adres e-mail"
+  password: hasło
+  password_confirmation: powtórz hasło
+  username: nazwa użytkownika
+  name: nazwa
+  description: opis
+  keywords: słowa kluczowe
+  previous: "« Poprzednie"
+  back: "« Poprzednia strona"
+  next: "Następne »"
+  submit: Zapisz
+  save: Zapisz
+  subject: Temat
+  content: Treść
+  remember_me: Zapamiętaj mnie
+  sign_up_title: Załóż konto
+  sign_in_title: Zaloguj się
+  password_title: "Zapomniałeś hasła?"
+  sign_in: Zaloguj
+  sign_up: Zarejestruj
+  update: Zapisz zmiany
+  current_password: Obecne hasło
+  field: Pole
+  errors: "Wystąpiły następujące błędy:"
+  logged_in_as: "Zalogowany jako"
+  login: "Zaloguj się"
+  register: "Załóż konto"
+  logout: "Wyloguj się"
+  invitations: "Zaproszenia do zespołów"
+  confirmed: "Potwierdzone"
+  not_confirmed: "Niepotwierdzone"
+  confirm: "Potwierdź"
+  reject: Odmów
+  new_team: "Dodaj nowy zespół"
+  edit_team: "Edytuj zespół"
+  destroy_team: "Usuń zespół"
+  show: Pokaż
+  edit: Edytuj
+  destroy: Usuń
+  teams: Zespoły
+  new_competition: "Dodaj nowe zawody"
+  edit_competition: "Edytuj zawody"
+  close_competition: "Zakończ zawody"
+  competitions: Zawody
+  competition_id : Zawody
+  none: Brak
+  status_expired: Zakończone
+  status_ongoing: W trakcie
+  status_pending: Oczekujące na rozpoczęcie
+  status: Status
+  status_confirmed: Potwierdzone
+  status_unconfirmed: Nie potwierdzone
+  judges: Sędziowie
+  new_judge: Dodaj sędziego
+  for_competition: do zawodów
+  destroy_judge: Usuń sędziego
+  are_you_sure: "Czy jesteś pewien?"
+  problems: Zadania
+  destroy_problem_membership: Usuń załączone zadanie
+  new_problem_guardian: Dodaj opiekuna zadania
+  guardians: Opiekunowie
+  new_problem: Dodaj nowe zadanie
+  destroy_guardian: Usuń opiekuna
+  new_team_membership: Dodaj nowy zespół
+  judge_id: Sędzia
+  team_id: Zespół
+  new_problem_membership: Dołącz zadanie
+  edit_problem_membership: Edytuj dołączone zadanie
+  adding_solutions: Zgłaszanie rozwiązań
+  status_open: Otwarte
+  status_closed: Zamknięte
+  points: Liczba punktów
+  points_none: Nie ustalono
+  teams_with_solutions: "Zespoły, które nadesłały rozwiązanie"
+  show_solution: Pokaż rozwiązanie
+  new_solution: Zgłoś rozwiązanie
+  show_competition: Pokaż Zawody
+  show_problem: Pokaż Zadanie
+  show_team: Pokaż zespół
+  new_invitation: Wyślij zaproszenie
+  edit_team: Edytuj zespół
+  destroy_competition: Usuń zawody
+  cheker: Sprawdzaczka
+  for_problem: dla zadania
+  description: Opis
+  new_guardian: Dodaj nowego opiekuna zadania
+  destroy_problem: Usuń zadanie
+  new_data: Dodaj nowe dane
+  added_datas: Dodane zestawy danych
+  input: Dane wejściowe
+  output: Dane wyjściowe
+  new_cheker_data: Nowe dane dla sprawdzaczki
+  send_confirmation_e-mail_again: "Wyślij ponownie e-mail z potwierdzeniem"
+  send_message_on_email: "Wyślij wiadomość na mój adres e-mail"
+  to_accept_invitation_click: "Aby zaakceptować zaproszenie kliknij:"
+  new_solution: Dodaj rozwiązanie
+  edit_solution: Edytuj rozwiązanie
+  code_of_solution: Kod rozwiązania
+  solution_send_by: Rozwiązanie nadesłane przez
+  score: Wynik
+  pionts: pkt
+  to_team: do zespołu
+  back_to_competitions: Pokaż wszystkie zawody
+  current_competitions: Trwające zawody
+  archive_competitions: Archiwum zawodów
+  planned_competitions: Planowane zawody
+  back_to_problems: Pokaż pozostałe zadania
+  leader: Lider
+  no_invitations: Nie masz obecnie żadnych zaproszeń.
+  team_cannot_be_empty: Drużyna nie może pozostać bez członków.
+  already_invited: Wybrany użytkownik został już zaproszony do drużyny.
+  something_went_wrong: Przepraszamy, ale coś poszło nie tak. Spróbuj ponownie za jakiś czas.
+  team: Drużyna
+  competition: Zawody

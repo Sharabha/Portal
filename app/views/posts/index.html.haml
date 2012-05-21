@@ -1,0 +1,10 @@
+%h2
+  = t(:posts)
+-  for post in @posts
+  = render :partial => "short", :locals =>  {:post => post}
+
+%br/
+= link_to t(:new_post), new_post_path
+%br/
+-  if @competition
+  = link_to t(:back), @competition

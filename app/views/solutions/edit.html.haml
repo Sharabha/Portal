@@ -1,0 +1,6 @@
+%h3 
+  = t(:new_solution)
+= render :partial => "solutions/form"
+%br/
+= link_to t(:back),  competition_problem_membership_path(@competition, @problem_membership)
+  

@@ -1,0 +1,2 @@
+module JudgeMembershipsHelper
+end

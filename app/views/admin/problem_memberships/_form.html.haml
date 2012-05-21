@@ -1,0 +1,13 @@
+= form_for [:admin, @competition, @problem_membership] do |f|
+  = render :partial => "errors"
+  .clearfix
+    = f.label :problem_id
+    .input= f.select  "problem_id",  Problem.all.collect {|p| [ p.name, p.id ] }, :class => "xlarge"
+  .clearfix
+    = f.label :start_time
+    .input= f.text_field :start_time, :class => 'date_entry medium' , :value => date_for_form_with_default(@problem_membership.start_time, @competition.start), :size => 15
+  .clearfix
+    = f.label :end_time
+    .input= f.text_field :end_time, :class => 'date_entry medium' , :value => date_for_form_with_default(@problem_membership.end_time, @competition.deadline), :size => 15
+  .actions.clearfix.center
+    = f.submit t(:save), :class => "btn primary"

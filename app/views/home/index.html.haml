@@ -1,0 +1,16 @@
+- if user_signed_in?
+  %h2= t(:invitations)
+  %br
+  - for invitation in current_user.invitations
+    .p
+      = Team.find(invitation.team_id).name
+      - if invitation.confirmed
+        = t(:confirmed)
+      - else
+        = t(:not_confirmed)
+        = link_to t(:confirm), "/confirm/#{invitation.token}"
+
+- else
+  = link_to t(:login), new_user_session_path
+  lub
+  = link_to t(:register), new_user_registration_path

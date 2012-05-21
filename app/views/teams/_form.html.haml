@@ -1,0 +1,16 @@
+= form_for @team do |f|
+  = render :partial => "errors"
+  .clearfix
+    = f.label :name
+    .input
+      = f.text_field :name
+  .clearfix
+    = f.label :organization
+    .input
+      = f.text_field :organization
+  .clearfix
+    = f.label :competition_id
+    .input
+      = f.select :competition_id, options_from_collection_for_select(Competition.all.find_all{ |c| c.deadline_not_expired? }, "id", "name")
+  .clearfix.actions
+    = f.submit t(:submit), :class => "btn primary"

@@ -1,0 +1,46 @@
+.post
+  %h2.title
+    = @team.name
+  %p.meta
+    %b #{t("activerecord.attributes.team.competition_id")}:
+    #{link_to @team.competition.name, @team.competition}
+    %br/
+    %b #{t("activerecord.attributes.team.organization")}:
+    = @team.organization
+    %br/
+    %b #{t("activerecord.attributes.team.name")}:
+    = @team.name
+  - if can? :manage, Invitation.new(:team => @team)
+    %b #{t("activerecord.attributes.team.invitations")}:
+    - @invitations.each do |invitation|
+      %p
+        = invitation.user.display_name
+        |
+        - if invitation.confirmed
+          = t(:status_confirmed)
+        - else
+          = t(:status_unconfirmed)
+        |
+        \#{invitation.token}
+    %br/
+    = link_to t(:new_invitation), new_team_invitation_path(@team)
+    %br/
+  %br/
+  %b #{t("activerecord.attributes.team.members")}:
+  %ul
+  - @team.user_team_memberships.each do |user_team_membership|
+    %li
+      = "(#{t(:leader)}) " if (team_member = user_team_membership.user).id == @team.leader_id
+      = team_member.display_name
+      - if can? :manage, UserTeamMembership.new(:team => @team)
+        |
+        = link_to t(:make_leader), change_leader_team_path(@team, :new_leader_id => team_member.id), :method => :put
+        |
+        = link_to t(:remove), team_user_team_membership_path(@team, user_team_membership), :method => :delete, :confirm => t(:are_you_sure)
+  %br/
+- if can? :edit, @team
+  %br/
+  = link_to t(:edit_team), edit_team_path(@team)
+%br/
+%br/
+= link_to t(:back), teams_path

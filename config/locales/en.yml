@@ -1,0 +1,338 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  helpers:
+    label:
+      user:
+        login: Login
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+      team:
+        name: Name
+        competition_id: Competition
+        invitations: Invitations
+      competition:
+        name: Name
+        organizer_id: Organizer
+        description: Description
+        deadline: Deadline
+        start: Start date
+        max_users: "Maximum number of participants"
+      judge_membership:
+        judge_id: Judge
+      team_membership:
+        team_id: Team 
+      problem_membership:
+        start_time: Start date
+        end_time: End date
+        problem_id: Problem
+      problem:
+        problem: Problem
+        name: Name
+        description: Description
+        points: Points
+        guardian_id: Guardian
+      checker_data:
+        input: Input data
+        output: Output data
+      solution:
+        description: Description
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 2
+    currency:
+      format:
+        format: "%n %u"
+        unit: "PLN"
+        separator: ","
+        delimiter: " "
+        precision: 2
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "byte"
+            other: "bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    order: [ :year, :month, :day ]
+
+  time:
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+    am: am
+    pm: pm
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "less than a second"
+        few:   "less than %{count} seconds"
+        other: "less than %{count} seconds"
+      x_seconds:
+        one:   "second"
+        few:   "%{count} seconds"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one:   "less than minute"
+        few:   "less than %{count} minutes"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one:   "minute"
+        few:   "%{count} minutes"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "about an hour"
+        other: "about %{count} hours"
+      x_days:
+        one:   "one day"
+        other: "%{count} days"
+      about_x_months:
+        one:   "about a month"
+        other: "about %{count} months"
+      x_months:
+        one:   "one month"
+        few:   "%{count} months"
+        other: "%{count} months"
+      about_x_years:
+        one:   "about a year"
+        other: "about %{count} years"
+      almost_x_years:
+        one:   "almost a year "
+        few:   "almost %{count} years"
+        other: "almost %{count} years"
+      over_x_years:
+        one:   "over a year"
+        few:   "over %{count} year"
+        other: "over %{count} year"
+    prompts:
+      second: "second"
+      minute: "minute"
+      hour:   "hour"
+      day:    "day"
+      month:  "month"
+      year:   "year"
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "%{model} has not been saved because of one error"
+          other:  "%{model} has not been saved because of %{count} errors"
+        body: "Errors relate to the following fields:"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "%{model} has not been saved because of one error"
+          other:  "%{model} has not been saved because of %{count} errors"
+        body: "Errors relate to the following fields:"
+      messages:
+        inclusion: "is not on the list of permissible values"
+        exclusion: "is on the prohibited list"
+        invalid: "is invalid"
+        confirmation: "does not match with the confirmation"
+        accepted: "has to be accepted"
+        empty: "can't be empty"
+        blank: "can't be blank"
+        too_long: "is too long (maximum %{count} characters)"
+        too_short: "is too short (minimum %{count} characters)"
+        wrong_length: "is incorrect length (should be %{count} characters)"
+        taken: "is already taken"
+        not_a_number: "is not a number"
+        not_an_integer: "is not an integer"
+        greater_than: "must be greater than %{count}"
+        greater_than_or_equal_to: "must be greater than or equal to %{count}"
+        equal_to: "must be equal to  %{count}"
+        less_than: "must be less than %{count}"
+        less_than_or_equal_to: "must be less than or equal to %{count}"
+        odd: "must be odd"
+        even: "must be even"
+        record_invalid: "Negative validation: %{errors}"
+    models:
+      user: User
+      team: Team
+      competition: Competition
+      problem: Problem
+       
+    attributes:
+      user:
+        email: "E-mail"
+        password: Password
+      team:
+        name: Name
+        competition_id: Competition
+        leader: Leader
+        invitations: Invitations        
+        members: Members
+      competition:
+        name: Name
+        organizer_id: Organizer
+        description: Description
+        deadline: "Deadline"
+        start: "Start date"
+        max_users: "Maximum number of participants"
+      team_membership:
+        team_id: Team
+      judge_membership:
+        judge_id: Judge
+      problem_membership:
+        start_time: Start date
+        end_time: End date
+        problem_id: Problem
+      guardian_membership:
+        guardian_id: Guardian
+
+  support:
+    array:
+      sentence_connector: "and"
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: " and "
+    select:
+      prompt: "Please select:"
+
+  ii_uwr: Institute of Computer Science of Wroclaw University
+  news: News
+  about_project: About the project
+  contact: Contact
+  user: User
+  users: Users
+  admin: Admin
+  admins: Admins
+  make_admin: Grant admin rights
+  remove_admin: Remove admin rights
+  email: "E-mail"
+  password: Password
+  password_confirmation: Password confirmation
+  username: Username
+  name: name
+  description: description
+  keywords: keywords
+  previous: "« Previous"
+  back: "« Back"
+  next: "Next »"
+  submit: Submit
+  save: Save
+  subject: Subject
+  content: Content
+  remember_me: Remember me
+  sign_up_title: Sign up
+  sign_in_title: Sign in
+  password_title: "forgotten password?"
+  sign_in: Sign in
+  sign_up: Sign up
+  update: Save changes
+  current_password: Current password
+  field: Field
+  errors: "Following errors were encountered:"
+  logged_in_as: "Logged in as"
+  login: "Log in"
+  register: "Register"
+  logout: "Log out"
+  invitations: "Invitations to teams"
+  confirmed: "Confirmed"
+  not_confirmed: Not confirmed
+  confirm: Confirm
+  new_team: Add new team
+  edit_team: Edit the team
+  destroy_team: Remove the team
+  show: Show
+  edit: Edit
+  destroy: Remove
+  teams: Teams
+  new_competition: Add new competition
+  edit_competition: Edit the competition
+  close_competition: Close the competition
+  competitions: Competitions
+  competition_id : Competition
+  none: None
+  status_expired: Closed
+  status_ongoing: Ongoing
+  status_pending: Pending to start
+  status: Status
+  status_confirmed: Confirmed
+  status_unconfirmed: Not confirmed
+  judges: Judges
+  new_judge: Add new judge
+  for_competition: for competition 
+  destroy_judge: Remove the judge
+  are_you_sure: "Are You sure?"
+  problems: Problems
+  destroy_problem_membership: Remove added problem
+  new_problem_guardian: Add guardian to the problem
+  guardians: Guardians
+  new_problem: Add new problem
+  destroy_guardian: Remove the guardian
+  new_team_membership: Add new team 
+  judge_id: Judge
+  team_id: Team
+  new_problem_membership: Add new problem to the competition
+  edit_problem_membership: Edit the problem
+  adding_solutions: Adding solutions
+  status_open: Open
+  status_closed: Closed
+  points: Number of points
+  points_none: Not determined
+  teams_with_solutions: "Teams which were sent solutions"
+  show_solution: Show solution
+  new_solution: Add solution
+  show_competition: Show competition
+  show_problem: Show problem
+  show_team: Show team
+  new_invitation: Send the invitation
+  edit_team: Edit team
+  destroy_competition: Remove the competition
+  cheker: Cheker
+  for_problem: for problem
+  new_guardian: Add new guardian to the problem
+  destroy_problem: Remove problem
+  new_data: Add new data
+  added_datas: "Added data sets:"
+  input: Input data
+  output: Output data
+  new_cheker_data: Add new data for the cheker
+  send_confirmation_e-mail_again: "Send confirmation e-mail again"
+  send_message_on_email: "Send message on my e-mail"
+  to_accept_invitation_click: "To accept invitation click:"
+  new_solution: Add new solution
+  edit_solution: Edit the solution
+  code_of_solution: Code of solution
+  solution_send_by: Solution send by
+  score: Score
+  pionts: points
+  to_team: to team

@@ -1,0 +1,4 @@
+%p
+  #{t("hello")} #{@resource.email}!
+%p#{t("you_can_confirm")}
+%p= link_to t(:create_account), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)

@@ -1,0 +1,5 @@
+- if @competition.errors.any?
+  %div.alert-message.block-message.error
+    %ul
+      - @competition.errors.full_messages.each do |msg|
+        %li=  msg

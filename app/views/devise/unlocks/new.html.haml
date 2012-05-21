@@ -1,0 +1,10 @@
+%h2 Odblokowanie konta
+%p Przeœlij ponownie informacje, jak odblokowaæ konto, na mój adres e-mail.
+= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+  %div
+    = f.label :email
+    .input= f.email_field :email
+  .clearfix.actions
+    = f.submit "Wyœlij wiadomoœæ na mój adres e-mail"
+    = render :partial => "devise/shared/links"

@@ -1,0 +1,35 @@
+.competition
+  %h2.title
+    = @competition.name
+  %p.meta
+    %br/
+    %b #{t("activerecord.attributes.competition.max_users")}:
+    #{@competition.max_users}
+    %br/
+    %b #{t("activerecord.attributes.competition.start")}:
+    - if @competition.start
+      = l @competition.start.to_time, :format=> :medium
+    - else
+      = t(:none)
+    %br/
+    %b #{t("activerecord.attributes.competition.deadline")}:
+    - if @competition.deadline
+      = l @competition.deadline.to_time, :format => :medium
+    - else
+      t(:none)
+    %br/
+    %b #{t(:status)}:
+    - if !@competition.deadline_expired?
+      - if @competition.started?
+        = t(:status_ongoing)
+      - else
+        = t(:status_pending)
+    - else
+      = t(:status_expired)
+    %br/
+    %b Opis:
+  .entry
+    = sanitize @competition.description
+
+%br/
+= link_to t(:back), competitions_path

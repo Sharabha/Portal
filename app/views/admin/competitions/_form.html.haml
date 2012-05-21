@@ -1,0 +1,29 @@
+= form_for [:admin, @competition] do |f|
+  = render :partial => "errors"
+  .emptyfix
+    = f.label :name
+    .input= f.text_field :name, :class => "xlarge"
+  .emptyfix
+    = f.label :organizer_id
+    .input= select "competition", "organizer_id",  User.all.collect {|p| [ p.email, p.id ] }, :class => "xlarge"
+  .emptyfix
+    = f.label :max_users
+    .input= f.number_field :max_users, :class => "small", :min => 1
+  .clearfix
+    = f.label :description
+    .input= f.text_area :description, :class => "xxlarge", :rows=> 10
+  .clearfix
+    = f.label :start
+    .input= f.text_field :start, :class => 'date_entry medium' , :value => date_for_form(@competition.start), :size => 15
+  .clearfix
+    = f.label :deadline
+    .input= f.text_field :deadline, :class => 'date_entry medium' , :value => date_for_form(@competition.deadline), :size=>15
+  .clearfix
+    = f.label :is_active
+    .input= f.check_box :is_active
+  .clearfix
+    = f.label :needs_confirmation
+    .input= f.check_box :needs_confirmation
+  .actions.clearfix.center
+    = f.submit t(:save), :class => "btn primary"
+

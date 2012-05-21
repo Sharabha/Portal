@@ -1,0 +1,20 @@
+= form_for [:admin, @competition, @problem] do |f|
+  = render :partial => "errors"
+  .clearfix
+    = f.label :name
+    .input= f.text_field :name, :class => "xxlarge"
+  .clearfix
+    = f.label :description
+    .input= f.text_area :description, :class => "xxlarge"
+  .clearfix
+    = f.label :language
+    .input= f.select :language, available_formats, :class => "xxlarge"
+  .clearfix
+    = f.label :points
+    .input= f.text_field :points, :class => "large"
+  .clearfix
+    = f.label :max_memory
+    .input= f.text_field :max_memory, :class => "large"
+  .clearfix.center
+    = f.submit t(:save), :class => "btn primary"
+  

@@ -1,0 +1,20 @@
+.post
+  %h2.title
+    = @problem.name
+  %p.meta
+    %h3
+      = t(:description)
+    %p
+      = formatted @problem.description, @problem.language
+    %h4  
+      = t(:max_memory)
+      \:
+      = @problem.max_memory
+      MB
+    %h3 
+      = t(:tests)
+%br/
+= link_to t(:destroy_problem), [:admin, @problem], :method => 'delete', :confirm => t(:are_you_sure)
+%br/
+%br/
+= link_to t(:back), admin_problems_path

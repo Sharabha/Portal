@@ -1,0 +1,22 @@
+#YAML configuration for communication between portal and checker
+
+development:
+  name: Sharabha
+  protocol: http
+  host: localhost
+  port: 8080
+  notify_path: http://localhost:3000
+  problems_url: /problem
+  problem_url: /problem/{problem_id}
+  problem_test_url: /problem/{problem_id}/test/{test_id}
+  problem_run_url: /problem/{problem_id}/run/{run_id}
+  new_problem_url: /problem
+  new_problem_test_url: /problem/{problem_id}
+  new_problem_run_url: /problem/{problem_id}
+  
+test:
+  name: TestSharabha
+  protocol: http
+  host: localhost
+  port: 8080
+  notify_path: http://localhost:3000

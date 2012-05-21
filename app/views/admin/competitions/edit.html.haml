@@ -1,0 +1,7 @@
+.competition
+  = render :partial => "navigation", :locals =>  {:competition => @competition}
+  %h2= t(:edit_competition)
+  %br/
+  %br/
+  = render :partial => "form"
+  = link_to t(:show_competition), @competition

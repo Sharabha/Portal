@@ -1,0 +1,11 @@
+.competition
+  = render :partial => "navigation", :locals =>  {:competition => @competition}
+  %h2= @competition.name + " - " + t(:teams)
+  %ul
+    - @competition.teams.each do |team|
+      %li
+        = team.name
+        ||
+        = link_to t(:destroy_team), admin_competition_team_membership_path(@competition.id,@team_memberships.find_by_team_id(team.id)), :confirm => t(:are_you_sure), :method => :delete
+  
+  = link_to t(:new_team), new_admin_competition_team_membership_path(@competition)

@@ -1,0 +1,14 @@
+- unless @current_competitions.empty?
+  %h2= t(:current_competitions)
+  -  @current_competitions.each do |competition|
+    = render :partial => "short", :locals =>  {:competition => competition}
+
+- unless @planned_competitions.empty?
+  %h2= t(:planned_competitions)
+  -  @planned_competitions.each do |competition|
+    = render :partial => "short", :locals =>  {:competition => competition}
+
+- unless @archive_competitions.empty?
+  %h2= t(:archive_competitions)
+  -  @archive_competitions.each do |competition|
+    = render :partial => "short", :locals =>  {:competition => competition}

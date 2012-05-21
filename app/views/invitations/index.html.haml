@@ -1,0 +1,19 @@
+%h2= t(:invitations)
+%br
+- if @invitations.empty?
+  %p= t(:no_invitations)
+- else
+  %table
+    %thead
+      %tr
+        %th= t(:team)
+        %th= t(:competition)
+        %th
+        %th
+    %tbody
+      - @invitations.each do |invitation|
+        %tr
+          %td= invitation.team.name
+          %td= link_to invitation.team.competition.name, invitation.team.competition
+          %td= link_to t(:confirm), invitation_confirm_path(invitation.token, 'yes')
+          %td= link_to t(:reject), invitation_confirm_path(invitation.token, 'no')

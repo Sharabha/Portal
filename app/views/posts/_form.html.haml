@@ -1,0 +1,21 @@
+= form_for [@post] do |f|
+  = render :partial => "errors"
+  .clearfix
+    = f.label :title
+    .input
+      = f.text_field :title
+  .clearfix
+    = f.label :content
+    .input
+      = f.text_area :content, :class => "xlarge"
+  .clearfix
+    = f.label :publication_date
+    .input
+      = f.text_field :publication_date, :class => 'date_entry medium' , :value => date_for_form(@post.publication_date), :size => 15
+  .clearfix
+    = f.label :active
+    .input
+      = f.check_box :active
+  .actions.clearfix.center
+    = f.submit t(:save), :class => "btn primary"
+

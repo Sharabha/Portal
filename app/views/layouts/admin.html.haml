@@ -1,0 +1,60 @@
+!!!
+%html
+  %head
+    %title Sharabha
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
+    = stylesheet_link_tag    "application", media: "all" 
+    = javascript_include_tag "application" 
+    = csrf_meta_tags 
+  %body
+    .topbar
+      .topbar-inner
+        .container
+          %a.brand{:href => "/"} Sharabha
+          %ul.nav
+            %li.active
+              %a{:href => "#"} #{t("news")}
+            %li
+              %a{:href => "#about"} #{t("about_project")}
+            %li
+              %a{:href => "#contact"} #{t("contact")}
+          - if user_signed_in?
+            .user
+              = t(:logged_in_as)
+              = link_to "#{current_user.email}", edit_user_registration_path
+              |
+              = link_to t(:logout), destroy_user_session_path, :method => :delete
+          - else
+            = form_tag new_user_session_path, :style => "float: right; margin-top: 5px" do
+              .inline-inputs
+                %label= t(:email).capitalize 
+                = text_field_tag 'user[email]', '', :class => 'loginform'
+                %label= t(:password).capitalize 
+                = password_field_tag 'user[password]', '', :class => 'loginform'
+                %button.btn.primary= t(:sign_in)
+                %label{:style=>'float: none;'}
+                  = check_box_tag 'user[remember_me]', "checked"
+                  %span= t(:remember_me)
+    .container-fluid
+      .sidebar
+        .well
+          %h5 Sharabha
+          %ul
+            %li
+              = link_to t(:teams), teams_path
+            %li
+              = link_to t(:competitions), competitions_path
+
+      .content
+        .row{:style => "margin-left: 0px"}
+          - if flash[:error]
+            .alert-message.block-message.error
+              = flash[:error]
+          = yield
+        %footer
+          %p
+            \© 2012
+            %a{:href => "http://www.ii.uni.wroc.pl/"} #{t("ii_uwr")}
+            %span{:style => "float: right"}
+              = link_to image_tag("en.png", :alt => "English version", :title => "English version"), url_for(:subdomain => "en")
+              = link_to image_tag("pl.png", :alt => "Polska wersja", :title => "Polska wersja"), url_for(:subdomain => "pl")
