@@ -16,6 +16,7 @@ gem 'devise'
 gem 'cancan'
 gem 'i18n'
 gem 'rails_config'
+gem 'formatize'
 
 gem 'inherited_resources'
 gem 'formtastic'

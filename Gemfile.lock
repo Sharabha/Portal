@@ -1,6 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.9)
+    RedCloth (4.2.9-x86-mingw32)
     actionmailer (3.1.1)
       actionpack (= 3.1.1)
       mail (~> 2.3.0)
@@ -32,6 +34,7 @@ GEM
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    bluecloth (2.2.0)
     bootstrap-sass (2.0.2)
     builder (3.0.0)
     cancan (1.6.7)
@@ -65,6 +68,10 @@ GEM
       factory_girl (~> 2.0.0)
       railties (>= 3.0.0)
     ffi (1.0.11)
+    formatize (1.1.0)
+      RedCloth (~> 4.2)
+      actionpack (~> 3.0)
+      bluecloth (~> 2.2)
     formtastic (2.1.1)
       actionpack (~> 3.0)
     guard (0.8.8)
@@ -216,6 +223,7 @@ DEPENDENCIES
   devise
   factory_girl (~> 2.0.0)
   factory_girl_rails (~> 1.1.0)
+  formatize
   formtastic
   guard-rspec
   guard-spork

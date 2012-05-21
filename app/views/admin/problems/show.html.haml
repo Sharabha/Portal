@@ -5,7 +5,7 @@
     %h3
       = t(:description)
     %p
-      = @problem.description 
+      = formatted @problem.description, @problem.language
     %h4  
       = t(:max_memory)
       \:
