@@ -10,4 +10,19 @@ module ApplicationHelper
     if date.nil? then date=default_date end
     return date_for_form(date)
  end
+ def formatted(text, format_type="plain text")
+    case format_type
+    when "markdown"
+        markdown text
+    when "simple html"
+        sanitize text
+    when "textilize"
+        textilize text
+    else
+        text
+    end
+ end
+  def available_formats
+    ["plain text", "simple html" ,"markdown", "textilize"]
+  end
 end

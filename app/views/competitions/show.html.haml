@@ -1,22 +1,20 @@
-.post
+.competition
   %h2.title
     = @competition.name
   %p.meta
-    %b #{t("activerecord.attributes.competition.organizer_id")}:
-    #{@competition.organizer.display_name}
     %br/
     %b #{t("activerecord.attributes.competition.max_users")}:
     #{@competition.max_users}
     %br/
     %b #{t("activerecord.attributes.competition.start")}:
     - if @competition.start
-      = @competition.start
+      = l @competition.start.to_time, :format=> :medium
     - else
       = t(:none)
     %br/
     %b #{t("activerecord.attributes.competition.deadline")}:
     - if @competition.deadline
-      = @competition.deadline
+      = l @competition.deadline.to_time, :format => :medium
     - else
       t(:none)
     %br/
@@ -28,16 +26,10 @@
         = t(:status_pending)
     - else
       = t(:status_expired)
-    %br
+    %br/
     %b Opis:
   .entry
-    = @competition.description
-    %br/
-    %br/
-    %h3= t(:teams)
-    %ul
-      - @competition.teams.each do |team|
-        %li
-          = team.name
+    = sanitize @competition.description
+
 %br/
 = link_to t(:back), competitions_path
