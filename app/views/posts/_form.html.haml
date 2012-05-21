@@ -11,7 +11,7 @@
   .clearfix
     = f.label :publication_date
     .input
-      = f.text_field :publication_date
+      = f.text_field :publication_date, :class => 'date_entry medium' , :value => date_for_form(@post.publication_date), :size => 15
   .clearfix
     = f.label :active
     .input
