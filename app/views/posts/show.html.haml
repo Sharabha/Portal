@@ -8,7 +8,7 @@
     %h5
       = @post.publication_date
     %br/
-    = @post.content
+    = formatted @post.content, @post.format
     %br/
     = @post.competition_id
   %br/
