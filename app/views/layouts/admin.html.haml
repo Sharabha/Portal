@@ -43,7 +43,11 @@
             %li
               = link_to t(:teams), teams_path
             %li
-              = link_to t(:competitions), competitions_path
+              = link_to t(:competitions), admin_competitions_path
+            %li
+              = link_to t(:problems), admin_problems_path
+            %li
+              = link_to t(:posts), posts_path
 
       .content
         .row{:style => "margin-left: 0px"}
