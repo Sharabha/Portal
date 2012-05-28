@@ -1,4 +1,4 @@
-.competition
+%div{:class=>["compwell", competition.deadline_expired? ? nil : "running", !competition.deadline_expired? ? nil : "archive"]}
   %h3.title= link_to competition.name, competition_path(competition)
   %p.meta
     #{Competition.human_attribute_name("deadline")}:

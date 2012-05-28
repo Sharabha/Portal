@@ -26,6 +26,7 @@ pl:
         organizer_id: Organizator
         description: Opis
         deadline: "Termin ukończenia"
+        freeze_time: "Termin mrożenia rankingu"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
       judge_membership:
@@ -222,6 +223,7 @@ pl:
         first_name: Imię
         last_name: Nazwisko
         tshirt_size: Rozmiar koszulki
+        roles: Uprawnienia
         nick: Pseudonim
         password: Hasło
       team:
@@ -236,9 +238,10 @@ pl:
         organizer_id: Organizator
         description: Opis
         deadline: "Termin zakończenia"
+        freeze_time: "Termin mrożenia rankingu"
         start: "Termin rozpoczęcia"
         max_users: "Maksymalna liczba uczestników"
-        is_active: aktywne
+        is_active: Aktywne
         needs_confirmation: Udział wymaga potwierdzenia
       team_membership:
         team_id: Zespół
@@ -311,6 +314,7 @@ pl:
   edit: Edytuj
   destroy: Usuń
   teams: Zespoły
+  edit_user: "Edytuj użytkownika"
   new_competition: "Dodaj nowe zawody"
   edit_competition: "Edytuj zawody"
   close_competition: "Zakończ zawody"
@@ -385,3 +389,4 @@ pl:
   something_went_wrong: Przepraszamy, ale coś poszło nie tak. Spróbuj ponownie za jakiś czas.
   team: Drużyna
   competition: Zawody
+  welcome: "Witaj w systemie zarządzania zawodami programistycznymi Sharabha."

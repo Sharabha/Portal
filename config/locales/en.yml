@@ -18,6 +18,7 @@ en:
         organizer_id: Organizer
         description: Description
         deadline: Deadline
+        freeze_time: Rank freezing
         start: Start date
         max_users: "Maximum number of participants"
       judge_membership:
@@ -203,6 +204,7 @@ en:
         organizer_id: Organizer
         description: Description
         deadline: "Deadline"
+        freeze_time: "Rank freezing"
         start: "Start date"
         max_users: "Maximum number of participants"
       team_membership:

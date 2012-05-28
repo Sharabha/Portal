@@ -19,6 +19,13 @@
     - else
       t(:none)
     %br/
+    %b #{t("activerecord.attributes.competition.freeze_time")}:
+    - if @competition.freeze_time
+      = l @competition.freeze_time.to_time, :format => :medium
+    - else
+      t(:none)
+    %br/
+    %br/
     %b #{t(:status)}:
     - if !@competition.deadline_expired?
       - if @competition.started?

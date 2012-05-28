@@ -6,4 +6,8 @@
       - @users.each do |user|
         %li
           = user.display_name
+          » [
           = link_to t(:edit), edit_admin_user_path(user)
+          |
+          = link_to t(:destroy), admin_user_path(user), :confirm => ("Czy jesteś pewien?"), :method => :delete
+          ]
