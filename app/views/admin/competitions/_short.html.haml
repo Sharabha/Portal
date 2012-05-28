@@ -1,4 +1,4 @@
-%div{:class=>["compwell", !competition.is_active && competition.deadline_expired? ? nil : "running", !competition.is_active || !competition.deadline_expired? ? nil : "archive", competition.is_active ? nil : "not_active"]}
+%div{:class=>["compwell", !competition.deadline_expired? || !competition.is_active ? nil : "archive", competition.deadline_expired? && competition.started? || !competition.is_active  ? nil: "running", competition.is_active ? nil : "not_active"], }
   %h3.title= link_to competition.name, admin_competition_path(competition)
   %p.meta
     #{Competition.human_attribute_name("deadline")}:
