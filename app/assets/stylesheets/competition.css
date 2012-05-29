@@ -22,6 +22,72 @@
 	background-position: 97% 10%;
 }
 
+.confirmed{
+	background-color: #f3ffe6;
+	background-image: url(save.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 50%;
+
+	margin-bottom:10px;
+	padding-right: 19px;
+	padding-top:5px;
+	padding-left: 19px;
+	min-height:25px;
+	max-width:400px;
+	border:1px solid #eee;
+	border:px solid rgba(0, 0, 0, 0.02);
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+}
+
+.ask{
+	background-color: #F0F0F0;
+	background-image: url(ask.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 10%;
+	
+	margin-bottom:10px;
+	padding-right: 19px;
+	padding-top:5px;
+	padding-left: 5px;
+	min-height:25px;
+	max-width:414px;
+	border:1px solid #eee;
+	border:px solid rgba(0, 0, 0, 0.02);
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	-webkit-box-shadow:inset 55px 0 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow:inset 55px 0 0 rgba(0, 0, 0, 0.15);
+	box-shadow:inset 53px 0 0 rgba(0, 0, 0, 0.3);
+	}
+
+.notifi {
+	position:absolute; 
+	top:71px; 
+	right: 32px;
+	text-align: center; 
+	padding-bottom: 3px;
+	padding-left:1px;
+	padding-right:1px;
+	font-family:Courier New;
+	font-size: 11px; 
+	font-weight: bold; 
+	color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	-webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    height: 12px;
+    background: red;
+	}	
+
+	
 .compwell{
   margin-bottom:15px;
   padding-top: 0px;

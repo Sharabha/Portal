@@ -75,6 +75,7 @@ a{color:#0069d6;text-decoration:none;line-height:inherit;font-weight:inherit;}a:
 .span-two-thirds{width:620px;}
 .row>.offset-one-third{margin-left:340px;}
 .row>.offset-two-thirds{margin-left:660px;}
+
 p{font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;}p small{font-size:11px;color:#bfbfbf;}
 h1,h2,h3,h4,h5,h6{font-weight:bold;color:#404040;}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{color:#bfbfbf;}
 h1{margin-bottom:18px;font-size:30px;line-height:36px;}h1 small{font-size:18px;}
@@ -90,7 +91,6 @@ ul{list-style:disc;}
 ol{list-style:decimal;}
 li{line-height:18px;color:#808080;}
 ul.unstyled{list-style:none;margin-left:0;}
-notifi{position:absolute; font-size: 11px; font-weight:bold; color: red; top:71px; right: 29px;}
 dl{margin-bottom:18px;}dl dt,dl dd{line-height:18px;}
 dl dt{font-weight:bold;}
 dl dd{margin-left:9px;}
