@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120520134101) do
+ActiveRecord::Schema.define(:version => 20120521213201) do
 
   create_table "competitions", :force => true do |t|
     t.integer  "organizer_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120520134101) do
     t.datetime "start"
     t.boolean  "is_active",          :default => false, :null => false
     t.boolean  "needs_confirmation", :default => false, :null => false
+    t.datetime "freeze_time"
   end
 
   create_table "guardian_memberships", :force => true do |t|
