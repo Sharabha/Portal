@@ -267,6 +267,7 @@ en:
   register: "Register"
   logout: "Log out"
   invitations: "Invitations to teams"
+  actual: "Events linked with your profile"
   confirmed: "Confirmed"
   not_confirmed: Not confirmed
   confirm: Confirm

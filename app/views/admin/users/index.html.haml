@@ -2,12 +2,9 @@
   %h2.title
     = t(:users)
   .entry
-    %ul
-      - @users.each do |user|
-        %li
+    - @users.each do |user|
+      %div{:class=>["user_e"]}
+        = link_to image_tag("pause.png", :size => "22x22", :alt => "Edytuj użytkownika", :title => "Edytuj użytkownika", :style => "vertical-align: middle;"), edit_admin_user_path(user)
+        = link_to image_tag("bin.png", :mouseover => "reject.png", :size => "22x22", :alt => "Usuń użytkownika", :title => "Usuń użytkownika", :style => "vertical-align: middle;"), admin_user_path(user), :confirm => ("Czy jesteś pewien?"), :method => :delete
+        %b
           = user.display_name
-          » [
-          = link_to t(:edit), edit_admin_user_path(user)
-          |
-          = link_to t(:destroy), admin_user_path(user), :confirm => ("Czy jesteś pewien?"), :method => :delete
-          ]

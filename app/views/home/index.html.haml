@@ -1,5 +1,5 @@
 - if user_signed_in?
-  %h2= t(:invitations)
+  %h2= t(:aktual)
   %br
   - for invitation in current_user.invitations
     - if invitation.confirmed
@@ -14,7 +14,9 @@
         = t(:team)
         %b
           = Team.find(invitation.team_id).name
-        = "zaprasza Cię do zespołu"
+        = "chce z Tobą uczestniczyć w zawodach:"
+        %div{:style => "padding-left: 52px;"}
+          = invitation.team.competition.name
 
 - else
   = link_to t(:login), new_user_session_path

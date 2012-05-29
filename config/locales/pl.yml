@@ -303,6 +303,7 @@ pl:
   register: "Załóż konto"
   logout: "Wyloguj się"
   invitations: "Zaproszenia do zespołów"
+  aktual: "Wydarzenia związane z profilem"
   confirmed: "Potwierdzone"
   not_confirmed: "Niepotwierdzone"
   confirm: "Potwierdź"
