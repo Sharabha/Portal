@@ -43,7 +43,7 @@
 	border-color:#ddd;
 	border-color:rgba(0, 0, 0, 0.15);
 	}
-	
+
 .competition{
   margin-bottom: 20px;
   padding: 19px;
@@ -68,6 +68,36 @@
   display: block;
   padding: 5px;
 }
+
+/*menu edycji zawodow*/
+.competition .mez{
+  position:absolute;
+  top: -15px;
+  right: 160px;
+  background-color:#F0F0F0;
+  padding-right: 25px;
+  padding-left: 0px;
+  padding-top: 10px;
+  margin-right: 40px;
+  font-size: 17px;
+  border:1px solid #eee;
+  border:1px solid rgba(0, 0, 0, 0.09);
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:0px 0px 30px 30px; 
+  -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow:inset 0 30px 30px rgba(0, 0, 0, 0.05);
+
+}
+.competition .mez ul{
+  list-style: none outside none;
+}
+.competition .mez ul li{
+  display: block;
+  padding: 4px;
+}
+
 .emptyfix{
   margin-bottom: 18px;
 }

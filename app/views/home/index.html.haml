@@ -1,7 +1,18 @@
 - if user_signed_in?
-  %h2= t("Strona startowa")
-  = t(:welcome)
+  %h2= t(:invitations)
+  %br
+  - for invitation in current_user.invitations
+    .p
+      = Team.find(invitation.team_id).name
+      - if invitation.confirmed
+        = t(:confirmed)
+      - else
+        = link_to image_tag("confirm.png", :alt => "Potwierdź zaproszenie", :title => "Potwierdź zaproszenie"), url_for("/confirm/#{invitation.token}/yes")
+        = link_to image_tag("reject.png", :alt => "Odmów uczestnictwa", :title => "Odmów uczestnictwa"), url_for("/confirm/#{invitation.token}/no")
+
 - else
   = link_to t(:login), new_user_session_path
   lub
   = link_to t(:register), new_user_registration_path
+
+
