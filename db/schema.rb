@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20120527195221) do
 
   create_table "competitions", :force => true do |t|
