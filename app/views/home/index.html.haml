@@ -1,16 +1,26 @@
 - if user_signed_in?
-  %h2= t(:invitations)
+  %h2= t(:aktual)
   %br
   - for invitation in current_user.invitations
-    .p
-      = Team.find(invitation.team_id).name
-      - if invitation.confirmed
-        = t(:confirmed)
-      - else
-        = t(:not_confirmed)
-        = link_to t(:confirm), "/confirm/#{invitation.token}"
+    - if invitation.confirmed
+      %div{:class=>["confirmed"]}
+        = "Dołączyłeś do drużyny"
+        %b
+          =Team.find(invitation.team_id).name
+    - else
+      %div{:class=>["ask"]}
+        = link_to image_tag("confirm.png", :size => "22x22", :alt => "Potwierdź zaproszenie", :title => "Potwierdź zaproszenie", :style => "vertical-align: middle;"), url_for("/confirm/#{invitation.token}/yes")
+        = link_to image_tag("reject.png", :size => "22x22", :alt => "Odmów uczestnictwa", :title => "Odmów uczestnictwa", :style => "vertical-align: middle;"), url_for("/confirm/#{invitation.token}/no")
+        = t(:team)
+        %b
+          = Team.find(invitation.team_id).name
+        = "chce z Tobą uczestniczyć w zawodach:"
+        %div{:style => "padding-left: 52px;"}
+          = invitation.team.competition.name
 
 - else
   = link_to t(:login), new_user_session_path
   lub
   = link_to t(:register), new_user_registration_path
+
+

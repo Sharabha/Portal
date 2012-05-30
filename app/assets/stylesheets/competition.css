@@ -1,6 +1,139 @@
 .not_active{
-	background: #EFEFE9;
+	background-color: #EFEFE9;
+	background-image: url(pause.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 10%;
 }
+
+.running{
+	background-color: #f3ffe6;
+	background-image: url(running.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 10%;
+}
+
+.archive{
+	background-color: #F8ECE0;
+	background-image: url(stopped.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 10%;
+}
+
+.confirmed{
+	background-color: #f3ffe6;
+	background-image: url(save.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 50%;
+
+	margin-bottom:10px;
+	padding-right: 19px;
+	padding-top:5px;
+	padding-left: 19px;
+	min-height:25px;
+	max-width:436px;
+	border:1px solid #eee;
+	border:px solid rgba(0, 0, 0, 0.02);
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+}
+
+.ask{
+	background-color: #F0F0F0;
+	background-image: url(ask.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 10%;
+	
+	margin-bottom:10px;
+	padding-right: 19px;
+	padding-top:5px;
+	padding-left: 5px;
+	min-height:25px;
+	max-width:450px;
+	border:1px solid #eee;
+	border:px solid rgba(0, 0, 0, 0.02);
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	-webkit-box-shadow:inset 55px 0 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow:inset 55px 0 0 rgba(0, 0, 0, 0.15);
+	box-shadow:inset 53px 0 0 rgba(0, 0, 0, 0.3);
+	}
+	
+/*user edit style*/	
+.user_e{
+	background-color: #f3ffe6;
+	background-image: url(user.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 97% 10%;
+	
+	margin-bottom:10px;
+	padding-right: 19px;
+	padding-top:5px;
+	padding-left: 5px;
+	min-height:25px;
+	max-width:414px;
+	border:1px solid #eee;
+	border:px solid rgba(0, 0, 0, 0.02);
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	-webkit-box-shadow:inset 55px 0 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow:inset 55px 0 0 rgba(0, 0, 0, 0.15);
+	box-shadow:inset 53px 0 0 rgba(0, 0, 0, 0.3);
+	}	
+
+.notifi {
+	position:absolute; 
+	top:71px; 
+	right: 32px;
+	text-align: center; 
+	padding-bottom: 3px;
+	padding-left:1px;
+	padding-right:1px;
+	font-family:Courier New;
+	font-size: 11px; 
+	font-weight: bold; 
+	color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	-webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    height: 12px;
+    background: red;
+	}	
+
+	
+.compwell{
+  margin-bottom:15px;
+  padding-top: 0px;
+  padding-right: 19px;
+  padding-bottom: 0px;
+  padding-left: 19px;
+  min-height:20px;
+  max-width:400px;
+  border:1px solid #eee;
+  border:1px solid rgba(0, 0, 0, 0.02);
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  -webkit-box-shadow:inset 0 33px 1px rgba(0, 0, 0, 0.02);
+  -moz-box-shadow:inset 0 33px 1px rgba(0, 0, 0, 0.02);
+  box-shadow:inset 0 33px 1px rgba(0, 0, 0, 0.02);
+  }.
+  compwell blockquote{
+	border-color:#ddd;
+	border-color:rgba(0, 0, 0, 0.15);
+	}
+
 .competition{
   margin-bottom: 20px;
   padding: 19px;
@@ -25,6 +158,36 @@
   display: block;
   padding: 5px;
 }
+
+/*menu edycji zawodow*/
+.competition .mez{
+  position:absolute;
+  top: -15px;
+  right: 160px;
+  background-color:#F0F0F0;
+  padding-right: 25px;
+  padding-left: 0px;
+  padding-top: 10px;
+  margin-right: 40px;
+  font-size: 17px;
+  border:1px solid #eee;
+  border:1px solid rgba(0, 0, 0, 0.09);
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:0px 0px 30px 30px; 
+  -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow:inset 0 30px 30px rgba(0, 0, 0, 0.05);
+
+}
+.competition .mez ul{
+  list-style: none outside none;
+}
+.competition .mez ul li{
+  display: block;
+  padding: 4px;
+}
+
 .emptyfix{
   margin-bottom: 18px;
 }

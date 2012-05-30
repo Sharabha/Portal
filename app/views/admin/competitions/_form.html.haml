@@ -19,6 +19,9 @@
     = f.label :deadline
     .input= f.text_field :deadline, :class => 'date_entry medium' , :value => date_for_form(@competition.deadline), :size=>15
   .clearfix
+    = f.label :freeze_time
+    .input= f.text_field :freeze_time, :class => 'date_entry medium' , :value => date_for_form(@competition.freeze_time), :size=>15
+  .clearfix
     = f.label :is_active
     .input= f.check_box :is_active
   .clearfix

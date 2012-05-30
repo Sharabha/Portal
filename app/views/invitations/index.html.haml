@@ -3,17 +3,14 @@
 - if @invitations.empty?
   %p= t(:no_invitations)
 - else
-  %table
-    %thead
-      %tr
-        %th= t(:team)
-        %th= t(:competition)
-        %th
-        %th
-    %tbody
-      - @invitations.each do |invitation|
-        %tr
-          %td= invitation.team.name
-          %td= link_to invitation.team.competition.name, invitation.team.competition
-          %td= link_to t(:confirm), invitation_confirm_path(invitation.token, 'yes')
-          %td= link_to t(:reject), invitation_confirm_path(invitation.token, 'no')
+  - @invitations.each do |invitation|
+    %div{:class=>["ask"]}
+      = link_to image_tag("confirm.png", :size => "22x22", :alt => "Potwierdź zaproszenie", :title => "Potwierdź zaproszenie", :style => "vertical-align: middle;"), invitation_confirm_path(invitation.token, 'yes')
+      = link_to image_tag("reject.png", :size => "22x22", :alt => "Odmów uczestnictwa", :title => "Odmów uczestnictwa", :style => "vertical-align: middle;"), invitation_confirm_path(invitation.token, 'no')
+      = t(:team)
+      %b
+        = invitation.team.name
+      = "chce z Tobą uczestniczyć w zawodach:"
+      %div{:style => "padding-left: 52px;"}
+        = link_to invitation.team.competition.name, invitation.team.competition
+

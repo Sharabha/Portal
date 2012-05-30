@@ -44,6 +44,10 @@
               = link_to t(:teams), teams_path
             %li
               = link_to t(:invitations), invitations_path
+              -if user_signed_in? 
+                -if Invitation.where(:user_id => current_user.id, :confirmed => false).count > 0
+                  .notifi
+                    = Invitation.where(:user_id => current_user.id, :confirmed => false).count
             %li
               = link_to t(:competitions), competitions_path
             %li
